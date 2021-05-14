@@ -22,7 +22,6 @@ window.addEventListener('resize', () => {
 function dessin() {
     // Fonction permettant de dessiner nos elements
     let date = new Date();
-    console.log(date.getSeconds());
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     ctx.save();
     ctx.translate(canvas.width / 2, canvas.height / 2);

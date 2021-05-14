@@ -30,7 +30,6 @@ function dessin() {
     // Fonction permettant de dessiner nos elements
 
     let date = new Date()
-    console.log(date.getSeconds())
 
     ctx.clearRect(0, 0, canvas.width, canvas.height)
     ctx.save()

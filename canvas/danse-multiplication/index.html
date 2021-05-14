@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+    <!-- JavaScript Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4"
+        crossorigin="anonymous"></script>
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Bungee+Inline&display=swap');
+    </style>
+    <link rel="stylesheet" href="./style.css">
+
+    <title>Danse Multiplication</title>
+</head>
+
+<body>
+
+    <div class="container">
+
+
+        <div id="titre-principal">
+            <h1 class="text-center text-dark">Danse des multiplications</h1>
+        </div>
+
+        <div id="content-canvas" class="d-flex justify-content-center">
+            <canvas id="my-canvas"></canvas>
+        </div>
+
+        <div id="btn-group" class="text-center">
+            <button class="btn btn-dark mx-2" id="btn-play">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor"
+                    class="bi bi-play-fill" viewBox="0 0 16 16">
+                    <path
+                        d="m11.596 8.697-6.363 3.692c-.54.313-1.233-.066-1.233-.697V4.308c0-.63.692-1.01 1.233-.696l6.363 3.692a.802.802 0 0 1 0 1.393z" />
+                </svg>
+            </button>
+            <button class="btn btn-dark mx-2" id="btn-pause">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor"
+                    class="bi bi-pause-fill" viewBox="0 0 16 16">
+                    <path
+                        d="M5.5 3.5A1.5 1.5 0 0 1 7 5v6a1.5 1.5 0 0 1-3 0V5a1.5 1.5 0 0 1 1.5-1.5zm5 0A1.5 1.5 0 0 1 12 5v6a1.5 1.5 0 0 1-3 0V5a1.5 1.5 0 0 1 1.5-1.5z" />
+                </svg>
+            </button>
+            <button class="btn btn-dark mx-2" id="btn-reset">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor"
+                    class="bi bi-arrow-counterclockwise" viewBox="0 0 16 16">
+                    <path fill-rule="evenodd" d="M8 3a5 5 0 1 1-4.546 2.914.5.5 0 0 0-.908-.417A6 6 0 1 0 8 2v1z" />
+                    <path
+                        d="M8 4.466V.534a.25.25 0 0 0-.41-.192L5.23 2.308a.25.25 0 0 0 0 .384l2.36 1.966A.25.25 0 0 0 8 4.466z" />
+                </svg>
+            </button>
+            <button type="button" class="btn btn-dark mx-2" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-sliders"
+                    viewBox="0 0 16 16">
+                    <path fill-rule="evenodd"
+                        d="M11.5 2a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3zM9.05 3a2.5 2.5 0 0 1 4.9 0H16v1h-2.05a2.5 2.5 0 0 1-4.9 0H0V3h9.05zM4.5 7a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3zM2.05 8a2.5 2.5 0 0 1 4.9 0H16v1H6.95a2.5 2.5 0 0 1-4.9 0H0V8h2.05zm9.45 4a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3zm-2.45 1a2.5 2.5 0 0 1 4.9 0H16v1h-2.05a2.5 2.5 0 0 1-4.9 0H0v-1h9.05z" />
+                </svg>
+            </button>
+        </div>
+
+    </div>
+
+     <!-- Modal -->
+     <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Table de multiplication</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+
+                    <div id="content-setting" class="text-black container">
+
+                        <div id="content-range" class="d-flex justify-content-center flex-column my-3">
+
+                            <div class="text-center">
+                                <label for="customRange1" class="form-label">Nombre de points</label>
+                                <input type="range" class="form-range" id="rangeNbrePoint" min="10" max="2000" value="500">
+                                <label class="form-label" id="valNbrePoint"></label>
+                            </div>
+
+                            <div class="text-center">
+                                <label for="customRange1" class="form-label">Table utilisé</label>
+                                <input type="number" class="form-control text-center my-2" id="rangeNbreTable" min="1" value="2">
+                            </div>
+
+                            <div class="text-center">
+                                <label for="customRange1" class="form-label">Vitesse</label>
+                                <input type="range" class="form-range" id="rangeVitesse" min="0" max="5" value="1">
+                                <label class="form-label" id="valVitesse"></label>
+                            </div>
+
+                            <div class="text-center">
+                                <label for="customRange1" class="form-label">Epaisseur des lignes</label>
+                                <input type="range" class="form-range" id="rangeEpaisseur" min="1" max="10" value="10">
+                                <label class="form-label" id="valEpaisseur"></label>
+                            </div>
+
+                        </div>
+
+                        <div id="content-btn" class="text-center">
+                            <button class="btn btn-outline-dark mx-3 my-2" data-bs-dismiss="modal" id="btn-valider">Valider</button>
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="./public/app.js"></script>
+</body>
+
+</html>
