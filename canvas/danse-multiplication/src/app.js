@@ -48,7 +48,7 @@ function dessin() {
     // On se place au milieu de notre canvas
     ctx.translate(canvas.width / 2, canvas.height / 2);
     ctx.lineWidth = eppaisseur;
-    // Tracer le cercle
+    // Tracer le cercle*
     let rayon = (canvas.width / 2) - 30;
     ctx.arc(0, 0, rayon, 0, Math.PI * 2);
     ctx.stroke();

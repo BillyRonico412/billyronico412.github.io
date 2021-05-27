@@ -1,0 +1,216 @@
+@import url('https://fonts.googleapis.com/css2?family=Merienda+One&family=Nunito+Sans:wght@300;400;600&display=swap');
+
+*, ::before, ::after {
+    margin: 0;
+    padding: 0;
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Nunito Sans', sans-serif;
+}
+
+
+nav {
+    background: linear-gradient(#333333, #888888);
+    position: fixed;
+    width: 100%;
+    z-index: 1000;
+}
+
+nav ul {
+    display: flex;
+    justify-content: center;
+}
+
+nav li {
+    font-family: 'Merienda One', cursive;
+    list-style-type: none;
+    font-size: 17px;
+    cursor: pointer;
+    transition: 0.4s all;
+}
+
+nav li a {
+    color: #FFF;
+    text-decoration: none;
+    display: block;
+    padding: 12px 30px;
+}
+
+nav li:hover {
+    background: linear-gradient(#444444, #888888);
+}
+
+@media(max-width: 600px) {
+    nav li {
+        padding: 12px 15px;
+        color: #FFF;
+        font-size: 14px;
+    }
+}
+
+#acceuil {
+    background-image: url(./ressources/accueil-pic-lum-down.jpg);
+    background-position: center;
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+#acceuil img{
+    width: 180px;
+    border-radius: 100%;
+    margin-bottom: 50px;
+}
+
+#acceuil h1 {
+    font-family: 'Merienda One', cursive;
+    color: #FFF;
+    font-size: 70px;
+}
+
+#acceuil h2 {
+    color: #FFF;
+    font-size: 30px;
+}
+
+#acceuil button {
+    margin-top: 50px;
+}
+
+.btn-en-savoir-plus {
+    padding: 15px 30px;
+    border-radius: 20px;
+    background-color: #DE133D;
+    border: 0px solid black;
+    font-weight: lighter;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    font-family: 'Merienda One', cursive;
+}
+
+@media (max-width: 700px) {
+
+    #acceuil img{
+        width: 160px;
+        border-radius: 100%;
+        margin-top: 80px;
+        margin-bottom: 30px;
+    }
+
+    #acceuil h1 {
+        font-size: 40px;
+    }
+
+    #acceuil h2 {
+        font-size: 20px;
+    }
+}
+
+#asymetrique h2 {
+    text-align: center;
+    margin-top: 30px;
+    font-size: 30px;
+    font-family: 'Merienda One', cursive;
+}
+
+.asym {
+    width: 400px;
+    position: relative;
+    margin: 150px auto;
+}
+
+.content-text {
+    position: absolute;
+    background-color: #444444;
+    width: 500px;
+}
+
+.content-text-1, .content-text-3 {
+    top: -100px;
+    left: -300px;
+}
+
+.content-exact-text-2 {
+    margin-left: 200px;
+}
+
+.content-text-2 {
+    top: -100px;
+    left: 200px;
+}
+
+.content-exact-text {
+    width: 250px;
+    line-height: 30px;
+    color: #FFF;
+    padding: 30px;
+    font-weight: lighter;
+}
+
+.content-exact-text h2 {
+    margin: 20px 0;
+}
+
+.content-exact-text button {
+    margin: 10px 0px;
+}
+
+.asym-img {
+    position: relative;
+    background-size: cover;
+    width: 400px;
+    height: 600px;
+}
+
+.asym-img-1 {
+    background-image: url(./ressources/kyoto-temple.jpg);
+}
+
+.asym-img-2 {
+    background-image: url(./ressources/chateau-kyoto.jpg);
+}
+
+.asym-img-3 {
+    background-image: url(./ressources/geisha.jpg);
+}
+
+@media(max-width: 1000px) {
+
+    .asym {
+        margin: 50px auto;
+    }
+
+    .content-exact-text {
+        width: 80%;
+        line-height: 30px;
+        color: #FFF;
+        padding: 30px;
+        font-weight: lighter;
+    }
+
+    .content-text {
+        position: relative;
+        background-color: #444444;
+        width: 100%
+    }
+
+    .content-text-1, .content-text-3 {
+        top: 0;
+        left: 0;
+    }
+    .content-text-2 {
+        top: 0;
+        left: 0;
+    }
+
+    .content-exact-text-2 {
+        margin-left: 0px;
+    }
+
+}

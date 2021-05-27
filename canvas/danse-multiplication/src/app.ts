@@ -18,12 +18,12 @@ const btnReset = document.getElementById('btn-reset') as HTMLButtonElement
 inputNbrePoint.oninput = () =>
     (document.getElementById('valNbrePoint') as HTMLLabelElement).innerText = inputNbrePoint.value;
 
-(document.getElementById('valVitesse') as HTMLLabelElement).innerText = `${[0.001, 0.01, 0.1, 1, 10, 100][parseInt(inputVitesse.value)]}`
-inputVitesse.onchange = () =>
-    (document.getElementById('valVitesse') as HTMLLabelElement).innerText = `${[0.001, 0.01, 0.1, 1, 10, 100][parseInt(inputVitesse.value)]}`;
+(document.getElementById('valVitesse') as HTMLLabelElement).innerText = `${[0.001, 0.01, 0.05, 0.1, 0.5, 1, 10, 100][parseInt(inputVitesse.value)]}`
+inputVitesse.oninput = () =>
+    (document.getElementById('valVitesse') as HTMLLabelElement).innerText = `${[0.001, 0.01, 0.05, 0.1, 0.5, 1, 10, 100][parseInt(inputVitesse.value)]}`;
 
 (document.getElementById('valEpaisseur') as HTMLLabelElement).innerText = `${parseInt(inputEpaisseur.value) * 0.1}`
-inputEpaisseur.onchange = () =>
+inputEpaisseur.oninput = () =>
     (document.getElementById('valEpaisseur') as HTMLLabelElement).innerText = `${parseInt(inputEpaisseur.value) * 0.1}`
 
 btnValider.onclick = initValue
@@ -34,7 +34,7 @@ btnPause.onclick = () => film = false
 function initValue() {
     nbrePoint = parseInt(inputNbrePoint.value)
     nbreTable = parseInt(inputNbreTable.value)
-    vitesse = [0.001, 0.01, 0.1, 1, 10, 100][parseInt(inputVitesse.value)]
+    vitesse = [0.001, 0.01, 0.05, 0.1, 0.5, 1, 10, 100][parseInt(inputVitesse.value)]
     eppaisseur = parseInt(inputEpaisseur.value) * 0.1
     film = false
 }
@@ -47,7 +47,7 @@ const ctx = canvas.getContext("2d") as CanvasRenderingContext2D
 
 let nbrePoint = parseInt(inputNbrePoint.value)
 let nbreTable = parseInt(inputNbreTable.value)
-let vitesse = [0.001, 0.01, 0.1, 1, 10, 100][parseInt(inputVitesse.value)]
+let vitesse = [0.001, 0.01, 0.05, 0.1, 0.5, 1, 10, 100][parseInt(inputVitesse.value)]
 let eppaisseur = parseInt(inputEpaisseur.value) * 0.1
 let film = false
 
@@ -70,7 +70,7 @@ function dessin() {
     ctx.translate(canvas.width / 2, canvas.height / 2)
     ctx.lineWidth = eppaisseur
 
-    // Tracer le cercle
+    // Tracer le cercle*
     let rayon = (canvas.width / 2) - 30
     ctx.arc(0, 0, rayon, 0, Math.PI * 2)
     ctx.stroke()
@@ -92,9 +92,10 @@ function dessin() {
             Math.sin(angle * ((i * nbreTable) % nbrePoint) - Math.PI / 2) * rayon
         )
 
+        ctx.closePath()
+
         ctx.stroke()
 
-        ctx.closePath()
     }
 
     ctx.restore()
