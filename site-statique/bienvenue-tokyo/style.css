@@ -43,7 +43,7 @@ nav li:hover {
 }
 
 @media(max-width: 600px) {
-    nav li {
+    nav li a {
         padding: 12px 15px;
         color: #FFF;
         font-size: 14px;
