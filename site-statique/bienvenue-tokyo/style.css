@@ -214,3 +214,213 @@ nav li:hover {
     }
 
 }
+
+.parallax {
+    background-image: url(./ressources/parallax-large-flou.jpg);
+    background-position: center;
+    background-attachment: fixed;
+    padding: 50px 0;
+    color: #FFF;
+    font-family: 'Merienda One', cursive;
+    text-align: center;
+}
+
+.parallax h2 {
+    font-size: 40px;
+}
+
+.parallax p {
+    margin-top: 10px;
+    font-size: 16px;
+}
+
+#tarifs > h2 {
+    text-align: center;
+    font-family: 'Merienda One', cursive;
+    font-size: 26px;
+    padding: 20px;
+}
+
+.trait {
+    border: 1px solid #BBB;
+    width: 150px;
+    margin: auto
+}
+
+.grid-card {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.card {
+    margin: 30px;
+    border: 0.5px solid #AAA;
+    width: 297px;
+    display: block;
+    cursor: pointer;
+    box-shadow: 7px 7px 7px #AAA;
+    transition: 0.5s all;
+    background-color: #EEE;
+}
+
+.card:hover {
+    transform: translate(1px, -10px);
+}
+
+.card-header {
+    text-align: center;
+    position: relative;
+    z-index: 1;
+}
+
+.type-tarifs {
+    padding: 30px;
+    font-weight: bold;
+    z-index: 1;
+    font-size: 30px;
+    clip-path: polygon(0% 0%, 0% 100%, 100% 80%, 100% 0%);
+}
+
+.prix-tarifs {
+    padding: 18px;
+    font-size: 26px;
+    background-color: #EEE;
+    border-bottom: 0.1px solid #AAA;
+}
+
+
+
+.card1 .type-tarifs {
+    background-color: #FEAFBF;
+}
+
+.card2 .type-tarifs {
+    background-color: #FF4F75;
+}
+
+.card3 .type-tarifs {
+    background-color: #FF0034;
+}
+
+.card-body li {
+    list-style: none;
+    padding: 12px;
+    border-bottom: 0.1px solid #AAA;
+}
+
+.card-footer {
+    text-align: center;
+    padding: 20px;
+}
+
+.card-body li:nth-child(even) {
+    background-color: #EEE;
+}
+
+.card-body li:nth-child(odd) {
+    background-color: #DDD;
+}
+
+.card-footer {
+    background-color: #DDD;
+}
+
+.card-footer button{
+    padding: 10px 20px;
+    border-radius: 15px;
+    border: 1px solid #AAA;
+    font-size: 18px;
+    font-weight: lighter;
+    cursor: pointer;
+}   
+
+#contact h2 {
+    font-family: 'Merienda One', cursive;
+    text-align: center;
+}
+
+#contact .formulaire {
+    width: 900px;
+    margin: auto;
+}
+
+@media (max-width: 950px) {
+    #contact .formulaire {
+        width: 600px;
+    }
+}
+
+@media (max-width: 650px) {
+    #contact .formulaire {
+        width: 300px;
+    }
+}
+
+.form {
+    margin: 50px 0px;
+}
+
+#contact .formulaire span{
+    display: block;
+    font-weight: lighter;
+    color: #444444;
+    font-size: 20px;
+}
+
+#contact .formulaire input{
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    border-bottom: 1px solid #444444;
+    display: block;
+    width: 100%;
+    font-size: 18px;
+    font-weight: lighter;
+    margin-top: 10px;
+    padding: 5px;
+    transition: 0.s all;
+}
+
+#contact .formulaire input:focus {
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    border-bottom: 2px solid #FF4F75;;
+    outline: none;
+}
+
+#contact .formulaire textarea {
+    width: 100%;
+    font-size: 18px;
+    font-weight: lighter;
+    padding: 5px;
+}
+
+#contact .formulaire textarea:focus {
+    outline: 2px solid #FF4F75;
+    border: none;
+}
+
+#contact button {
+    border-radius: 20px;
+    padding: 15px 40px;
+    font-size: 20px;
+    font-weight: lighter;
+    border: 1px solid #888;
+    color: #444;
+    background-color: #FFF;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: 0.3s all;
+    font-family: 'Merienda One', cursive;
+}
+
+#contact button:hover {
+    background-color: #EEE;
+    transform: translateX(2px);
+}
+
+#contact {
+    margin: 30px 0px 150px;
+}
