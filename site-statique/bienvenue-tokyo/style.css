@@ -14,13 +14,14 @@ body {
 nav {
     background: linear-gradient(#333333, #888888);
     position: fixed;
-    width: 100%;
     z-index: 1000;
+    width: 100vw;
 }
 
 nav ul {
     display: flex;
     justify-content: center;
+    width: 100%;
 }
 
 nav li {
@@ -45,6 +46,14 @@ nav li:hover {
 @media(max-width: 600px) {
     nav li a {
         padding: 12px 15px;
+        color: #FFF;
+        font-size: 14px;
+    }
+}
+
+@media(max-width: 400px) {
+    nav li a {
+        padding: 9px 10px;
         color: #FFF;
         font-size: 14px;
     }
