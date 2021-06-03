@@ -1,0 +1,141 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600&family=Playfair+Display&display=swap');
+
+*, ::before, ::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Open Sans', sans-serif;
+    /* font-family: 'Playfair Display', serif; */
+}
+
+.titre-menu {
+    font-family: 'Playfair Display', serif;
+    font-size: 35px;
+    z-index: 200;
+    background-color: #FFF;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+}
+
+.titre-menu::after {
+    content: "";
+    display: block;
+    width: 50px;
+    margin: auto;
+    border-bottom: 1px solid black;
+}
+
+nav {
+    display: flex;
+    position: relative;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #FFF;
+    height: 70px;
+    z-index: 200;
+}
+
+nav ul {
+    display: flex;
+    flex-direction: column;
+    margin-top: 15px;
+}
+
+nav li {
+    list-style: none;
+    text-align: center;
+    margin: 8px 0px;
+    display: flex;
+    justify-content: center;
+}
+
+nav a {
+    color: #000;
+    text-decoration: none;
+    letter-spacing: 1px;
+    font-size: 20px;
+    font-weight: 300;
+    transition: 0.2s ease all;
+    display: block;
+}
+
+nav a::after {
+    content: "";
+    display: block;
+    width: 0;
+    margin: auto;
+    border-bottom: 1px solid black;
+    transition: 0.3s ease all;
+}
+
+nav a:hover::after {
+    width: 100%;
+}
+
+.content-item-menu {
+    position: absolute;
+    background-color: #FFF;
+    width: 100%;
+    top: -140px;
+    z-index: 100;
+    transition: 0.3s all;
+    border-bottom: 1px solid #0005;
+}
+
+.titre-menu:hover + .content-item-menu{
+    top: 55px;
+}
+
+.content-item-menu:hover {
+    top: 55px;
+}
+
+h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 50px;
+    text-align: center;
+    margin: 30px 0px;
+}
+
+#galerie {
+    display: grid;
+    grid-template: repeat(auto-fit, 300px) / repeat(auto-fit, 370px);
+    justify-content: center;
+    row-gap: 60px;
+    column-gap: 60px;
+}
+
+.card {
+    
+}
+
+.card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.card-header h3 {
+    font-size: 30px;
+    font-weight: 300;
+}
+
+.card-header h4 {
+    font-size: 20px;
+    font-weight: 300;
+    letter-spacing: 1px;
+}
+
+.card-body {
+
+}
+
+.card-body img {
+    width: 370px;
+    height: 250px;
+}

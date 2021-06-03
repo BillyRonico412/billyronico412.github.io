@@ -1,0 +1,49 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap');
+
+@import './_variables';
+@import './_mixins';
+@import './_placeholder';
+
+body {
+    font-family: 'Roboto', sans-serif;
+}
+
+h1 {
+    @extend %text-titre-1;
+}
+
+nav {
+    @extend %flex-center;
+    justify-content: space-around;
+    padding-top: 10px;
+
+    ul {
+        @extend %flex-center;
+    }
+
+    .link-menu {
+        text-decoration: none;
+        color: #000;
+        @extend %text-titre-2;
+        @extend %flex-center;
+        flex-direction: column;
+        margin: auto 20px;
+    }
+
+    .link-menu::after {
+        content: "";
+        border-bottom: 1px solid #666;
+        width: 0%;
+        transition: width 0.2s ease;
+        margin-top: 2px;
+    }
+
+    .link-menu:hover::after {
+        width: 100%;
+    }
+
+    .btn-essai-gratuit {
+        @include bouton($couleur-bouton, #000);
+    }
+
+}
