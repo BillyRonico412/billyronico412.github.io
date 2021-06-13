@@ -1,0 +1,38 @@
+@import url('https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700&family=Lexend+Deca&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+    background-color: hsl(0, 0%, 95%);
+}
+
+.font-1 {
+    font-family: 'Big Shoulders Display', cursive;
+}
+
+.font-2 {
+    font-family: 'Lexend Deca', sans-serif;
+}
+
+.carte {
+    @apply w-96 flex flex-col justify-around p-16
+}
+
+.transparent-white {
+    color: hsla(0, 0%, 100%, 0.75);
+}
+
+.carte h2 {
+    @apply font-1 uppercase text-3xl my-8;
+}
+
+.carte p {
+    @apply transparent-white tracking-wider leading-8 font-2 text-sm mb-8;
+}
+
+.carte a {
+    @apply flex justify-center items-center w-36 h-12 font-2 rounded-full hover:text-white transition ease-out duration-300;
+    background-color: hsl(0, 0%, 95%);
+}
