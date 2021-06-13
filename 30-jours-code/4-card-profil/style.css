@@ -1,0 +1,104 @@
+@import url('https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@400;700&display=swap');
+
+*, ::before, ::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Kumbh Sans', sans-serif;
+    overflow: hidden;
+}
+
+main {
+    display: flex;
+    width: 100vw;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+    background-color: hsl(185, 75%, 39%);
+}
+
+.card {
+    position: relative;
+    border-radius: 10px;
+    overflow: hidden;
+    z-index: 10;
+    text-align: center;
+    width: 300px;
+}
+
+.card-header {
+    background-image: url(./images/bg-pattern-card.svg);
+    height: 150px;
+}
+
+.card-body {
+    background-color: #fff;
+    padding: 30px 0px 10px;
+    border-bottom: 1px solid #0002;
+}
+
+.card-body h1 {
+    margin-top: 40px;
+    letter-spacing: 1.4px;
+    font-size: 20px;
+    font-weight: 700;
+}
+
+.card-body h1 span {
+    color: #0006;
+    font-weight: 400;
+}
+
+.card-body h2 {
+    font-size: 16px;
+    color: #0006;
+    font-weight: 700;
+    margin-top: 10px;
+    margin-bottom: 15px;
+}
+
+.card-footer {
+    background-color: #fff;
+    padding: 30px 10px;
+    display: flex;
+    justify-content: space-around;
+}
+
+.card-footer .info .info-num {
+    font-weight: 700;
+    letter-spacing: 1.4px;
+}
+
+.card-footer .info .info-nom {
+    color: #0006;
+    font-weight: 700;
+    letter-spacing: 1.2px;
+    font-size: 12px;
+    margin-top: 5px;
+}
+
+.img-fond {
+    position: absolute;
+    width: 50vmax;
+}
+
+.img-top {
+    top: -5vmax;
+    left: -10vmax;
+}
+
+.img-bottom {
+    bottom: -5vmax;
+    right: -10vmax;
+}
+
+.img-victor {
+    border-radius: 9999px;
+    position: absolute;
+    width: 100px;
+    top: 100px;
+    left: calc(50% - 50px);
+}
