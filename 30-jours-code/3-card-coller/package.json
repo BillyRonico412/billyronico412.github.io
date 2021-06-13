@@ -1,11 +1,12 @@
 {
-  "name": "3-card-basics-2",
+  "name": "3-card-coller",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
     "build": "postcss input.css -o output.css",
-    "watch": "postcss input.css -o output.css -w"
+    "watch": "postcss input.css -o output.css -w",
+    "production": "cross-env NODE_ENV=production postcss input.css -o output.css"
   },
   "keywords": [],
   "author": "",
@@ -14,5 +15,9 @@
     "autoprefixer": "^10.2.6",
     "postcss": "^8.3.2",
     "tailwindcss": "^2.1.4"
+  },
+  "dependencies": {
+    "cross-env": "^7.0.3",
+    "postcss-cli": "^8.3.1"
   }
 }
