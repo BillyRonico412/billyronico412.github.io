@@ -1,0 +1,112 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Lexend+Deca&display=swap');
+
+*, ::before, ::after {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: rgb(9, 11, 26);
+    color: white;
+    font-family: 'Inter', sans-serif;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.card {
+    display: flex;
+    width: 900px;
+    background-color: hsl(244, 38%, 16%);
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.card > section {
+    width: 50%;
+}
+
+.partie-gauche {
+    padding: 70px 50px;
+}
+
+.partie-gauche h1 {
+    font-weight: 700;
+    font-size: 30px;
+    margin-bottom: 20px;
+    letter-spacing: 1.2px;
+}
+
+.partie-gauche h1 span {
+    color: hsl(277, 64%, 61%);
+}
+
+.partie-gauche p {
+    font-weight: 300;
+    font-size: 11px;
+    letter-spacing: 1.8px;
+    opacity: 0.4;
+    margin-bottom: 40px;
+    line-height: 20px;
+}
+
+.partie-gauche .text {
+    text-transform: uppercase;
+    font-family: 'Lexend Deca', sans-serif;
+    display: flex;
+    justify-content: space-around;
+    font-size: 11px;
+    letter-spacing: 1.6px;
+    color: rgba(255, 255, 255, 0.4);
+}
+
+.partie-gauche .text span {
+    font-size: 16px;
+    color: rgba(255, 255, 255, 1);
+}
+
+.partie-droite {
+    background-color: rgb(170, 92, 219, 0.3);
+    background-image: url(./images/image-header-desktop.jpg);
+    background-position: center;
+    background-size: cover;
+    background-blend-mode: color-burn;
+}
+
+@media (max-width: 920px) {
+
+    body {
+        width: auto;
+        height: auto;
+    }
+
+    .card {
+        flex-direction: column-reverse;
+        width: 340px;
+        margin: 40px 0px;
+    }
+
+    .card > section {
+        width: 100%;
+    }
+
+    .card .partie-gauche {
+        padding: 50px 40px;
+        text-align: center;
+    }
+
+    .card .partie-droite {
+        height: 300px;
+    }
+
+    .card .partie-gauche .text {
+        flex-direction: column;
+    }
+
+    .card .partie-gauche .text > div {
+        margin: 10px 0px;
+    }
+}

@@ -96,3 +96,146 @@ var changeTheme = function (indexThemeChoisi) {
 };
 itemThemes.forEach(function (itemTheme, index) { return itemTheme.addEventListener('click', function () { return changeTheme(index); }); });
 changeTheme(0);
+// Gestion de la calculatrice
+var pasDejaVirgule = function (text) {
+    var dernierVirgule = text.length - 1 - (text.split('').reverse().indexOf('.') === -1 ? text.length : text.split('').reverse().indexOf('.'));
+    if (dernierVirgule === -1)
+        return true;
+    else
+        return /[\+\-x\/]/.test(text.slice(dernierVirgule + 1));
+};
+var expressionEcrit = '';
+allPetitButtons.forEach(function (btn, indexBtn) {
+    btn.addEventListener('click', function () {
+        // Les chiffres
+        if (indexBtn === 0)
+            expressionEcrit += '7';
+        if (indexBtn === 1)
+            expressionEcrit += '8';
+        else if (indexBtn === 2)
+            expressionEcrit += '9';
+        else if (indexBtn === 4)
+            expressionEcrit += '4';
+        else if (indexBtn === 5)
+            expressionEcrit += '5';
+        else if (indexBtn === 6)
+            expressionEcrit += '6';
+        else if (indexBtn === 8)
+            expressionEcrit += '1';
+        else if (indexBtn === 9)
+            expressionEcrit += '2';
+        else if (indexBtn === 10)
+            expressionEcrit += '3';
+        else if (indexBtn === 13)
+            expressionEcrit += '0';
+        // Les operations
+        else if (indexBtn === 7 &&
+            expressionEcrit.length !== 0 &&
+            !('+-x/'.includes(expressionEcrit.charAt(expressionEcrit.length - 1))))
+            expressionEcrit += '+';
+        else if (indexBtn === 7 &&
+            expressionEcrit.length !== 0 &&
+            !(expressionEcrit.length === 1 && expressionEcrit[0] === '-') &&
+            ('+-x/'.includes(expressionEcrit.charAt(expressionEcrit.length - 1))))
+            expressionEcrit = expressionEcrit.slice(0, -1) + '+';
+        else if (indexBtn === 11 &&
+            (expressionEcrit.length === 0 ||
+                !('+-x/'.includes(expressionEcrit.charAt(expressionEcrit.length - 1)))))
+            expressionEcrit += '-';
+        else if (indexBtn === 11 &&
+            expressionEcrit.length !== 0 &&
+            ('+-x/'.includes(expressionEcrit.charAt(expressionEcrit.length - 1))))
+            expressionEcrit = expressionEcrit.slice(0, -1) + '-';
+        else if (indexBtn === 15 &&
+            expressionEcrit.length !== 0 &&
+            !('+-x/'.includes(expressionEcrit.charAt(expressionEcrit.length - 1))))
+            expressionEcrit += 'x';
+        else if (indexBtn === 15 &&
+            expressionEcrit.length !== 0 &&
+            !(expressionEcrit.length === 1 && expressionEcrit[0] === '-') &&
+            ('+-x/'.includes(expressionEcrit.charAt(expressionEcrit.length - 1))))
+            expressionEcrit = expressionEcrit.slice(0, -1) + 'x';
+        else if (indexBtn === 14 &&
+            expressionEcrit.length !== 0 &&
+            !('+-x/'.includes(expressionEcrit.charAt(expressionEcrit.length - 1))))
+            expressionEcrit += '/';
+        else if (indexBtn === 14 &&
+            expressionEcrit.length !== 0 &&
+            !(expressionEcrit.length === 1 && expressionEcrit[0] === '-') &&
+            ('+-x/'.includes(expressionEcrit.charAt(expressionEcrit.length - 1))))
+            expressionEcrit = expressionEcrit.slice(0, -1) + '/';
+        // Delete
+        else if (indexBtn === 3 &&
+            expressionEcrit !== '')
+            expressionEcrit = expressionEcrit.slice(0, -1);
+        // Virgule 
+        else if (indexBtn === 12 &&
+            expressionEcrit.length !== 0 &&
+            '0123456789'.includes(expressionEcrit.charAt(expressionEcrit.length - 1)) &&
+            pasDejaVirgule(expressionEcrit))
+            expressionEcrit += '.';
+        else if (indexBtn === 12 &&
+            expressionEcrit.length === 0)
+            expressionEcrit += '0.';
+        affichage.innerText = expressionEcrit === '' ? '0' : expressionEcrit;
+    });
+});
+allGrosButtons[0].addEventListener('click', function () {
+    expressionEcrit = '';
+    affichage.innerText = expressionEcrit === '' ? '0' : expressionEcrit;
+});
+var calcul = function (text) {
+    var lesNombres, lesOperateurs;
+    if (text[0] === '-') {
+        lesNombres = text.slice(1).split(/[\+\-\x\/]/);
+        lesNombres[0] = '-' + lesNombres[0];
+        lesOperateurs = text.slice(1).split('').filter(function (c) { return '+-x/'.includes(c); });
+    }
+    else {
+        lesNombres = text.split(/[\+\-\x\/]/);
+        lesOperateurs = text.split('').filter(function (c) { return '+-x/'.includes(c); });
+    }
+    var calculRec = function (nombres, operateurs) {
+        if (operateurs.length === 0)
+            return parseFloat(nombres[0]);
+        else if (operateurs.indexOf('x') !== -1) {
+            var indexMulti = operateurs.indexOf('x');
+            var resultMulti = parseFloat(nombres[indexMulti]) * parseFloat(nombres[indexMulti + 1]);
+            nombres.splice(indexMulti, 2, String(resultMulti));
+            operateurs.splice(indexMulti, 1);
+            return calculRec(nombres, operateurs);
+        }
+        else if (operateurs.indexOf('/') !== -1) {
+            var indexDiv = operateurs.indexOf('/');
+            var resultDiv = (parseFloat(nombres[indexDiv]) / parseFloat(nombres[indexDiv + 1])).toFixed(3);
+            nombres.splice(indexDiv, 2, String(resultDiv));
+            operateurs.splice(indexDiv, 1);
+            return calculRec(nombres, operateurs);
+        }
+        else if (operateurs.indexOf('+') !== -1) {
+            var indexPlus = operateurs.indexOf('+');
+            var resultPlus = parseFloat(nombres[indexPlus]) + parseFloat(nombres[indexPlus + 1]);
+            nombres.splice(indexPlus, 2, String(resultPlus));
+            operateurs.splice(indexPlus, 1);
+            return calculRec(nombres, operateurs);
+        }
+        else {
+            var indexMoins = operateurs.indexOf('-');
+            var resultMoins = parseFloat(nombres[indexMoins]) - parseFloat(nombres[indexMoins + 1]);
+            nombres.splice(indexMoins, 2, String(resultMoins));
+            operateurs.splice(indexMoins, 1);
+            return calculRec(nombres, operateurs);
+        }
+    };
+    return calculRec(lesNombres, lesOperateurs);
+};
+allGrosButtons[1].addEventListener('click', function () {
+    if (/[.\+\-x\/]/.test(expressionEcrit[expressionEcrit.length - 1])) {
+        var ancienColor_1 = affichage.style.color;
+        affichage.style.color = 'red';
+        setTimeout(function () { return affichage.style.color = ancienColor_1; }, 400);
+    }
+    else {
+        expressionEcrit = affichage.innerText = String(calcul(expressionEcrit));
+    }
+});

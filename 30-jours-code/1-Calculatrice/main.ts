@@ -135,3 +135,168 @@ itemThemes.forEach((itemTheme, index) => itemTheme.addEventListener('click', () 
 
 changeTheme(0)
 
+// Gestion de la calculatrice
+
+const pasDejaVirgule: (text: string) => boolean = (text: string) => {
+    const dernierVirgule = text.length - 1 - (
+        text.split('').reverse().indexOf('.') === -1 ? text.length : text.split('').reverse().indexOf('.')
+    )
+    if (dernierVirgule === -1) return true
+    else return /[\+\-x\/]/.test(text.slice(dernierVirgule + 1))
+}
+
+let expressionEcrit = ''
+
+allPetitButtons.forEach((btn, indexBtn) => {
+    btn.addEventListener('click', () => {
+
+        // Les chiffres
+        if (indexBtn === 0) expressionEcrit += '7'
+        if (indexBtn === 1) expressionEcrit += '8'
+        else if (indexBtn === 2) expressionEcrit += '9'
+        else if (indexBtn === 4) expressionEcrit += '4'
+        else if (indexBtn === 5) expressionEcrit += '5'
+        else if (indexBtn === 6) expressionEcrit += '6'
+        else if (indexBtn === 8) expressionEcrit += '1'
+        else if (indexBtn === 9) expressionEcrit += '2'
+        else if (indexBtn === 10) expressionEcrit += '3'
+        else if (indexBtn === 13) expressionEcrit += '0'
+
+        // Les operations
+
+        else if (
+            indexBtn === 7 &&
+            expressionEcrit.length !== 0 &&
+            !('+-x/'.includes(expressionEcrit.charAt(expressionEcrit.length - 1)))
+        ) expressionEcrit += '+'
+
+        else if (
+            indexBtn === 7 &&
+            expressionEcrit.length !== 0 && 
+            !(expressionEcrit.length === 1 && expressionEcrit[0] === '-') &&
+            ('+-x/'.includes(expressionEcrit.charAt(expressionEcrit.length - 1)))
+        ) expressionEcrit = expressionEcrit.slice(0, -1) + '+'
+
+        else if (
+            indexBtn === 11 &&
+            (
+                expressionEcrit.length === 0 ||
+                !('+-x/'.includes(expressionEcrit.charAt(expressionEcrit.length - 1)))
+            )
+        ) expressionEcrit += '-'
+
+        else if (
+            indexBtn === 11 &&
+            expressionEcrit.length !== 0 &&
+            ('+-x/'.includes(expressionEcrit.charAt(expressionEcrit.length - 1)))
+        ) expressionEcrit = expressionEcrit.slice(0, -1) + '-'
+
+        else if (
+            indexBtn === 15 &&
+            expressionEcrit.length !== 0 &&
+            !('+-x/'.includes(expressionEcrit.charAt(expressionEcrit.length - 1)))
+        ) expressionEcrit += 'x'
+
+        else if (
+            indexBtn === 15 &&
+            expressionEcrit.length !== 0 && 
+            !(expressionEcrit.length === 1 && expressionEcrit[0] === '-') &&
+            ('+-x/'.includes(expressionEcrit.charAt(expressionEcrit.length - 1)))
+        ) expressionEcrit = expressionEcrit.slice(0, -1) + 'x'
+
+        else if (
+            indexBtn === 14 &&
+            expressionEcrit.length !== 0 &&
+            !('+-x/'.includes(expressionEcrit.charAt(expressionEcrit.length - 1)))
+        ) expressionEcrit += '/'
+
+        else if (
+            indexBtn === 14 &&
+            expressionEcrit.length !== 0 && 
+            !(expressionEcrit.length === 1 && expressionEcrit[0] === '-') &&
+            ('+-x/'.includes(expressionEcrit.charAt(expressionEcrit.length - 1)))
+        ) expressionEcrit = expressionEcrit.slice(0, -1) + '/'
+
+        // Delete
+
+        else if (
+            indexBtn === 3 &&
+            expressionEcrit !== ''
+        ) expressionEcrit = expressionEcrit.slice(0, -1)
+
+
+        // Virgule 
+
+        else if (
+            indexBtn === 12 &&
+            expressionEcrit.length !== 0 &&
+            '0123456789'.includes(expressionEcrit.charAt(expressionEcrit.length - 1)) &&
+            pasDejaVirgule(expressionEcrit)
+        ) expressionEcrit += '.'
+
+        else if (
+            indexBtn === 12 &&
+            expressionEcrit.length === 0
+        ) expressionEcrit += '0.'
+
+        affichage.innerText = expressionEcrit === '' ? '0' : expressionEcrit
+
+
+    })
+})
+
+allGrosButtons[0].addEventListener('click', () => {
+    expressionEcrit = ''
+    affichage.innerText = expressionEcrit === '' ? '0' : expressionEcrit
+})
+
+const calcul: (text: string) => number = (text: string) => {
+    let lesNombres: string[], lesOperateurs: string[]
+    if (text[0] === '-') {
+        lesNombres = text.slice(1).split(/[\+\-\x\/]/)
+        lesNombres[0] = '-' + lesNombres[0]
+        lesOperateurs = text.slice(1).split('').filter(c => '+-x/'.includes(c))
+    } else {
+        lesNombres = text.split(/[\+\-\x\/]/)
+        lesOperateurs = text.split('').filter(c => '+-x/'.includes(c))
+    }
+    const calculRec: (nombres: string[], operateurs: string[]) => number = (nombres: string[], operateurs: string[]) => {
+        if (operateurs.length === 0) return parseFloat(nombres[0])
+        else if (operateurs.indexOf('x') !== -1) {
+            const indexMulti = operateurs.indexOf('x')
+            const resultMulti = parseFloat(nombres[indexMulti]) * parseFloat(nombres[indexMulti + 1])
+            nombres.splice(indexMulti, 2, String(resultMulti))
+            operateurs.splice(indexMulti, 1)
+            return calculRec(nombres, operateurs)
+        } else if (operateurs.indexOf('/') !== -1) {
+            const indexDiv = operateurs.indexOf('/')
+            const resultDiv = (parseFloat(nombres[indexDiv]) / parseFloat(nombres[indexDiv + 1])).toFixed(3)
+            nombres.splice(indexDiv, 2, String(resultDiv))
+            operateurs.splice(indexDiv, 1)
+            return calculRec(nombres, operateurs)
+        } else if (operateurs.indexOf('+') !== -1) {
+            const indexPlus = operateurs.indexOf('+')
+            const resultPlus = parseFloat(nombres[indexPlus]) + parseFloat(nombres[indexPlus + 1])
+            nombres.splice(indexPlus, 2, String(resultPlus))
+            operateurs.splice(indexPlus, 1)
+            return calculRec(nombres, operateurs)
+        } else {
+            const indexMoins = operateurs.indexOf('-')
+            const resultMoins = parseFloat(nombres[indexMoins]) - parseFloat(nombres[indexMoins + 1])
+            nombres.splice(indexMoins, 2, String(resultMoins))
+            operateurs.splice(indexMoins, 1)
+            return calculRec(nombres, operateurs)
+        }
+    }
+    return calculRec(lesNombres, lesOperateurs)
+}
+
+allGrosButtons[1].addEventListener('click', () => {
+    if (/[.\+\-x\/]/.test(expressionEcrit[expressionEcrit.length - 1])) {
+        const ancienColor = affichage.style.color
+        affichage.style.color = 'red'
+        setTimeout(() => affichage.style.color = ancienColor, 400)
+    } else {
+        expressionEcrit = affichage.innerText = String(calcul(expressionEcrit))
+    }   
+})
