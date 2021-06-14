@@ -1,0 +1,25 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;400;600&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.font-principal {
+    font-family: 'Poppins', sans-serif;
+}
+
+.card {
+    @apply border-t-8 rounded bg-white shadow-lg px-6 py-8 my-4 xl:w-96 w-96 xl:mx-8 xl:my-16
+}
+
+.card h3 {
+    @apply text-2xl font-semibold
+}
+
+.card p {
+    @apply font-extralight leading-8 text-color-text-2 mt-4
+}
+
+.card img {
+    @apply my-4 ml-auto
+}

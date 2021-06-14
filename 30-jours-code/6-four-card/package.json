@@ -1,0 +1,20 @@
+{
+  "name": "6-four-card",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "watch": "postcss style.css -o compile.css -w",
+    "prod": "postcss style.css -o compile.css -w"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "autoprefixer": "^10.2.6",
+    "cross-env": "^7.0.3",
+    "postcss": "^8.3.3",
+    "postcss-cli": "^8.3.1",
+    "tailwindcss": "^2.1.4"
+  }
+}
