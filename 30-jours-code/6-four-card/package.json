@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "watch": "postcss style.css -o compile.css -w",
-    "prod": "postcss style.css -o compile.css -w"
+    "prod": "cross-env NODE_ENV=production postcss style.css -o compile.css"
   },
   "keywords": [],
   "author": "",
