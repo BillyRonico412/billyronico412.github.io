@@ -1,9 +1,0 @@
-@mixin bouton($couleur, $couleur-text) {
-    text-decoration: none;
-    display: block;
-    padding: $padding-button;
-    border-radius: $border-radius-button;
-    background: $couleur;
-    color: $couleur-text;
-    font-size: $text-size-3;
-}
