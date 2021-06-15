@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- displays site properly based on user's device -->
+
+    <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+
+    <link rel="stylesheet" href="./output.css">
+
+    <title>Frontend Mentor | Intro component with sign up form</title>
+
+</head>
+
+<body class="bg-color-red font-principal">
+
+    <main class="container mx-auto px-8 text-white min-h-screen flex flex-col lg:flex-row justify-center items-center">
+        <div id="partie-gauche" class="lg:w-1/2 lg:px-16">
+            <h1 class="text-3xl text-center lg:text-left font-bold px-8 lg:px-0 mt-16 lg:mt-0">Learn to code by watching others</h1>
+            <p class="text-center lg:text-left font-light leading-6 mt-8">
+                See how experienced developers solve problems in real-time. Watching scripted tutorials is great,
+                but understanding how developers think is invaluable. 
+            </p>
+        </div>
+        <div id="partie-droite" class="lg:w-1/2 lg:px-16">
+            <div class="bg-color-blue rounded-lg text-center py-4 mt-12 mb-8 ombre">
+                <span class="font-bold font-light">Try it free 7 days</span> then 
+                <span class="block lg:inline">$20/mo. thereafter</span>
+            </div>
+            <div class="bg-white rounded-lg sm:p-6 p-3 flex flex-col mb-16 ombre">
+                <input type="text" placeholder="First Name" class="border p-3 my-2 rounded font-bold text-sm mini-ombre">
+                <input type="text" placeholder="Last Name" class="border p-3 my-2 rounded font-bold text-sm mini-ombre">
+                <input type="email" placeholder="Email Address" class="border p-3 my-2 rounded font-bold text-sm mini-ombre">
+                <input type="password" placeholder="Password" class="border p-3 my-2 rounded font-bold text-sm mini-ombre">
+                <button class="bg-color-green uppercase my-2 py-3 rounded font-bold text-sm mini-ombre">Claim your free trial</button>
+                <p class="text-grayish-blue text-xs text-center leading-6">
+                    By clicking the button, you are agreeing to our <span class="text-color-red font-bold">Terms and Services</span>
+                </p>
+            </div>
+        </div>
+    </main>
+
+</body>
+
+</html>

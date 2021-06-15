@@ -1,0 +1,20 @@
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;400;600&family=Poppins:wght@400;500;600;700&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.font-principal {
+    font-family: 'Poppins', sans-serif;
+}
+
+.ombre {
+    box-shadow: 0px 10px 10px #0006;
+}
+
+.mini-ombre {
+    box-shadow: 2px 3px 3px #0001;
+}
+
+body {
+    background-image: url('./images/bg-intro-mobile.png');
+}
