@@ -1,0 +1,191 @@
+@import url('https://fonts.googleapis.com/css2?family=Barlow:wght@600&family=Fraunces:wght@700;900&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.font-1 {
+    font-family: 'Barlow', sans-serif;
+}
+
+.font-2 {
+    font-family: 'Fraunces', serif;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-size: 18px;
+    scroll-behavior: smooth;
+}
+
+header {
+    background-image: url(./images/mobile/image-header.jpg);
+    background-position: bottom;
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+header ul {
+    clip-path: polygon(92% 12%, 100% 0, 100% 100%, 0 100%, 0 12%);
+}
+
+section {
+    min-height: 50vh;
+}
+
+#oeuf {
+    background-image: url('./images/mobile/image-transform.jpg');
+    background-size: cover;
+    background-position: center
+}
+
+#verre {
+    background-image: url('./images/mobile/image-stand-out.jpg');
+    background-size: cover;
+    background-position: center
+}
+
+#lien-oeuf:hover::after, #lien-verre:hover::after {
+    content: '';
+    width: 100%;
+    opacity: 1;
+}
+
+#lien-oeuf::after, #lien-verre::after {
+    content: '';
+    position: absolute;
+    display: block;
+    bottom: -5px;
+    width: 0%;
+    opacity: 0;
+    transition: 0.3s all;
+}
+
+#lien-oeuf::after {
+    border: 5px solid hsl(51, 100%, 49%);
+}
+
+#lien-verre::after {
+    border: 5px solid hsl(7, 99%, 70%);
+}
+
+#graphic-design {
+    background-image: url('./images/mobile/image-graphic-design.jpg');
+    background-size: cover;
+    background-position: center 40%;
+    min-height: 70vh;
+}
+
+#photographie {
+    background-image: url('./images/mobile/image-photography.jpg');
+    background-size: cover;
+    background-position: center 40%;
+    min-height: 70vh;
+}
+
+#fleche {
+    animation-name: mouv-fleche;
+    animation-duration: 1s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+    animation-timing-function: ease-in;
+}
+
+@keyframes mouv-fleche {
+    from {
+        transform: translateY(0px);
+        opacity: 0.5;
+    }
+    to {
+        transform: translateY(30px);
+        opacity: 1;
+    }
+}
+
+#galerie {
+    height: auto;
+    min-height: auto;
+}
+
+#img-lait {
+    background-image: url('./images/mobile/image-gallery-milkbottles.jpg');
+    background-size: cover;
+    background-position: center;
+    height: 50vw;
+    width: 50vw;
+}
+
+#img-orange {
+    background-image: url('./images/mobile/image-gallery-orange.jpg');
+    background-size: cover;
+    background-position: center;
+    height: 50vw;
+    width: 50vw;
+}
+
+#img-cornet {
+    background-image: url('./images/mobile/image-gallery-cone.jpg');
+    background-size: cover;
+    background-position: center;
+    height: 50vw;
+    width: 50vw;
+}
+
+#img-sucre {
+    background-image: url('./images/mobile/image-gallery-sugar-cubes.jpg');
+    background-size: cover;
+    background-position: center;
+    height: 50vw;
+    width: 50vw;
+}
+
+@media screen and (min-width: 768px) {
+    header {
+        background-image: url('./images/desktop/image-header.jpg');
+    }
+    #oeuf {
+        background-image: url('./images/desktop/image-transform.jpg');
+    }
+    
+    #verre {
+        background-image: url('./images/desktop/image-stand-out.jpg');
+    }
+
+    #graphic-design {
+        background-image: url('./images/desktop/image-graphic-design.jpg');
+        background-size: cover;
+    }
+    
+    #photographie {
+        background-image: url('./images/desktop/image-photography.jpg');
+        background-size: cover;
+    }
+
+    #img-lait {
+        background-image: url('./images/mobile/image-gallery-milkbottles.jpg');
+        height: 31.0417vw;
+        width: 50%;
+    }
+    
+    #img-orange {
+        background-image: url('./images/mobile/image-gallery-orange.jpg');
+        height: 31.0417vw;
+        width: 50%;
+    }
+    
+    #img-cornet {
+        background-image: url('./images/mobile/image-gallery-cone.jpg');
+        height: 31.0417vw;
+        width: 50%;
+    }
+    
+    #img-sucre {
+        background-image: url('./images/mobile/image-gallery-sugar-cubes.jpg');
+        height: 31.0417vw;
+        width: 50%;
+    }
+
+}
