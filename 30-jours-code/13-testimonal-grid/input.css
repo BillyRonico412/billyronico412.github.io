@@ -1,0 +1,33 @@
+@import url('https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@500;600&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.font-principal {
+    font-family: 'Barlow Semi Condensed', sans-serif;
+}
+
+.card {
+    @apply rounded-xl px-8 py-8 my-8 xl:my-0 shadow-md;
+}
+
+.card .card-header {
+    @apply flex;
+}
+
+.card .card-header img {
+    @apply rounded-full;
+}
+
+.card .card-header div {
+    @apply ml-4;
+}
+
+.card h4 {
+    @apply my-6 text-xl leading-7;
+}
+
+.card p {
+    @apply leading-7 text-sm;
+}
