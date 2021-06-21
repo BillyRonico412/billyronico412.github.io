@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+
+    <link rel="stylesheet" href="./output.css">
+
+    <title>Social Media Dashbord</title>
+
+</head>
+
+<body class="min-h-screen flex flex-col justify-center items-center font-principal my-8 bg-white dark:bg-dark-bg transition">
+
+    <header class="container px-4 py-4 flex flex-col items-center justify-center lg:flex-row lg:justify-around">
+        <div class="flex flex-col items-center">
+            <h1 class="text-light-text-1 dark:text-dark-text-1 font-bold text-2xl">
+                Social Media Dashboard
+            </h1>
+            <h4 class="text-light-text-2 dark:text-dark-text-2">
+                Total Followers: 23,004
+            </h4>
+        </div>
+        <hr class="my-4 block lg:hidden">
+        <div class="flex justify-between items-center">
+            <h5 class="font-bold text-light-2 dark:text-dark-text-2 text-lg">Dark Mode</h5>
+            <div
+                class="bg-gradient-to-r from-toggle-light to-toggle-light dark:bg-gradient-to-r dark:from-color-degrade-toggle-1 dark:to-color-degrade-toggle-2 flex rounded-full px-1 py-1 ml-4">
+                <div class="w-6 h-6 bg-white rounded-full opacity-100 dark:opacity-0 cursor-pointer" id="toggle-light"></div>
+                <div class="w-6 h-6 bg-dark-bg rounded-full opacity-0 dark:opacity-100 cursor-pointer" id="toggle-dark"></div>
+            </div>
+        </div>
+    </header>
+
+    <main class="container py-8 flex flex-col justify-center items-center">
+
+        <section class="flex flex-wrap justify-center items-center">
+
+            <div class="flex flex-wrap justify-center items-center">
+
+                <div class="card-1">
+                    <div class="card-border bg-facebook-border"></div>
+                    <div class="card-header">
+                        <img src="./images/icon-facebook.svg" alt="icon-facebook">
+                        <h2>@nathanf</h2>
+                    </div>
+                    <h3>1987</h3>
+                    <h4 class="text-followers">Followers</h4>
+                    <h4 class="text-increase-followers">
+                        <img src="./images/icon-up.svg" alt="icon-up">
+                        <span>12 Today</span>
+                    </h4>
+                </div>
+
+                <div class="card-1">
+                    <div class="card-border bg-twitter-border"></div>
+                    <div class="card-header">
+                        <img src="./images/icon-twitter.svg" alt="icon-twitter">
+                        <h2>@nathanf</h2>
+                    </div>
+                    <h3>1044</h3>
+                    <h4 class="text-followers">Followers</h4>
+                    <h4 class="text-increase-followers">
+                        <img src="./images/icon-up.svg" alt="icon-up">
+                        <span>99 Today</span>
+                    </h4>
+                </div>
+
+            </div>
+
+            <div class="flex flex-wrap justify-center items-center">
+
+                <div class="card-1">
+                    <div class="card-border bg-instagram-border"></div>
+                    <div class="card-header">
+                        <img src="./images/icon-instagram.svg" alt="icon-instagram">
+                        <h2>@realnathanf</h2>
+                    </div>
+                    <h3>11k</h3>
+                    <h4 class="text-followers">Followers</h4>
+                    <h4 class="text-increase-followers">
+                        <img src="./images/icon-up.svg" alt="icon-up">
+                        <span>1099 Today</span>
+                    </h4>
+                </div>
+
+                <div class="card-1">
+                    <div class="card-border bg-youTube-border"></div>
+                    <div class="card-header">
+                        <img src="./images/icon-youtube.svg" alt="icon-youtube">
+                        <h2>@realnathanf</h2>
+                    </div>
+                    <h3>8239</h3>
+                    <h4 class="text-followers">Subscribers</h4>
+                    <h4 class="text-decrease-followers">
+                        <img src="./images/icon-down.svg" alt="icon-up">
+                        <span>144 Today</span>
+                    </h4>
+                </div>
+
+            </div>
+
+        </section>
+
+        <h2 class="font-bold text-light-text-2 dark:text-dark-text-2 text-xl mt-8 mb-4">Overview - Today</h2>
+
+        <section class="flex flex-wrap justify-center items-center">
+
+            <div class="flex flex-wrap justify-center items-center">
+
+                <div class="card-2">
+                    <div class="card-header">
+                        <h3>Page Views</h3>
+                        <img src="./images/icon-facebook.svg" alt="icon-facebook">
+                    </div>
+                    <div class="card-footer">
+                        <h4>87</h4>
+                        <h5 class="text-increase-followers">
+                            <img src="./images/icon-up.svg" alt="icon-up">
+                            <span>3%</span>
+                        </h5>
+                    </div>
+                </div>
+
+                <div class="card-2">
+                    <div class="card-header">
+                        <h3>Likes</h3>
+                        <img src="./images/icon-facebook.svg" alt="icon-facebook">
+                    </div>
+                    <div class="card-footer">
+                        <h4>52</h4>
+                        <h5 class="text-decrease-followers">
+                            <img src="./images/icon-down.svg" alt="icon-up">
+                            <span>2%</span>
+                        </h5>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="flex flex-wrap justify-center items-center">
+
+                <div class="card-2">
+                    <div class="card-header">
+                        <h3>Likes</h3>
+                        <img src="./images/icon-instagram.svg" alt="icon-instagram">
+                    </div>
+                    <div class="card-footer">
+                        <h4>5462</h4>
+                        <h5 class="text-increase-followers">
+                            <img src="./images/icon-up.svg" alt="icon-up">
+                            <span>2257%</span>
+                        </h5>
+                    </div>
+                </div>
+
+                <div class="card-2">
+                    <div class="card-header">
+                        <h3>Profile Views</h3>
+                        <img src="./images/icon-instagram.svg" alt="icon-instagram">
+                    </div>
+                    <div class="card-footer">
+                        <h4>52k</h4>
+                        <h5 class="text-increase-followers">
+                            <img src="./images/icon-up.svg" alt="icon-up">
+                            <span>1375%</span>
+                        </h5>
+                    </div>
+                </div>
+
+            </div>
+
+        </section>
+
+        <section class="flex flex-wrap justify-center items-center">
+
+            <div class="flex flex-wrap justify-center items-center">
+
+                <div class="card-2">
+                    <div class="card-header">
+                        <h3>Retweets</h3>
+                        <img src="./images/icon-twitter.svg" alt="icon-twitter">
+                    </div>
+                    <div class="card-footer">
+                        <h4>117</h4>
+                        <h5 class="text-increase-followers">
+                            <img src="./images/icon-up.svg" alt="icon-up">
+                            <span>303%</span>
+                        </h5>
+                    </div>
+                </div>
+
+                <div class="card-2">
+                    <div class="card-header">
+                        <h3>Likes</h3>
+                        <img src="./images/icon-twitter.svg" alt="icon-twitter">
+                    </div>
+                    <div class="card-footer">
+                        <h4>507</h4>
+                        <h5 class="text-increase-followers">
+                            <img src="./images/icon-up.svg" alt="icon-up">
+                            <span>553%</span>
+                        </h5>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="flex flex-wrap justify-center items-center">
+
+                <div class="card-2">
+                    <div class="card-header">
+                        <h3>Likes</h3>
+                        <img src="./images/icon-youtube.svg" alt="icon-youtube">
+                    </div>
+                    <div class="card-footer">
+                        <h4>107</h4>
+                        <h5 class="text-decrease-followers">
+                            <img src="./images/icon-down.svg" alt="icon-up">
+                            <span>19%</span>
+                        </h5>
+                    </div>
+                </div>
+
+                <div class="card-2">
+                    <div class="card-header">
+                        <h3>Total Views</h3>
+                        <img src="./images/icon-youtube.svg" alt="icon-youtube">
+                    </div>
+                    <div class="card-footer">
+                        <h4>1407</h4>
+                        <h5 class="text-decrease-followers">
+                            <img src="./images/icon-down.svg" alt="icon-up">
+                            <span>12%</span>
+                        </h5>
+                    </div>
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+    <script>
+
+        const toggleLight = document.querySelector('#toggle-light')
+        const toggleDark = document.querySelector('#toggle-dark')
+        let darkMode = true
+
+        toggleLight.addEventListener('click', () => document.querySelector('html').classList.remove('dark'))
+        toggleDark.addEventListener('click', () => document.querySelector('html').classList.add('dark'))
+
+    </script>
+
+</body>
+
+</html>

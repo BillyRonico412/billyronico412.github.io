@@ -1,0 +1,118 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.font-principal {
+    font-family: 'Inter', sans-serif;
+}
+
+.text-size {
+    font-size: 14px;
+}
+
+.bg-toggle-light {
+    background: hsl(230, 22%, 74%);
+}
+
+.bg-instagram-border {
+    background-image: linear-gradient(to right, hsl(37, 97%, 70%), hsl(329, 70%, 58%))
+}
+
+.card-1 {
+    @apply w-72 flex flex-col justify-center items-center pb-8 rounded-lg overflow-hidden bg-light-card-bg dark:bg-dark-card-bg my-4 mx-2;
+}
+
+.card-1 .card-border{
+    @apply h-2 w-full mb-8;
+}
+
+.card-1 .card-header {
+    @apply flex;
+}
+
+.card-1 .card-header img {
+    @apply w-6 mr-3;
+}
+
+.card-1 .card-header h2 {
+    @apply font-bold text-light-text-2 dark:text-dark-text-2;
+}
+
+.card-1 h3 {
+    @apply text-6xl font-bold mt-5 text-light-text-1 dark:text-dark-text-1;
+}
+
+.card-1 .text-followers {
+    @apply uppercase mt-2 text-light-text-2 dark:text-dark-text-2;
+}
+
+.card-1 .text-increase-followers {
+    @apply flex items-center mt-4;
+}
+
+.card-1 .text-increase-followers img {
+    @apply inline w-3 h-2 mr-2;
+}
+
+.card-1 .text-increase-followers span {
+    @apply text-lime-green font-bold;
+}
+
+.card-1 .text-decrease-followers {
+    @apply flex items-center mt-4;
+}
+
+.card-1 .text-decrease-followers img {
+    @apply inline w-3 h-2 mr-2;
+}
+
+.card-1 .text-decrease-followers span {
+    @apply text-bright-red font-bold;
+}
+
+.card-2 {
+    @apply w-72 bg-light-card-bg dark:bg-dark-card-bg flex flex-col py-6 px-8 rounded-lg mx-2 my-4;
+}
+
+.card-2 .card-header {
+    @apply flex justify-between items-end;
+}
+
+.card-2 .card-header h3 {
+    @apply text-light-text-2 dark:text-dark-text-2 font-bold text-lg;
+}
+
+.card-2 .card-footer {
+    @apply flex justify-between items-end mt-6;
+}
+
+.card-2 .card-footer h4 {
+    @apply font-bold text-4xl text-light-text-1 dark:text-dark-text-1;
+}
+
+.card-2 .text-increase-followers {
+    @apply flex items-center;
+}
+
+.card-2 .text-increase-followers img {
+    @apply inline w-3 h-2 mr-2;
+}
+
+.card-2 .text-increase-followers span {
+    @apply text-lime-green font-bold;
+}
+
+.card-2 .text-decrease-followers {
+    @apply flex items-center;
+}
+
+.card-2 .text-decrease-followers img {
+    @apply inline w-3 h-2 mr-2;
+}
+
+.card-2 .text-decrease-followers span {
+    @apply text-bright-red font-bold;
+}
+
