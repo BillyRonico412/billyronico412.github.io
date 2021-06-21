@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- displays site properly based on user's device -->
+
+    <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+
+    <title>Frontend Mentor | [Challenge Name Here]</title>
+
+    <link rel="stylesheet" href="./output.css">
+
+</head>
+
+<body class="font-principal bg-very-light-grayish-blue">
+
+    <img src="./images/bg-top.svg" class="fixed top-0 right-0 svg-bg z-10" alt="bg-top">
+
+    <img src="./images/bg-bottom.svg" class="fixed bottom-0 left-0 svg-bg z-10" alt="bg-bottom">
+
+    <main class="min-h-screen py-16 text-dark-grayish-blue container mx-auto">
+
+        <h1 class="text-center text-3xl">
+            Our Pricing
+        </h1>
+
+        <div class="pt-8 flex justify-center items-center">
+            <h4>
+                Annually
+            </h4>
+            <div class="flex h-8 bg-degrade mx-4 rounded-full items-center cursor-pointer">
+                <div class="ml-1 w-6 h-6 rounded-full bg-white justify-items-start transition duration-300"
+                    id="btn-annuel"></div>
+                <div class="mr-1 w-6 h-6 rounded-full bg-white opacity-0 justify-items-end transition duration-300"
+                    id="btn-mensuel"></div>
+            </div>
+            <h4>
+                Monthly
+            </h4>
+        </div>
+
+        <div class="content-card flex flex-col justify-center items-center lg:flex-row relative z-20">
+
+            <div class="my-8 py-8 mx-4 lg:mx-0 px-4 ombre-carte rounded-xl text-center card bg-white">
+                <h3 class="text-xl">Basic</h3>
+                <h2 class="text-5xl my-6 tarif-mensuel hidden">&dollar;19.99</h2>
+                <h2 class="text-5xl my-6  tarif-annuel">&dollar;199.99</h2>
+                <ul>
+                    <li class="border-t py-4">500 GB Storage</li>
+                    <li class="border-t border-b py-4">2 Users Allowed</li>
+                    <li class="border-b py-4">Send up to 3 GB</li>
+                </ul>
+                <a href="#" class="block mt-8 py-4 bg-degrade rounded-xl text-white">
+                    Learn More
+                </a>
+            </div>
+
+            <div
+                class="my-8 py-8 lg:py-16 lg:px-6 mx-4 lg:mx-0 px-4 ombre-carte rounded-xl text-center bg-degrade text-white card">
+                <h3 class="text-xl">Professional</h3>
+                <h2 class="text-5xl my-6 tarif-mensuel hidden">&dollar;24.99</h2>
+                <h2 class="text-5xl my-6  tarif-annuel">&dollar;249.99</h2>
+                <ul>
+                    <li class="border-t py-4">1 TB Storage</li>
+                    <li class="border-t border-b py-4">5 Users Allowed</li>
+                    <li class="border-b py-4">Send up to 10 GB</li>
+                </ul>
+                <a href="#" class="block mt-8 py-4 rounded-xl text-dark-grayish-blue bg-white">
+                    Learn More
+                </a>
+            </div>
+
+            <div class="my-8 py-8 mx-4  lg:mx-0 px-4 ombre-carte rounded-xl text-center card bg-white">
+                <h3 class="text-xl">Master</h3>
+                <h2 class="text-5xl my-6 tarif-mensuel hidden">&dollar;39.99</h2>
+                <h2 class="text-5xl my-6 tarif-annuel ">&dollar;399.99</h2>
+                <ul>
+                    <li class="border-t py-4">2 TB Storage</li>
+                    <li class="border-t border-b py-4">10 Users Allowed</li>
+                    <li class="border-b py-4">Send up to 20 GB</li>
+                </ul>
+                <a href="#" class="block mt-8 py-4 bg-degrade rounded-xl text-white hover:border hover:border-grayish-blue hover:bg-white">
+                    Learn More
+                </a>
+            </div>
+
+        </div>
+
+    </main>
+
+    <script>
+
+        const btnAnnuel = document.querySelector('#btn-annuel')
+        const btnMensuel = document.querySelector('#btn-mensuel')
+
+        const allTarifMensuel = document.querySelectorAll('.tarif-mensuel')
+        const allTarifAnnuel = document.querySelectorAll('.tarif-annuel')
+
+        btnAnnuel.addEventListener('click', () => {
+            btnAnnuel.style.opacity = '1'
+            btnMensuel.style.opacity = '0'
+            allTarifAnnuel.forEach(tarifAnnuel => tarifAnnuel.style.display = 'block')
+            allTarifMensuel.forEach(tarifMensuel => tarifMensuel.style.display = 'none')
+        })
+
+        btnMensuel.addEventListener('click', () => {
+            btnMensuel.style.opacity = '1'
+            btnAnnuel.style.opacity = '0'
+            allTarifAnnuel.forEach(tarifAnnuel => tarifAnnuel.style.display = 'none')
+            allTarifMensuel.forEach(tarifMensuel => tarifMensuel.style.display = 'block')
+        })
+
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,51 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+    
+}
+
+.bg-degrade {
+    background-image: linear-gradient(to right, hsl(236, 72%, 79%), hsl(237, 63%, 64%));
+}
+
+.font-principal {
+    font-family: 'Montserrat', sans-serif;
+}
+
+.ombre-carte {
+    box-shadow: 0px 5px 10px 2px hsl(240, 8%, 90%);
+}
+
+.card {
+    width: 325px;
+}
+
+.svg-bg {
+    width: 20vmax;
+}
+
+.card a {
+    @apply transition duration-300;
+}
+
+.card:nth-child(2n + 1) a:hover {
+    background:#fff;
+    color: hsl(237, 63%, 64%);
+    border: 1px solid hsl(237, 63%, 64%);
+}
+
+.card:nth-child(2) a:hover {
+    background: linear-gradient(to right, hsl(236, 72%, 79%), hsl(237, 63%, 64%));
+    color: #fff;
+    border: 1px solid #fff;
+}
+
+@media (min-width: 1024px) {
+    .card:nth-child(2) {
+        width: 375px
+    }
+}
