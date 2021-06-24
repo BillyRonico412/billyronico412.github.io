@@ -1,0 +1,140 @@
+@import url('https://fonts.googleapis.com/css2?family=Barlow:wght@400;600&family=Fraunces:wght@400;600;900&display=swap');
+
+/* font-family: 'Fraunces', serif; */
+/* font-family: 'Barlow', sans-serif; */
+
+*, ::before, ::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+header {
+    height: 100vh;
+    background-image: url('./images/bg-img-1.jpg');
+    background-size: cover;
+    background-color: #0004;
+    background-blend-mode: color;
+}
+
+.content-nav {
+    background: #000;
+    color: white;
+    position: absolute;
+    width: 100%;
+}
+
+.content-nav nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 0px;
+}
+
+.content-nav nav > a {
+    text-decoration: none;
+    color: #fff;
+    font-family: 'Fraunces', serif;
+    font-weight: 900;
+    font-size: 30px;
+}
+
+.content-nav nav ul {
+    font-family: 'Barlow', sans-serif;
+    list-style: none;
+    display: flex;
+}
+
+.content-nav nav ul a {
+    text-decoration: none;
+    color: #fffb;
+    margin: 0px 20px;
+}
+
+.content-bg-acceuil {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+.content-text-acceuil {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: #0f02;
+    padding: 100px 40px;
+    border: 5px solid #fffd;
+    box-shadow: 0px 0px 50px 50px #0004;
+}
+
+.content-text-acceuil > div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.content-text-acceuil h2 {
+    font-family: 'Fraunces', serif;
+    margin-bottom: 30px;
+    color: #fffb;
+    letter-spacing: 1.5px;
+    font-weight: 600;
+}
+
+.content-bg-acceuil .content-mot-acceuil {
+    width: 150px;
+    text-align: center;
+    color: #fffd;
+}
+
+.content-bg-acceuil .content-mot-acceuil .mot-1-acceuil {
+    font-size: 90px;
+    font-family: 'Fraunces', serif;
+    font-weight: 900;
+}
+
+.content-bg-acceuil .content-mot-acceuil .mot-2-acceuil {
+    font-size: 20px;
+    font-family: 'Fraunces', serif;
+    font-weight: 700;
+    letter-spacing: 1.2px;
+}
+
+.container {
+    width: 98%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+@media (min-width: 640px) {
+    .container {
+        max-width: 640px;
+    }
+}
+
+@media (min-width: 768px) {
+    .container {
+        max-width: 768px;
+    }
+}
+
+@media (min-width: 1024px) {
+    .container {
+        max-width: 1024px;
+    }
+}
+
+@media (min-width: 1280px) {
+    .container {
+        max-width: 1280px;
+    }
+}
+
+@media (min-width: 1536px) {
+    .container {
+        max-width: 1536px;
+    }
+}

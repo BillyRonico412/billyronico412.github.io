@@ -1,0 +1,98 @@
+@import url('https://fonts.googleapis.com/css2?family=Barlow:wght@400;600&family=Fraunces:wght@600;800&display=swap');
+
+/* ./your-css-folder/styles.css */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.font-principal {
+    font-family: 'Barlow', sans-serif;
+}
+
+.font-titre {
+    font-family: 'Fraunces', serif;
+}
+
+.content-bg-acceuil {
+    background-image: url('./images/bg-img-1.jpg');
+    background-color: #0004;
+    background-blend-mode: color;
+}
+
+.content-text-acceuil h2 {
+    animation: animation-mot-1;
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+    animation-delay: 1600ms;
+}
+
+.mot-1-acceuil {
+    animation: animation-mot-1;
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+}
+
+.mot-1-acceuil-2 {
+    animation-delay: 200ms;
+}
+
+.mot-1-acceuil-3 {
+    animation-delay: 400ms
+}
+
+.mot-1-acceuil-4 {
+    animation-delay: 600ms
+}
+
+.mot-2-acceuil {
+    animation: animation-mot-1;
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+}
+
+.mot-2-acceuil-1 {
+    animation-delay: 800ms;
+}
+
+.mot-2-acceuil-2 {
+    animation-delay: 1000ms;
+}
+
+.mot-2-acceuil-3 {
+    animation-delay: 1200ms;
+}
+
+.mot-2-acceuil-4 {
+    animation-delay: 1400ms;
+}
+
+nav ul li a {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+nav ul li a::after {
+    content: "";
+    display: block;
+    border: 1px solid#fffc;
+    opacity: 0;
+    width: 0;
+    transition: 200ms ease-out;
+}
+
+nav ul li a:hover::after {
+    content: "";
+    width: 60%;
+    opacity: 1;
+}
+
+@keyframes animation-mot-1 {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
