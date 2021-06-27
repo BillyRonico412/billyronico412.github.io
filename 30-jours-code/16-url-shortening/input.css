@@ -1,0 +1,100 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.font-principal {
+    font-family: 'Poppins', sans-serif;
+}
+
+#navigation {
+    animation: anim-nav;
+    animation-duration: 200ms;
+    animation-timing-function: ease-out;
+}
+
+.card {
+    @apply text-center bg-white relative pt-16 rounded-lg shadow-lg px-8 pb-8 lg:mx-4;
+    width: 340px;
+    min-height: 280px
+}
+
+.card div {
+    @apply bg-dark-violet inline-block p-6 rounded-full absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 transform;
+}
+
+.card img {
+    @apply w-10;
+}
+
+.card h3 {
+    @apply font-bold text-xl text-very-dark-blue;
+}
+
+.card p {
+    @apply mt-3 leading-6 tracking-wide text-grayish-violet;
+}
+
+footer li {
+    @apply text-center text-grayish-violet my-2;
+}
+
+footer li a {
+    @apply hover:text-cyan transition;
+}
+
+footer .icon-social {
+    @apply hover:opacity-60 transition;
+}
+
+footer h3 {
+    @apply text-center mb-4 text-xl font-bold;
+}
+
+.loader {
+    @apply w-6 h-6 bg-white rounded-full mx-1 invisible;
+    animation: anim-loader;
+    animation-duration: 1200ms;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+}
+
+.loader-1 {
+    animation-delay: 0ms;
+}
+
+.loader-2 {
+    animation-delay: 400ms;
+}
+
+.loader-3 {
+    animation-delay: 800ms;
+}
+
+@keyframes anim-nav {
+    from {
+        opacity: 0;
+        left: 200px;
+    }
+
+    80% {
+        left: -10px;
+    }
+    to {
+        opacity: 1;
+        left: 0px;
+    }
+}
+
+@keyframes anim-loader {
+    0% {
+        opacity: 0;
+    }
+    50% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}

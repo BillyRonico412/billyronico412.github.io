@@ -32488,19 +32488,29 @@ video {
 }
 
 .content-text-acceuil h2 {
-  -webkit-animation: animation-mot-1;
-          animation: animation-mot-1;
+  -webkit-animation: anim-mot-1;
+          animation: anim-mot-1;
   -webkit-animation-duration: 1s;
           animation-duration: 1s;
   -webkit-animation-fill-mode: forwards;
           animation-fill-mode: forwards;
-  -webkit-animation-delay: 1600ms;
-          animation-delay: 1600ms;
+  -webkit-animation-delay: 1800ms;
+          animation-delay: 1800ms;
+}
+
+.content-text-acceuil {
+  -webkit-animation: anim-content-acceuil;
+          animation: anim-content-acceuil;
+  -webkit-animation-duration: 200ms;
+          animation-duration: 200ms;
+  -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards;
+  transform: scale(0)
 }
 
 .mot-1-acceuil {
-  -webkit-animation: animation-mot-1;
-          animation: animation-mot-1;
+  -webkit-animation: anim-mot-1;
+          animation: anim-mot-1;
   -webkit-animation-duration: 1s;
           animation-duration: 1s;
   -webkit-animation-fill-mode: forwards;
@@ -32508,23 +32518,23 @@ video {
 }
 
 .mot-1-acceuil-2 {
-  -webkit-animation-delay: 200ms;
-          animation-delay: 200ms;
+  -webkit-animation-delay: 400ms;
+          animation-delay: 400ms;
 }
 
 .mot-1-acceuil-3 {
-  -webkit-animation-delay: 400ms;
-          animation-delay: 400ms
-}
-
-.mot-1-acceuil-4 {
   -webkit-animation-delay: 600ms;
           animation-delay: 600ms
 }
 
+.mot-1-acceuil-4 {
+  -webkit-animation-delay: 800ms;
+          animation-delay: 800ms
+}
+
 .mot-2-acceuil {
-  -webkit-animation: animation-mot-1;
-          animation: animation-mot-1;
+  -webkit-animation: anim-mot-1;
+          animation: anim-mot-1;
   -webkit-animation-duration: 1s;
           animation-duration: 1s;
   -webkit-animation-fill-mode: forwards;
@@ -32532,23 +32542,23 @@ video {
 }
 
 .mot-2-acceuil-1 {
-  -webkit-animation-delay: 800ms;
-          animation-delay: 800ms;
-}
-
-.mot-2-acceuil-2 {
   -webkit-animation-delay: 1000ms;
           animation-delay: 1000ms;
 }
 
-.mot-2-acceuil-3 {
+.mot-2-acceuil-2 {
   -webkit-animation-delay: 1200ms;
           animation-delay: 1200ms;
 }
 
-.mot-2-acceuil-4 {
+.mot-2-acceuil-3 {
   -webkit-animation-delay: 1400ms;
           animation-delay: 1400ms;
+}
+
+.mot-2-acceuil-4 {
+  -webkit-animation-delay: 1600ms;
+          animation-delay: 1600ms;
 }
 
 nav ul li a {
@@ -32573,7 +32583,18 @@ nav ul li a:hover::after {
   opacity: 1;
 }
 
-@-webkit-keyframes animation-mot-1 {
+.content-arrow {
+  -webkit-animation: anim-arrow;
+          animation: anim-arrow;
+  -webkit-animation-iteration-count: infinite;
+          animation-iteration-count: infinite;
+  -webkit-animation-direction: alternate;
+          animation-direction: alternate;
+  -webkit-animation-duration: 1200ms;
+          animation-duration: 1200ms
+}
+
+@-webkit-keyframes anim-mot-1 {
   from {
     opacity: 0;
   }
@@ -32583,12 +32604,48 @@ nav ul li a:hover::after {
   }
 }
 
-@keyframes animation-mot-1 {
+@keyframes anim-mot-1 {
   from {
     opacity: 0;
   }
 
   to {
+    opacity: 1;
+  }
+}
+
+@-webkit-keyframes anim-content-acceuil {
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes anim-content-acceuil {
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@-webkit-keyframes anim-arrow {
+  from {
+    opacity: 0.4;
+  }
+
+  to {
+    transform: translateY(30px);
+    opacity: 1;
+  }
+}
+
+@keyframes anim-arrow {
+  from {
+    opacity: 0.4;
+  }
+
+  to {
+    transform: translateY(30px);
     opacity: 1;
   }
 }
