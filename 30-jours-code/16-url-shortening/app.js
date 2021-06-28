@@ -27,7 +27,7 @@ const contentResult = document.querySelector('.content-result');
 const result = document.querySelector('.result');
 const btnCopy = document.querySelector('#btn-copy');
 const testRegexLink = (link) => {
-    return /^(http|https):\/\/([a-z]+\.)?[a-zA-Z0-9\-]+\.[a-z]{2,}[a-zA-Z0-9\/\-\?\&\=\+\_\%\.\#]*$/.test(link);
+    return /^((http|https):\/\/)?([a-z]+\.)?[a-zA-Z0-9\-]+\.[a-z]{2,}[a-zA-Z0-9\/\-\?\&\=\+\_\%\.\#]*$/.test(link);
 };
 inputShortenLink.addEventListener('input', () => {
     inputShortenLink.classList.remove('border-color-alert');
@@ -56,6 +56,15 @@ btnShortenLink.addEventListener('click', () => {
             btnShortenLink.disabled = false;
             btnCopy.innerText = 'Copy';
             btnCopy.style.background = 'hsl(180, 66%, 49%)';
+        }).catch(() => {
+            contentResult.style.visibility = 'visible';
+            result.innerText = 'Error Link';
+            noLoader.style.visibility = 'visible';
+            loaders.forEach(loader => loader.style.visibility = 'hidden');
+            inputShortenLink.disabled = false;
+            btnShortenLink.disabled = false;
+            btnCopy.innerText = 'Copy';
+            btnCopy.style.background = 'hsl(180, 66%, 49%)';
         });
     }
     else
@@ -73,4 +82,8 @@ btnCopy.addEventListener('click', () => {
     copyToClipboard(result.innerText);
     btnCopy.innerText = 'Copied';
     btnCopy.style.background = 'hsl(257, 27%, 26%)';
+    setInterval(() => {
+        btnCopy.innerText = 'Copy';
+        btnCopy.style.background = 'hsl(180, 66%, 49%)';
+    }, 2000);
 });
