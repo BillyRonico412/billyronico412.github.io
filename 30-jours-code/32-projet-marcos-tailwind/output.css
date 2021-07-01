@@ -17930,6 +17930,42 @@ video {
   background-image: linear-gradient(to top left, var(--tw-gradient-stops));
 }
 
+.bg-fond-1{
+  background-image: url('./images/fond-1.jpg');
+}
+
+.bg-fond-2{
+  background-image: url('./images/fond-2.jpg');
+}
+
+.bg-fond-3{
+  background-image: url('./images/fond-3.jpg');
+}
+
+.bg-img-carousel-description-1{
+  background-image: url('./images/pic_1.jpg');
+}
+
+.bg-img-carousel-description-2{
+  background-image: url('./images/pic_2.jpg');
+}
+
+.bg-img-carousel-description-3{
+  background-image: url('./images/pic_3.jpg');
+}
+
+.bg-img-carousel-description-4{
+  background-image: url('./images/pic_4.jpg');
+}
+
+.bg-img-carousel-description-5{
+  background-image: url('./images/pic_5.jpg');
+}
+
+.bg-img-carousel-description-6{
+  background-image: url('./images/pic_6.jpg');
+}
+
 .from-transparent{
   --tw-gradient-from: transparent;
   --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to, rgba(0, 0, 0, 0));
@@ -32473,6 +32509,10 @@ video {
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
+html{
+  scroll-behavior: smooth;
+}
+
 .font-principal {
   font-family: 'Barlow', sans-serif;
 }
@@ -32482,7 +32522,7 @@ video {
 }
 
 .content-bg-acceuil {
-  background-image: url('./images/bg-img-1.jpg');
+  background-image: url('./images/fond-1.jpg');
   background-color: #0004;
   background-blend-mode: color;
 }
@@ -32594,6 +32634,11 @@ nav ul li a:hover::after {
           animation-duration: 1200ms
 }
 
+.img-carousel {
+  width: 100%;
+  height: 400px;
+}
+
 @-webkit-keyframes anim-mot-1 {
   from {
     opacity: 0;
@@ -32648,6 +32693,104 @@ nav ul li a:hover::after {
     transform: translateY(30px);
     opacity: 1;
   }
+}
+
+#mission, #objectif, #historique, #dominique {
+  width: 100%;
+}
+
+@media (min-width: 640px){
+  #mission, #objectif, #historique, #dominique{
+    max-width: 640px;
+  }
+}
+
+@media (min-width: 768px){
+  #mission, #objectif, #historique, #dominique{
+    max-width: 768px;
+  }
+}
+
+@media (min-width: 1024px){
+  #mission, #objectif, #historique, #dominique{
+    max-width: 1024px;
+  }
+}
+
+@media (min-width: 1280px){
+  #mission, #objectif, #historique, #dominique{
+    max-width: 1280px;
+  }
+}
+
+@media (min-width: 1536px){
+  #mission, #objectif, #historique, #dominique{
+    max-width: 1536px;
+  }
+}
+
+#mission, #objectif, #historique, #dominique{
+  margin-left: auto;
+  margin-right: auto;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+}
+
+@media (min-width: 768px){
+  #mission, #objectif, #historique, #dominique{
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+}
+
+@media (min-width: 1024px){
+  #mission, #objectif, #historique, #dominique{
+    padding-left: 3rem;
+    padding-right: 3rem;
+  }
+}
+
+#mission h1, #objectif h1, #historique h1, #dominique h1 {
+  margin-bottom: 1rem;
+  font-size: 1.5rem;
+  line-height: 2rem;
+  font-weight: 800;
+  font-family: 'Fraunces', serif;
+}
+
+#mission h2, #objectif h2, #historique h2, #dominique h2 {
+  margin-bottom: 1rem;
+  font-size: 1.25rem;
+  line-height: 1.75rem;
+  font-weight: 800;
+  --tw-text-opacity: 1;
+  color: rgba(55, 65, 81, var(--tw-text-opacity));
+  font-family: 'Fraunces', serif;
+}
+
+#mission p, #objectif p, #historique p, #dominique p {
+  font-size: 1.125rem;
+  line-height: 1.75rem;
+  font-weight: 600;
+  line-height: 2rem;
+  letter-spacing: 0.025em;
+  --tw-text-opacity: 1;
+  color: rgba(55, 65, 81, var(--tw-text-opacity));
+}
+
+#mission ul, #objectif ul, #historique ul, #dominique ul {
+  list-style-type: disc;
+}
+
+#mission li, #objectif li, #historique li, #dominique li {
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+  font-size: 1.25rem;
+  line-height: 1.75rem;
+  font-weight: 800;
+  --tw-text-opacity: 1;
+  color: rgba(55, 65, 81, var(--tw-text-opacity));
+  font-family: 'Fraunces', serif;
 }
 
 @media (min-width: 640px){
@@ -49944,6 +50087,42 @@ nav ul li a:hover::after {
 
   .sm\:bg-gradient-to-tl{
     background-image: linear-gradient(to top left, var(--tw-gradient-stops));
+  }
+
+  .sm\:bg-fond-1{
+    background-image: url('./images/fond-1.jpg');
+  }
+
+  .sm\:bg-fond-2{
+    background-image: url('./images/fond-2.jpg');
+  }
+
+  .sm\:bg-fond-3{
+    background-image: url('./images/fond-3.jpg');
+  }
+
+  .sm\:bg-img-carousel-description-1{
+    background-image: url('./images/pic_1.jpg');
+  }
+
+  .sm\:bg-img-carousel-description-2{
+    background-image: url('./images/pic_2.jpg');
+  }
+
+  .sm\:bg-img-carousel-description-3{
+    background-image: url('./images/pic_3.jpg');
+  }
+
+  .sm\:bg-img-carousel-description-4{
+    background-image: url('./images/pic_4.jpg');
+  }
+
+  .sm\:bg-img-carousel-description-5{
+    background-image: url('./images/pic_5.jpg');
+  }
+
+  .sm\:bg-img-carousel-description-6{
+    background-image: url('./images/pic_6.jpg');
   }
 
   .sm\:from-transparent{
@@ -81713,6 +81892,42 @@ nav ul li a:hover::after {
     background-image: linear-gradient(to top left, var(--tw-gradient-stops));
   }
 
+  .md\:bg-fond-1{
+    background-image: url('./images/fond-1.jpg');
+  }
+
+  .md\:bg-fond-2{
+    background-image: url('./images/fond-2.jpg');
+  }
+
+  .md\:bg-fond-3{
+    background-image: url('./images/fond-3.jpg');
+  }
+
+  .md\:bg-img-carousel-description-1{
+    background-image: url('./images/pic_1.jpg');
+  }
+
+  .md\:bg-img-carousel-description-2{
+    background-image: url('./images/pic_2.jpg');
+  }
+
+  .md\:bg-img-carousel-description-3{
+    background-image: url('./images/pic_3.jpg');
+  }
+
+  .md\:bg-img-carousel-description-4{
+    background-image: url('./images/pic_4.jpg');
+  }
+
+  .md\:bg-img-carousel-description-5{
+    background-image: url('./images/pic_5.jpg');
+  }
+
+  .md\:bg-img-carousel-description-6{
+    background-image: url('./images/pic_6.jpg');
+  }
+
   .md\:from-transparent{
     --tw-gradient-from: transparent;
     --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to, rgba(0, 0, 0, 0));
@@ -113478,6 +113693,42 @@ nav ul li a:hover::after {
 
   .lg\:bg-gradient-to-tl{
     background-image: linear-gradient(to top left, var(--tw-gradient-stops));
+  }
+
+  .lg\:bg-fond-1{
+    background-image: url('./images/fond-1.jpg');
+  }
+
+  .lg\:bg-fond-2{
+    background-image: url('./images/fond-2.jpg');
+  }
+
+  .lg\:bg-fond-3{
+    background-image: url('./images/fond-3.jpg');
+  }
+
+  .lg\:bg-img-carousel-description-1{
+    background-image: url('./images/pic_1.jpg');
+  }
+
+  .lg\:bg-img-carousel-description-2{
+    background-image: url('./images/pic_2.jpg');
+  }
+
+  .lg\:bg-img-carousel-description-3{
+    background-image: url('./images/pic_3.jpg');
+  }
+
+  .lg\:bg-img-carousel-description-4{
+    background-image: url('./images/pic_4.jpg');
+  }
+
+  .lg\:bg-img-carousel-description-5{
+    background-image: url('./images/pic_5.jpg');
+  }
+
+  .lg\:bg-img-carousel-description-6{
+    background-image: url('./images/pic_6.jpg');
   }
 
   .lg\:from-transparent{
@@ -145247,6 +145498,42 @@ nav ul li a:hover::after {
     background-image: linear-gradient(to top left, var(--tw-gradient-stops));
   }
 
+  .xl\:bg-fond-1{
+    background-image: url('./images/fond-1.jpg');
+  }
+
+  .xl\:bg-fond-2{
+    background-image: url('./images/fond-2.jpg');
+  }
+
+  .xl\:bg-fond-3{
+    background-image: url('./images/fond-3.jpg');
+  }
+
+  .xl\:bg-img-carousel-description-1{
+    background-image: url('./images/pic_1.jpg');
+  }
+
+  .xl\:bg-img-carousel-description-2{
+    background-image: url('./images/pic_2.jpg');
+  }
+
+  .xl\:bg-img-carousel-description-3{
+    background-image: url('./images/pic_3.jpg');
+  }
+
+  .xl\:bg-img-carousel-description-4{
+    background-image: url('./images/pic_4.jpg');
+  }
+
+  .xl\:bg-img-carousel-description-5{
+    background-image: url('./images/pic_5.jpg');
+  }
+
+  .xl\:bg-img-carousel-description-6{
+    background-image: url('./images/pic_6.jpg');
+  }
+
   .xl\:from-transparent{
     --tw-gradient-from: transparent;
     --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to, rgba(0, 0, 0, 0));
@@ -177012,6 +177299,42 @@ nav ul li a:hover::after {
 
   .\32xl\:bg-gradient-to-tl{
     background-image: linear-gradient(to top left, var(--tw-gradient-stops));
+  }
+
+  .\32xl\:bg-fond-1{
+    background-image: url('./images/fond-1.jpg');
+  }
+
+  .\32xl\:bg-fond-2{
+    background-image: url('./images/fond-2.jpg');
+  }
+
+  .\32xl\:bg-fond-3{
+    background-image: url('./images/fond-3.jpg');
+  }
+
+  .\32xl\:bg-img-carousel-description-1{
+    background-image: url('./images/pic_1.jpg');
+  }
+
+  .\32xl\:bg-img-carousel-description-2{
+    background-image: url('./images/pic_2.jpg');
+  }
+
+  .\32xl\:bg-img-carousel-description-3{
+    background-image: url('./images/pic_3.jpg');
+  }
+
+  .\32xl\:bg-img-carousel-description-4{
+    background-image: url('./images/pic_4.jpg');
+  }
+
+  .\32xl\:bg-img-carousel-description-5{
+    background-image: url('./images/pic_5.jpg');
+  }
+
+  .\32xl\:bg-img-carousel-description-6{
+    background-image: url('./images/pic_6.jpg');
   }
 
   .\32xl\:from-transparent{
