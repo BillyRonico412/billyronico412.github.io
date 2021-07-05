@@ -35,23 +35,22 @@
                     <li class="px-4">
                         <a href="./pages/objectif.html" class="text-gray-text hover:text-white transition">Objéctifs</a>
                     </li>
-                    <li class="px-4">
-                        <a href="./pages/historique.html"
-                            class="text-gray-text hover:text-white transition">Historique</a>
-                    </li>
                     <li class="pl-4">
                         <a href="./pages/dominique-dambreville.html"
-                            class="text-gray-text hover:text-white transition">Dominique Dambreville</a>
+                            class="text-gray-text hover:text-white transition">Directrice</a>
                     </li>
                 </ul>
             </nav>
         </div>
 
-        <div class="content-bg-acceuil h-screen bg-no-repeat bg-cover flex flex-col justify-center items-center">
+        <div
+            class="content-bg-acceuil h-screen bg-no-repeat bg-cover bg-center flex flex-col justify-center items-center">
             <div
                 class="content-text-acceuil flex flex-col justify-center items-center font-titre border-4 border-gray-text px-0 py-16 bg-green-bg">
-                <h2 class="text-white tracking-wider text-sm sm:text-base md:text-xl lg:text-3xl mb-12 opacity-0">"
+                <h2 class="text-white tracking-wider text-sm sm:text-base md:text-xl lg:text-3xl mb-6 opacity-0">"
                     Vive, les séjours écolos dans les hauts "</h2>
+                <h2 class="text-white tracking-wider text-sm sm:text-base md:text-xl lg:text-3xl mb-8 opacity-0">"
+                    Vive, les classes de découvertes "</h2>
                 <div class="flex">
                     <div
                         class="content-mot-acceuil w-20 sm:w-32 md:w-44 lg:w-48 flex flex-col justify-center items-center">
@@ -104,38 +103,43 @@
             <h2 class="text-center">
                 <img src="./images/logo.png" alt="logo" class="block mx-auto">
             </h2>
-            <p class="text-center font-semibold tracking-wide text-lg mt-6 leading-8 text-gray-700">
+            <p class="text-center font-semibold tracking-wide text-lg mt-6 leading-8 text-gray-700 px-4">
                 L'organisation des séjours de classes de découvertes et de séjours de vacances, est faite avec les
                 enseignants
                 volontaires, les animateurs
                 socioculturels, les associations de parents, les mairies, la direction de la jeunesse et des sport,
-                le Rectorat. <br>
-                Le financement des séjours est pris en charge par: les communes, le Conseil Général, les familles,
-                l'OCCE et
-                l'association de parents
-                d'élèves (PEEP).
+                le Rectorat.
             </p>
         </section>
         <section class="mt-16 lg:mt-0">
 
             <div class="w-full rounded-lg border overflow-hidden bg-gray-100 relative">
-                <img src="https://img.icons8.com/material-outlined/50/000000/circled-left--v2.png"
-                    class="absolute top-1/2 left-8 transform -translate-y-1/2 cursor-pointer w-16" />
-                <div>
-                    <div class="bg-img-carousel-description-1 bg-contain bg-no-repeat bg-center img-carousel"></div>
-                    <div class="bg-img-carousel-description-2 bg-contain bg-no-repeat bg-center img-carousel hidden">
+                <div class="flex relative transition-position" id="content-caroussel-img">
+                    <div
+                        class="bg-img-carousel-description-1 bg-contain bg-no-repeat bg-center img-carousel flex-shrink-0">
                     </div>
-                    <div class="bg-img-carousel-description-3 bg-contain bg-no-repeat bg-center img-carousel hidden">
+                    <div
+                        class="bg-img-carousel-description-2 bg-contain bg-no-repeat bg-center img-carousel flex-shrink-0">
                     </div>
-                    <div class="bg-img-carousel-description-4 bg-contain bg-no-repeat bg-center img-carousel hidden">
+                    <div
+                        class="bg-img-carousel-description-3 bg-contain bg-no-repeat bg-center img-carousel flex-shrink-0">
                     </div>
-                    <div class="bg-img-carousel-description-5 bg-contain bg-no-repeat bg-center img-carousel hidden">
+                    <div
+                        class="bg-img-carousel-description-4 bg-contain bg-no-repeat bg-center img-carousel flex-shrink-0">
                     </div>
-                    <div class="bg-img-carousel-description-6 bg-contain bg-no-repeat bg-center img-carousel hidden">
+                    <div
+                        class="bg-img-carousel-description-5 bg-contain bg-no-repeat bg-center img-carousel flex-shrink-0">
+                    </div>
+                    <div
+                        class="bg-img-carousel-description-6 bg-contain bg-no-repeat bg-center img-carousel flex-shrink-0">
                     </div>
                 </div>
+                <img src="https://img.icons8.com/material-outlined/50/000000/circled-left--v2.png"
+                    id="fleche-gauche-carousel"
+                    class="absolute top-1/2 left-4 transform -translate-y-1/2 cursor-pointer w-16 hover:scale-110 transition">
                 <img src="https://img.icons8.com/material-outlined/50/000000/circled-right--v2.png"
-                    class="absolute top-1/2 right-8 transform -translate-y-1/2 cursor-pointer w-16" />
+                    id="fleche-droite-carousel"
+                    class="absolute top-1/2 right-4 transform -translate-y-1/2 cursor-pointer w-16 hover:scale-110 transition" />
 
             </div>
 
@@ -143,22 +147,22 @@
     </main>
 
     <footer
-        class="bg-black text-white flex justify-around items-center py-8 text-gray-text tracking-wide font-semibold leading-7">
+        class="bg-black text-white flex flex-col lg:flex-row justify-around items-center py-8 text-gray-text tracking-wide font-semibold leading-7">
 
         <div>
             <img src="./images/logo.png" alt="logo" class="w-16">
         </div>
 
-        <div>
+        <div class=" mt-8 lg:mt-0 text-center lg:text-left">
             9 Chemin Des Frangipaniers <br>
             Le brûler <br>
             Saint-Denis <br>
             97400
         </div>
 
-        <div>
+        <div class="mt-6 lg:mt-0">
 
-            <ul>
+            <ul class="text-center lg:text-left">
                 <li class="px-4">
                     <a href="./pages/mission.html" class="text-gray-text hover:text-white transition">Missions /
                         Activités</a>
@@ -166,17 +170,14 @@
                 <li class="px-4">
                     <a href="./pages/objectif.html" class="text-gray-text hover:text-white transition">Objéctifs</a>
                 </li>
-                <li class="px-4">
-                    <a href="./pages/historique.html" class="text-gray-text hover:text-white transition">Historique</a>
-                </li>
                 <li class="pl-4">
                     <a href="./pages/dominique-dambreville.html"
-                        class="text-gray-text hover:text-white transition">Dominique Dambreville</a>
+                        class="text-gray-text hover:text-white transition">Directrice</a>
                 </li>
             </ul>
         </div>
 
-        <div>
+        <div class="mt-6 lg:mt-0 text-center lg:text-left">
             <ul>
                 <li>
                     <a href="tel:0262200388">0262200388</a>
@@ -189,6 +190,7 @@
 
     </footer>
 
+    <script src="./script/carrousel.js"></script>
 
 </body>
 

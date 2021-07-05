@@ -5,46 +5,140 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.3/css/all.css"
+        integrity="sha384-SZXxX4whJ79/gErwcOYf+zWLeJdY/qpuqC4cAa9rOGUstPomtqpuNWT9wdPEn2fk" crossorigin="anonymous">
     <link rel="stylesheet" href="./output.css">
     <title>Where in the world</title>
 </head>
 
 <body class="bg-gray-100 text-sm text-light-text dark:bg-dark-bg transition-colors">
 
-    <div class="shadow-md bg-light-bg dark:bg-dark-element dark:text-white">
+    <div id="content-loading" class="flex flex-col md:flex-row justify-center items-center h-screen font-extrabold">
+        <span>L</span>
+        <span>O</span>
+        <span>A</span>
+        <span>D</span>
+        <span>I</span>
+        <span>N</span>
+        <span>G</span>
+    </div>
+
+    <div class="shadow-md bg-light-bg dark:bg-dark-element dark:text-white hidden" id="content-header">
         <header class="container flex justify-between items-center px-4 py-4 mx-auto">
             <h1 class="font-extrabold">
                 Where in the world ?
             </h1>
             <button class="flex justify-center items-center" id="btn-dark">
-                <img src="./image/moon-outline.svg" alt="moon-outline" class="w-4 inline-block" id="img-moon">
+                <i class="fas fa-moon"></i>
                 <span class="inline-block w-24 font-semibold text-sm">Dark Mode</span>
             </button>
         </header>
     </div>
 
-    <main class="container py-8 px-4 mx-auto">
+    <main class="container py-8 px-4 lg:px-8 xl:px-32 mx-auto hidden">
 
-        <div class="md:flex md:justify-between md:items-center">
+        <div id="content-all-card" class="hidden">
 
-            <input type="text"
-                class="block bg-light-bg text-sm w-full md:w-96 shadow-md pl-12 pr-2 rounded py-4 tracking-wide font-semibold text-light-input bg-no-repeat dark:bg-dark-element dark:text-white"
-                placeholder="Search for a contry..." id="input-search-countries">
+            <div class="md:flex md:justify-between md:items-center">
 
-            <select id="select-region" class="px-8 font-semibold py-4 mt-8 md:mt-0 rounded shadow-md dark:bg-dark-element dark:text-white">
-                <option value="None">Filter by Region</option>
-                <option value="Africa">Africa</option>
-                <option value="Americas">Americas</option>
-                <option value="Asia">Asia</option>
-                <option value="Europe">Europe</option>
-                <option value="Oceania">Oceania</option>
-            </select>
+                <div class="flex items-center shadow-md rounded bg-light-bg text-light-input bg-no-repeat dark:bg-dark-element">
+                    <i class="fas fa-search text-xl px-2"></i>
+                    <input type="text"
+                        class="block text-sm w-full md:w-96 px-2 py-4 tracking-wide font-semibold bg-light-bg text-light-input dark:bg-dark-element"
+                        placeholder="Search for a contry..." id="input-search-countries">
+                </div>
+
+
+                <select id="select-region"
+                    class="px-8 font-semibold py-4 mt-8 md:mt-0 rounded shadow-md dark:bg-dark-element dark:text-white">
+                    <option value="None">Filter by Region</option>
+                    <option value="Africa">Africa</option>
+                    <option value="Americas">Americas</option>
+                    <option value="Asia">Asia</option>
+                    <option value="Europe">Europe</option>
+                    <option value="Oceania">Oceania</option>
+                </select>
+
+            </div>
+
+            <div class="content-card flex flex-wrap gap-y-8 gap-x-8 py-16 justify-center items-center">
+
+
+
+            </div>
 
         </div>
 
-        <div class="content-card flex flex-wrap gap-y-8 gap-x-8 py-16 justify-center items-center">
+        <div id="content-info-card" class="hidden">
+
+            <button id="btn-back"
+                class="bg-light-bg dark:bg-dark-element dark:text-white ombre px-4 py-2 rounded flex justify-center items-center">
+                <i class="fas fa-arrow-left"></i>
+                <span class="font-semibold ml-2">Back</span>
+            </button>
+
+            <div class="flex flex-col md:flex-row" id="info-pays">
+
+                <div class="mt-16 md:w-2/5 xl:w-1/4">
+                    <img src="https://restcountries.eu/data/afg.svg" class="w-full" id="info-flag">
+                </div>
+
+                <div class="dark:text-white md:w-3/5 xl:w-3/4 md:pl-8 xl:pl-16 md:py-8">
+
+                    <h5 class="text-xl font-extrabold mt-8 mb-4" id="info-nom">Belgium</h5>
+
+                    <div class="md:flex md:justify-center md:items-start">
+
+                        <div class="md:w-1/2">
+                            <h6 class="my-1 md:my-0 md:mb-1">
+                                <span class="font-semibold">Native Name: </span>
+                                <span class="ml-1 font-light" id="info-native-name"></span>
+                            </h6>
+                            <h6 class="my-1">
+                                <span class="font-semibold">Population: </span>
+                                <span class="ml-1 font-light" id="info-population">11,319,511</span>
+                            </h6>
+                            <h6 class="my-1">
+                                <span class="font-semibold">Region: </span>
+                                <span class="ml-1 font-light" id="info-region">Europe</span>
+                            </h6>
+                            <h6 class="my-1">
+                                <span class="font-semibold">Sub Region: </span>
+                                <span class="ml-1 font-light" id="info-sub-region">Europe</span>
+                            </h6>
+                            <h6 class="my-1">
+                                <span class="font-semibold">Capital: </span>
+                                <span class="ml-1 font-light" id="info-capital">Brussels</span>
+                            </h6>
+                        </div>
 
 
+                        <div class="my-8 md:my-0 md:w-1/2">
+                            <h6>
+                                <span class="font-semibold">Top Level Domain: </span>
+                                <span class="ml-1 font-light" id="info-top-domain">.be</span>
+                            </h6>
+                            <h6 class="my-1">
+                                <span class="font-semibold">Currencies: </span>
+                                <span class="ml-1 font-light" id="info-currencies">Euro</span>
+                            </h6>
+                            <h6 class="my-1">
+                                <span class="font-semibold">Languages: </span>
+                                <span class="ml-1 font-light" id="info-languages">Dutch, French, German</span>
+                            </h6>
+                        </div>
+
+                    </div>
+
+                    <div>
+                        <h5 class="font-extrabold mt-8 mb-4">Border Countries:</h5>
+                        <ul class="flex flex-wrap gap-x-8 gap-y-4" id="info-border-countries">
+
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
 
         </div>
 

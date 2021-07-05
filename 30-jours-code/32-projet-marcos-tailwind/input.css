@@ -19,8 +19,12 @@ html{
 
 .content-bg-acceuil {
     background-image: url('./images/fond-1.jpg');
-    background-color: #0004;
+    background-color: #0006;
     background-blend-mode: color;
+    animation: anim-bg-acceuil;
+    animation-duration: 12000ms;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
 }
 
 .content-text-acceuil h2 {
@@ -103,12 +107,25 @@ nav ul li a:hover::after {
     animation: anim-arrow;
     animation-iteration-count: infinite;
     animation-direction: alternate;
-    animation-duration: 1200ms
+    animation-duration: 21000ms;
+    animation-timing-function: linear;
 }
 
 .img-carousel {
     width: 100%;
     height: 400px;
+}
+
+@keyframes anim-bg-acceuil {
+    0% {
+        background-image: url('images/fond-1.jpg');
+    }
+    33% {
+        background-image: url('images/fond-2.jpg');
+    }
+    66% {
+        background-image: url('images/fond-3.jpg');
+    }
 }
 
 @keyframes anim-mot-1 {
@@ -140,6 +157,10 @@ nav ul li a:hover::after {
 
 }
 
+.transition-position {
+    transition: right 0.3s ease-out;
+}
+
 #mission, #objectif, #historique, #dominique {
     @apply container mx-auto py-8 md:px-8 lg:px-12;
 }
@@ -159,6 +180,10 @@ nav ul li a:hover::after {
 
 #mission ul, #objectif ul, #historique ul, #dominique ul {
     @apply list-disc;
+}
+
+#mission ol, #objectif ol, #historique ol, #dominique ol {
+    @apply list-decimal;
 }
 
 #mission li, #objectif li, #historique li, #dominique li {

@@ -32523,8 +32523,16 @@ html{
 
 .content-bg-acceuil {
   background-image: url('./images/fond-1.jpg');
-  background-color: #0004;
+  background-color: #0006;
   background-blend-mode: color;
+  -webkit-animation: anim-bg-acceuil;
+          animation: anim-bg-acceuil;
+  -webkit-animation-duration: 12000ms;
+          animation-duration: 12000ms;
+  -webkit-animation-timing-function: linear;
+          animation-timing-function: linear;
+  -webkit-animation-iteration-count: infinite;
+          animation-iteration-count: infinite;
 }
 
 .content-text-acceuil h2 {
@@ -32630,13 +32638,43 @@ nav ul li a:hover::after {
           animation-iteration-count: infinite;
   -webkit-animation-direction: alternate;
           animation-direction: alternate;
-  -webkit-animation-duration: 1200ms;
-          animation-duration: 1200ms
+  -webkit-animation-duration: 21000ms;
+          animation-duration: 21000ms;
+  -webkit-animation-timing-function: linear;
+          animation-timing-function: linear;
 }
 
 .img-carousel {
   width: 100%;
   height: 400px;
+}
+
+@-webkit-keyframes anim-bg-acceuil {
+  0% {
+    background-image: url('images/fond-1.jpg');
+  }
+
+  33% {
+    background-image: url('images/fond-2.jpg');
+  }
+
+  66% {
+    background-image: url('images/fond-3.jpg');
+  }
+}
+
+@keyframes anim-bg-acceuil {
+  0% {
+    background-image: url('images/fond-1.jpg');
+  }
+
+  33% {
+    background-image: url('images/fond-2.jpg');
+  }
+
+  66% {
+    background-image: url('images/fond-3.jpg');
+  }
 }
 
 @-webkit-keyframes anim-mot-1 {
@@ -32693,6 +32731,10 @@ nav ul li a:hover::after {
     transform: translateY(30px);
     opacity: 1;
   }
+}
+
+.transition-position {
+  transition: right 0.3s ease-out;
 }
 
 #mission, #objectif, #historique, #dominique {
@@ -32780,6 +32822,10 @@ nav ul li a:hover::after {
 
 #mission ul, #objectif ul, #historique ul, #dominique ul {
   list-style-type: disc;
+}
+
+#mission ol, #objectif ol, #historique ol, #dominique ol {
+  list-style-type: decimal;
 }
 
 #mission li, #objectif li, #historique li, #dominique li {

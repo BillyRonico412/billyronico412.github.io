@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;600;800&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;600;800&display=swap");
 
 /* ./your-css-folder/styles.css */
 @tailwind base;
@@ -6,15 +6,55 @@
 @tailwind utilities;
 
 body {
-    font-family: 'Nunito Sans', sans-serif;
-}
-
-#input-search-countries {
-    background-image: url('./image/search.svg');
-    background-size: 24px;
-    background-position: 12px center;
+    font-family: "Nunito Sans", sans-serif;
 }
 
 .ombre {
     box-shadow: 0px 0px 10px #0004;
+}
+
+#content-loading span {
+    @apply mx-4 my-4 text-4xl opacity-20;
+}
+
+#content-loading span:nth-child(1) {
+    animation: anim-loading 1800ms linear infinite;
+}
+
+#content-loading span:nth-child(2) {
+    animation: anim-loading 1800ms linear 200ms infinite;
+}
+
+#content-loading span:nth-child(3) {
+    animation: anim-loading 1800ms linear 400ms infinite;
+}
+
+#content-loading span:nth-child(4) {
+    animation: anim-loading 1800ms linear 600ms infinite;
+}
+#content-loading span:nth-child(5) {
+    animation: anim-loading 1800ms linear 800ms infinite;
+}
+
+#content-loading span:nth-child(6) {
+    animation: anim-loading 1800ms linear 1000ms infinite;
+}
+
+#content-loading span:nth-child(7) {
+    animation: anim-loading 1800ms linear 1200ms infinite;
+}
+
+@keyframes anim-loading {
+    0% {
+        @apply opacity-20 -top-0 text-4xl;
+    }
+
+    30% {
+        @apply opacity-100 -top-2 text-5xl;
+    }
+
+    60% {
+        @apply opacity-20 -top-0 text-4xl;
+
+    }
 }

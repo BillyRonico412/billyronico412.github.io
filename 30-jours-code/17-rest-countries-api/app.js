@@ -22,7 +22,28 @@ const contentCard = document.querySelector('.content-card');
 const selectRegion = document.querySelector('#select-region');
 const inputSearch = document.querySelector('#input-search-countries');
 const btnDark = document.querySelector('#btn-dark');
-const imgMoon = document.querySelector('#img-moon');
+const contentLoading = document.querySelector('#content-loading');
+const contentHeader = document.querySelector('#content-header');
+const contentAllCard = document.querySelector('#content-all-card');
+const contentInfoCard = document.querySelector('#content-info-card');
+const main = document.querySelector('main');
+const infoFlag = document.querySelector('#info-flag');
+const infoNom = document.querySelector('#info-nom');
+const infoNativeName = document.querySelector('#info-native-name');
+const infoPopulation = document.querySelector('#info-population');
+const infoRegion = document.querySelector('#info-region');
+const infoSubRegion = document.querySelector('#info-sub-region');
+const infoCapital = document.querySelector('#info-capital');
+const infoTopDomain = document.querySelector('#info-top-domain');
+const infoCurrencies = document.querySelector('#info-currencies');
+const infoLanguages = document.querySelector('#info-languages');
+const infoBorderCountries = document.querySelector('#info-border-countries');
+const btnBack = document.querySelector('#btn-back');
+var Affichage;
+(function (Affichage) {
+    Affichage[Affichage["INFO"] = 0] = "INFO";
+    Affichage[Affichage["PAYS"] = 1] = "PAYS";
+})(Affichage || (Affichage = {}));
 new class {
     constructor() {
         this.search = '';
@@ -31,6 +52,7 @@ new class {
         this.allPays = [];
         this.timeOutSearch = 0;
         this.dark = false;
+        this.affichage = Affichage.PAYS;
         this.fixeEvent();
         this.constructCard();
     }
@@ -49,28 +71,40 @@ new class {
         btnDark.addEventListener('click', () => {
             var _a, _b;
             this.dark = !this.dark;
-            if (this.dark) {
-                imgMoon.src = './image/moon.svg';
+            if (this.dark)
                 (_a = document.querySelector('html')) === null || _a === void 0 ? void 0 : _a.classList.add('dark');
-            }
-            else {
-                imgMoon.src = './image/moon-outline.svg';
+            else
                 (_b = document.querySelector('html')) === null || _b === void 0 ? void 0 : _b.classList.remove('dark');
-            }
         });
+        btnBack.addEventListener('click', () => this.switchAffichage());
     }
     getallPays() {
         return __awaiter(this, void 0, void 0, function* () {
             const reponse = yield fetch('https://restcountries.eu/rest/v2/all');
             const data = yield reponse.json();
+            const allAlpha3Code = data.map(pays => pays.alpha3Code);
+            console.log(data);
             this.allPays = data.map(pays => {
                 const name = pays.name;
                 const population = pays.population;
                 const region = pays.region;
                 const capital = pays.capital;
                 const flag = pays.flag;
-                return { name, population, region, capital, flag };
+                const subregion = pays.subregion;
+                const nativeName = pays.nativeName;
+                const topLevelDomain = pays.topLevelDomain;
+                const currencies = pays.currencies.map((item) => item.name);
+                const languages = pays.languages.map((item) => item.name);
+                const indexBorderCountries = pays.borders.map((countrie) => allAlpha3Code.indexOf(countrie));
+                return { name, population, region, capital, flag, subregion, nativeName, topLevelDomain, currencies, languages, indexBorderCountries };
             });
+            console.log(this.allPays);
+            setTimeout(() => {
+                contentLoading.style.display = 'none';
+                contentHeader.style.display = 'block';
+                main.style.display = 'block';
+                contentAllCard.style.display = 'block';
+            }, 1000);
         });
     }
     getallPaysAffiche() {
@@ -86,11 +120,12 @@ new class {
             yield this.getallPaysAffiche();
             contentCard.innerHTML = '';
             this.allPaysAffiche.forEach(pays => {
-                contentCard.innerHTML += `
-            <div class="card w-72 rounded overflow-hidden ombre">
+                const card = document.createElement('div');
+                card.classList.add('card', 'w-72', 'rounded', 'overflow-hidden', 'ombre', 'cursor-pointer');
+                card.innerHTML = `
                 <img src="${pays.flag}" alt="flag-${pays.name}" class="w-full h-48">
                 <div class="bg-light-bg dark:bg-dark-element dark:text-white
-                 px-8 py-8">
+                px-8 py-8">
                     <h5 class="text-xl font-extrabold mb-4">${pays.name}</h5>
                     <h6>
                         <span class="font-semibold">Population: </span>
@@ -105,9 +140,49 @@ new class {
                         <span class="ml-1 font-light">${pays.capital}</span>
                     </h6>
                 </div>
-            </div>
             `;
+                card.addEventListener('click', () => {
+                    this.updateInfo(pays);
+                    this.switchAffichage();
+                });
+                contentCard.appendChild(card);
             });
+        });
+    }
+    switchAffichage() {
+        if (this.affichage === Affichage.PAYS) {
+            contentAllCard.style.display = 'none';
+            contentInfoCard.style.display = 'block';
+            this.affichage = Affichage.INFO;
+        }
+        else {
+            contentAllCard.style.display = 'block';
+            contentInfoCard.style.display = 'none';
+            this.affichage = Affichage.PAYS;
+        }
+    }
+    updateInfo(pays) {
+        infoFlag.src = pays.flag;
+        infoNom.innerText = pays.name;
+        infoNativeName.innerText = pays.nativeName;
+        infoPopulation.innerText = formatNumber(pays.population);
+        infoRegion.innerText = pays.region;
+        infoSubRegion.innerText = pays.subregion;
+        infoCapital.innerText = pays.capital;
+        infoTopDomain.innerText = pays.topLevelDomain.reduce((item1, item2) => item1 + ', ' + item2);
+        infoCurrencies.innerText = pays.currencies.reduce((item1, item2) => item1 + ', ' + item2);
+        infoLanguages.innerText = pays.languages.reduce((item1, item2) => item1 + ', ' + item2);
+        this.updateBorderCountries(pays.indexBorderCountries);
+    }
+    updateBorderCountries(indexPays) {
+        infoBorderCountries.innerHTML = '';
+        indexPays.forEach(item => {
+            const borderCountrie = document.createElement('li');
+            const buttonCountrie = document.createElement('button');
+            buttonCountrie.innerText = this.allPays[item].name;
+            buttonCountrie.classList.add('ombre', 'bg-light-bg', 'dark:bg-dark-element', 'font-semibold', 'px-6', 'py-2', 'rounded');
+            buttonCountrie.addEventListener('click', () => this.updateInfo(this.allPays[item]));
+            infoBorderCountries.appendChild(borderCountrie.appendChild(buttonCountrie));
         });
     }
 }();

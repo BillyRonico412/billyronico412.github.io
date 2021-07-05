@@ -4,8 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "postcss input.css -o output.css -w",
-    "prod": "cross-env NODE_ENV=production postcss input.css -o output.css"
+    "dev": "concurrently -k -n \"Tailwind,TypeScript\" -p \"[{name}]\" -c \"yellow,blue\" \"postcss input.css -o output.css -w\" \"tsc -w\"",
+    "watch": "cross-env NODE_ENV=production postcss input.css -o output.css"
   },
   "keywords": [],
   "author": "",
