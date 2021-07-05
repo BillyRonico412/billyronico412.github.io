@@ -249,6 +249,11 @@ Correct the cursor style of increment and decrement buttons in Safari.
 2. Correct the outline style in Safari.
 */
 
+[type='search'] {
+  -webkit-appearance: textfield; /* 1 */
+  outline-offset: -2px; /* 2 */
+}
+
 /**
 Remove the inner padding in Chrome and Safari on macOS.
 */
@@ -613,12 +618,20 @@ video {
   display: none;
 }
 
+.h-48{
+  height: 12rem;
+}
+
 .h-screen{
   height: 100vh;
 }
 
 .w-24{
   width: 6rem;
+}
+
+.w-72{
+  width: 18rem;
 }
 
 .w-full{
@@ -691,6 +704,10 @@ video {
   }
 }
 
+.cursor-pointer{
+  cursor: pointer;
+}
+
 .flex-col{
   flex-direction: column;
 }
@@ -724,6 +741,10 @@ video {
   row-gap: 2rem;
 }
 
+.overflow-hidden{
+  overflow: hidden;
+}
+
 .rounded{
   border-radius: 0.25rem;
 }
@@ -738,6 +759,16 @@ video {
   background-color: hsla(0, 0%, 98%, var(--tw-bg-opacity));
 }
 
+.dark .dark\:bg-dark-element{
+  --tw-bg-opacity: 1;
+  background-color: hsla(209, 23%, 22%, var(--tw-bg-opacity));
+}
+
+.dark .dark\:bg-dark-bg{
+  --tw-bg-opacity: 1;
+  background-color: hsla(207, 26%, 17%, var(--tw-bg-opacity));
+}
+
 .bg-no-repeat{
   background-repeat: no-repeat;
 }
@@ -750,6 +781,11 @@ video {
 .px-4{
   padding-left: 1rem;
   padding-right: 1rem;
+}
+
+.px-6{
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
 }
 
 .px-8{
@@ -813,6 +849,11 @@ video {
   color: hsla(0, 0%, 52%, var(--tw-text-opacity));
 }
 
+.dark .dark\:text-white{
+  --tw-text-opacity: 1;
+  color: rgba(255, 255, 255, var(--tw-text-opacity));
+}
+
 *, ::before, ::after{
   --tw-shadow: 0 0 #0000;
 }
@@ -829,6 +870,19 @@ video {
   --tw-ring-color: rgba(59, 130, 246, 0.5);
   --tw-ring-offset-shadow: 0 0 #0000;
   --tw-ring-shadow: 0 0 #0000;
+}
+
+.filter{
+  --tw-blur: var(--tw-empty,/*!*/ /*!*/);
+  --tw-brightness: var(--tw-empty,/*!*/ /*!*/);
+  --tw-contrast: var(--tw-empty,/*!*/ /*!*/);
+  --tw-grayscale: var(--tw-empty,/*!*/ /*!*/);
+  --tw-hue-rotate: var(--tw-empty,/*!*/ /*!*/);
+  --tw-invert: var(--tw-empty,/*!*/ /*!*/);
+  --tw-saturate: var(--tw-empty,/*!*/ /*!*/);
+  --tw-sepia: var(--tw-empty,/*!*/ /*!*/);
+  --tw-drop-shadow: var(--tw-empty,/*!*/ /*!*/);
+  filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow);
 }
 
 .transition-colors{
