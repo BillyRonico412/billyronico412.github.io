@@ -1,0 +1,23 @@
+{
+  "name": "18-clipboard-landing-page",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "concurrently -k -n \"TypeScript,Tailwind\" -p \"[{name}]\" -c \"blue,yellow\" \"tsc -w\" \"postcss input.css -o output.css -w\"",
+    "prod": "cross-env NODE_ENV=production postcss input.css -o output.css"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "autoprefixer": "^10.2.6",
+    "cross-env": "^7.0.3",
+    "postcss": "^8.3.5",
+    "postcss-cli": "^8.3.1",
+    "tailwindcss": "^2.2.4"
+  },
+  "dependencies": {
+    "concurrently": "^6.2.0"
+  }
+}
