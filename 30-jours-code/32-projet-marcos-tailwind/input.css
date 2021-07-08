@@ -178,7 +178,7 @@ nav ul li a:hover::after {
     @apply font-semibold tracking-wide text-lg leading-8 text-gray-700;
 }
 
-#mission ul, #objectif ul, #historique ul, #dominique ul {
+#mission ul, #objectif ul, #historique ul {
     @apply list-disc;
 }
 

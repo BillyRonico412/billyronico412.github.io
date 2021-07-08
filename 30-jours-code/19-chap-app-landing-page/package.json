@@ -1,10 +1,10 @@
 {
-  "name": "32-projet-marcos-tailwind",
+  "name": "19-chap-app-landing-page",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "concurrently -k -n \"Tailwind,TypeScript\" -p \"[{name}]\" -c \"yellow,blue\" \"postcss input.css -o output.css -w\" \"tsc -w\"",
+    "dev": "postcss input.css -o output.css -w",
     "prod": "cross-env NODE_ENV=production postcss input.css -o output.css"
   },
   "keywords": [],
@@ -12,7 +12,9 @@
   "license": "ISC",
   "devDependencies": {
     "autoprefixer": "^10.2.6",
+    "cross-env": "^7.0.3",
     "postcss": "^8.3.5",
-    "tailwindcss": "^2.2.2"
+    "postcss-cli": "^8.3.1",
+    "tailwindcss": "^2.2.4"
   }
 }
