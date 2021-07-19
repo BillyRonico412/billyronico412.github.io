@@ -1,0 +1,56 @@
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&family=Raleway:wght@400;700&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+    font-size: 14px;
+}
+
+.font-principal {
+    font-family: "Open Sans", sans-serif;
+}
+
+.font-titre {
+    font-family: "Raleway", sans-serif;
+}
+
+#content-avantages .content-avantage {
+    @apply flex flex-col items-center gap-y-4 text-center md:max-w-xl mx-auto;
+}
+
+#content-avantages .content-avantage h3 {
+    @apply font-titre font-bold text-lg;
+}
+
+#content-avantages .content-avantage img {
+    @apply w-28 h-24;
+}
+
+#content-avantages .content-avantage img:nth-child(2) {
+    @apply w-20 h-24;
+}
+
+ul li a {
+    @apply transition flex flex-col items-center;
+}
+
+ul li a::after {
+    content: '';
+    @apply border block w-0 border-transparent;
+    transition: 0.3s width ease-out;
+}
+
+ul li a:hover::after {
+    content: '';
+    @apply border block w-4 border-white;
+}
+
+#ul-icon li a::after {
+    @apply border-none;
+}
+
+#ul-icon i:hover {
+    @apply bg-white text-dark-footer-bg;
+}
