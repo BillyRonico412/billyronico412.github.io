@@ -1,0 +1,23 @@
+{
+  "name": "21-e-commerce-product-page",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "postcss -w input.css -o output.css",
+    "prod": "postcss build input.css -o output.css"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "autoprefixer": "^10.3.7",
+    "cross-env": "^7.0.3",
+    "postcss": "^8.3.11",
+    "postcss-cli": "^9.0.1",
+    "tailwindcss": "^2.2.17"
+  },
+  "dependencies": {
+    "@tailwindcss/jit": "^0.1.10"
+  }
+}

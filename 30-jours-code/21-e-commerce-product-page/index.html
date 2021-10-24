@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- displays site properly based on user's device -->
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"
+          integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous">
+
+    <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+
+    <link rel="stylesheet" href="./output.css">
+
+    <title>Frontend Mentor | E-commerce product page</title>
+
+</head>
+<body>
+
+<div id="app">
+
+    <nav class="lg:container mx-auto flex items-center h-16 lg:h-24 px-6">
+        <button class="mt-1 mr-4 lg:hidden">
+            <img src="./images/icon-menu.svg" alt="icon-menu" @click="afficheMenu = true">
+        </button>
+        <a href="#">
+            <img src="./images/logo.svg" alt="logo">
+        </a>
+        <ul class="lg:flex hidden xl:gap-x-8 lg:gap-x-4 lg:ml-32 lg:ml-16 text-dark-grayish-blue text-sm h-full"
+            id="menu">
+            <li>
+                <a href="#">Collections</a>
+            </li>
+            <li>
+                <a href="#">Men</a>
+            </li>
+            <li>
+                <a href="#">Women</a>
+            </li>
+            <li>
+                <a href="#">About</a>
+            </li>
+            <li>
+                <a href="#">Contact</a>
+            </li>
+        </ul>
+
+        <ul class="flex items-center lg:gap-x-12 gap-x-6 ml-auto carte">
+            <li class="relative">
+                <span class="absolute -top-1 -right-1 text-[8px] bg-orange px-1 py-[1px] rounded-lg font-bold text-white"
+                      :class="[{'hidden': nbreArticle === 0}]"
+                >{{nbreArticle}}</span>
+                <a href="#" @click="affichePagnet = !affichePagnet">
+                    <svg width="22" height="20" xmlns="http://www.w3.org/2000/svg"
+                         class="fill-current text-grayish-blue hover:text-dark-grayish-blue transition">
+                        <path d="M20.925 3.641H3.863L3.61.816A.896.896 0 0 0 2.717 0H.897a.896.896 0 1 0 0 1.792h1l1.031 11.483c.073.828.52 1.726 1.291 2.336C2.83 17.385 4.099 20 6.359 20c1.875 0 3.197-1.87 2.554-3.642h4.905c-.642 1.77.677 3.642 2.555 3.642a2.72 2.72 0 0 0 2.717-2.717 2.72 2.72 0 0 0-2.717-2.717H6.365c-.681 0-1.274-.41-1.53-1.009l14.321-.842a.896.896 0 0 0 .817-.677l1.821-7.283a.897.897 0 0 0-.87-1.114ZM6.358 18.208a.926.926 0 0 1 0-1.85.926.926 0 0 1 0 1.85Zm10.015 0a.926.926 0 0 1 0-1.85.926.926 0 0 1 0 1.85Zm2.021-7.243-13.8.81-.57-6.341h15.753l-1.383 5.53Z"
+                              fill-rule="nonzero"/>
+                    </svg>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <img src="./images/image-avatar.png" alt="image-avatar"
+                         class="lg:w-12 w-8 rounded-full hover:border-2 hover:border-orange transition">
+                </a>
+            </li>
+        </ul>
+
+    </nav>
+
+    <div class="bg-[#0004] w-screen h-screen fixed top-0 left-0 z-40 lg:hidden" v-if="afficheMenu">
+
+    </div>
+
+    <nav class="w-2/3 z-50 bg-white h-screen fixed top-0 left-0 pl-6 lg:hidden transition" :class="{'-translate-x-full': !afficheMenu}">
+        <i class="fas fa-times mt-8 text-dark-grayish-blue" @click="afficheMenu = false"></i>
+        <ul class="mt-12 flex flex-col gap-y-6 font-bold">
+            <li>
+                <a href="#">Collections</a>
+            </li>
+            <li>
+                <a href="#">Men</a>
+            </li>
+            <li>
+                <a href="#">Women</a>
+            </li>
+            <li>
+                <a href="#">About</a>
+            </li>
+            <li>
+                <a href="#">Contact</a>
+            </li>
+        </ul>
+    </nav>
+
+    <hr class="lg:container mx-auto border-grayish-blue">
+
+    <section class="lg:container mx-auto lg:flex items-center lg:mt-32 lg:mb-32 relative">
+
+        <section class="absolute bg-white lg:-top-28 top-4 lg:right-0 w-11/12 right-1/2 transform translate-x-1/2 lg:translate-x-0 lg:w-auto ombre rounded-lg z-20" v-if="affichePagnet">
+            <div>
+                <h2 class="px-4 font-bold text-sm py-4">Cart</h2>
+                <hr>
+                <div class="flex h-full w-full items-center justify-center lg:w-80 h-36" v-if="nbreArticle === 0">
+                    <h2 class="text-dark-grayish-blue font-bold text-[12px]">Your cart is empty</h2>
+                </div>
+                <div class="lg:w-80 h-36" v-else>
+                    <div class="flex justify-between px-4 items-center py-4">
+                        <img src="./images/image-product-1-thumbnail.jpg" alt="image-product-1-thumbnail" class="w-8 h-8 rounded">
+                        <div>
+                            <p class="text-sm text-dark-grayish-blue tracking-tight">
+                                Fall Limited Edition Sneakers
+                            </p>
+                            <p class="text-sm text-dark-grayish-blue tracking-tight">
+                                $125.00 x {{nbreArticle}} <span class="font-bold text-black">${{nbreArticle * 125}}.00</span>
+                            </p>
+                        </div>
+                        <i class="fas fa-trash-alt text-grayish-blue"></i>
+                    </div>
+                    <div class="mx-4">
+                        <button class="w-full rounded bg-orange font-bold text-white py-3 text-[12px]">Checkout</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="lg:w-1/2" id="chaussures">
+            <div class="lg:w-2/3 flex overflow-hidden mx-auto lg:rounded-xl transform relative" id="cadre-chaussure">
+                <div :style="{transform: `translateX(-${decalage}px)`}" class="flex transition">
+                    <img src="./images/image-product-1.jpg" alt="image-product-1">
+                    <img src="./images/image-product-2.jpg" alt="image-product-2">
+                    <img src="./images/image-product-3.jpg" alt="image-product-3">
+                    <img src="./images/image-product-4.jpg" alt="image-product-4">
+                </div>
+                <button class="md:hidden absolute bg-light-grayish-blue p-4 rounded-full top-1/2 left-3 transform -translate-y-1/2"
+                        @click="imgSelected = --imgSelected == -1 ? 3 : imgSelected">
+                    <img src="./images/icon-previous.svg" alt="icon-previous" class="w-3.5 h-4">
+                </button>
+                <button class="md:hidden absolute bg-light-grayish-blue p-4 rounded-full top-1/2 right-3 transform -translate-y-1/2"
+                        @click="imgSelected = ++imgSelected == 4 ? 0 : imgSelected">
+                    <img src="./images/icon-next.svg" alt="icon-next" class="w-3.5 h-4">
+                </button>
+            </div>
+            <div class="lg:w-2/3 lg:flex justify-between mx-auto hidden mt-6">
+                <img src="./images/image-product-1-thumbnail.jpg" @click="imgSelected = 0"
+                     class="w-1/5 rounded-xl hover:bg-light-grayish-blue hover:opacity-50 cursor-pointer transition"
+                     :class="[{'border-2 border-orange bg-light-grayish-blue opacity-50': imgSelected === 0}]"
+                     alt="image-product-1-thumbnail">
+                <img src="./images/image-product-2-thumbnail.jpg" @click="imgSelected = 1"
+                     class="w-1/5 rounded-xl hover:bg-light-grayish-blue hover:opacity-50 cursor-pointer transition"
+                     :class="[{'border-2 border-orange bg-light-grayish-blue opacity-50': imgSelected === 1}]"
+                     alt="image-product-2-thumbnail">
+                <img src="./images/image-product-3-thumbnail.jpg" @click="imgSelected = 2"
+                     class="w-1/5 rounded-xl hover:bg-light-grayish-blue hover:opacity-50 cursor-pointer transition"
+                     :class="[{'border-2 border-orange bg-light-grayish-blue opacity-50': imgSelected === 2}]"
+                     alt="image-product-3-thumbnail">
+                <img src="./images/image-product-4-thumbnail.jpg" @click="imgSelected = 3"
+                     class="w-1/5 rounded-xl hover:bg-light-grayish-blue hover:opacity-50 cursor-pointer transition"
+                     :class="[{'border-2 border-orange bg-light-grayish-blue opacity-50': imgSelected === 3}]"
+                     alt="image-product-4-thumbnail">
+            </div>
+        </section>
+
+        <section class="lg:w-1/2 px-6 lg:px-1/5 relative z-10">
+            <h3 class="text-orange uppercase font-bold text-sm mt-6 lg:mt-0">
+                Sneaker Company
+            </h3>
+            <h2 class="font-bold text-2xl my-4">
+                Fall Limited Edition Sneakers
+            </h2>
+            <p class="text-dark-grayish-blue text-sm">
+                These low-profile sneakers are your perfect casual wear companion. Featuring a
+                durable rubber outer sole, they’ll withstand everything the weather can offer.
+            </p>
+            <div class="flex items-center lg:block mt-8">
+                <div class="lg:flex lg:items-center">
+                    <span class="text-2xl font-bold">$125.00</span>
+                    <span class="text-orange font-bold bg-pale-orange px-2 py-0.5 rounded relative -top-1 ml-4">50%</span>
+                </div>
+                <span class="line-through font-bold text-grayish-blue ml-auto lg:block lg:mt-2">$250</span>
+            </div>
+
+            <div class="mt-6 mb-12 lg:flex lg:gap-x-6">
+                <div class="flex justify-between items-center bg-light-grayish-blue rounded-lg shadow-lg">
+                    <button class="px-8 text-orange font-bold text-2xl py-2 lg:py-0"
+                            @click="--nbreArticle === -1 ? ++nbreArticle : nbreArticle">-
+                    </button>
+                    <span class="font-bold">{{ nbreArticle }}</span>
+                    <button class="px-8 text-orange font-bold text-2xl py-2 lg:py-0" @click="nbreArticle++">+</button>
+                </div>
+                <button class="mt-4 lg:mt-0 bg-orange w-full font-bold flex justify-center items-center gap-x-3 shadow-xl text-light-grayish-blue text-sm rounded-lg py-4">
+                    <svg width="22" height="20" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M20.925 3.641H3.863L3.61.816A.896.896 0 0 0 2.717 0H.897a.896.896 0 1 0 0 1.792h1l1.031 11.483c.073.828.52 1.726 1.291 2.336C2.83 17.385 4.099 20 6.359 20c1.875 0 3.197-1.87 2.554-3.642h4.905c-.642 1.77.677 3.642 2.555 3.642a2.72 2.72 0 0 0 2.717-2.717 2.72 2.72 0 0 0-2.717-2.717H6.365c-.681 0-1.274-.41-1.53-1.009l14.321-.842a.896.896 0 0 0 .817-.677l1.821-7.283a.897.897 0 0 0-.87-1.114ZM6.358 18.208a.926.926 0 0 1 0-1.85.926.926 0 0 1 0 1.85Zm10.015 0a.926.926 0 0 1 0-1.85.926.926 0 0 1 0 1.85Zm2.021-7.243-13.8.81-.57-6.341h15.753l-1.383 5.53Z"
+                              fill="hsl(223, 64%, 98%)"
+                              fill-rule="nonzero"
+                        />
+                    </svg>
+                    Add to cart
+                </button>
+            </div>
+        </section>
+
+    </section>
+
+</div>
+
+
+<script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+
+<script>
+
+    new Vue({
+        el: '#app',
+        data: {
+            imgSelected: 0,
+            nbreArticle: 0,
+            affichePagnet: false,
+            afficheMenu: false
+        },
+        computed: {
+            decalage() {
+                return this.imgSelected * document.getElementById('cadre-chaussure').clientWidth
+            }
+        }
+    })
+
+</script>
+
+</body>
+</html>

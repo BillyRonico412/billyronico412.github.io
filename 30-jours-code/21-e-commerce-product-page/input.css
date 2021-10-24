@@ -1,0 +1,35 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@400;700&display=swap');
+
+body {
+    font-family: 'Kumbh Sans', sans-serif;
+    @apply text-very-dark-blue;
+}
+
+#menu li {
+    @apply h-full relative flex items-center;
+}
+
+#menu li a {
+    @apply flex transition;
+}
+
+#menu li a::after {
+    content: '';
+    @apply absolute border-2 border-orange bottom-0 left-0 border-opacity-0 transition w-full;
+}
+
+#menu li a:hover::after {
+    @apply border-opacity-100;
+}
+
+#menu li a:hover {
+    @apply text-very-dark-blue;
+}
+
+.ombre {
+    box-shadow: #0003 0px 5px 20px 5px;
+}
