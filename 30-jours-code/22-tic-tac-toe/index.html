@@ -1,0 +1,154 @@
+<!doctype html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Tic Tac Toe</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Kanit:wght@900&display=swap');
+        body {
+            color: white;
+            background-color: teal;
+            text-align: center;
+            font-family: 'Kanit', sans-serif;
+        }
+
+        table {
+            border-collapse: collapse;
+            margin: auto;
+        }
+
+        td {
+            width: 100px;
+            height: 100px;
+            border: 2px solid #fff;
+            cursor: pointer;
+            font-size: 64px;
+        }
+
+        #app {
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+
+        button {
+            background-color: white;
+            color: teal;
+            border: 0px solid white;
+            padding: 10px 20px;
+            border-radius: 10px;
+            font-family: 'Kanit', sans-serif;
+            font-size: 24px;
+            transition: 0.4s all;
+            cursor: pointer;
+        }
+
+        button:hover {
+            padding: 12px 22px;
+        }
+
+    </style>
+</head>
+<body>
+
+<div id="app">
+
+    <div v-if="!boolGagne && !boolNull">
+        <h1>Tic Tac Toe</h1>
+        <table>
+            <tr v-for="ligne in rangeTaille">
+                <td v-for="col in rangeTaille" @click="cocher(ligne, col)" :key="ligne * taille + col">
+                    {{ table[taille * ligne + col] }}
+                </td>
+            </tr>
+        </table>
+        <h2>Tour: {{ tour === 0 ? 'O' : 'X' }}</h2>
+    </div>
+
+
+
+
+    <div v-if="boolGagne || boolNull">
+        <h2 v-if="boolGagne"> {{ tour === 0 ? "X" : "O"}} a gagné ! </h2>
+        <h2 v-if="boolNull">Match Null</h2>
+        <button @click = reset()>
+            Rejouer
+        </button>
+    </div>
+
+</div>
+
+<script src="https://unpkg.com/vue@next"></script>
+<script>
+
+    const TicTacToe = {
+        data() {
+            return {
+                taille: 3,
+                tour: 0, // 0 : O, 1 : X
+                table: [],
+                boolGagne: false,
+                boolNull: false
+            }
+        },
+
+        created() {
+            this.reset()
+        },
+
+        computed: {
+            rangeTaille() {
+                const result = []
+                for (let i = 0; i < this.taille; i++)
+                    result.push(i)
+                return result
+            }
+        },
+        methods: {
+            cocher(ligne, col) {
+                if (this.table[this.taille * ligne + col] === ' ') {
+                    if (this.tour === 0) this.table.splice(this.taille * ligne + col, 1, 'O')
+                    else this.table.splice(this.taille * ligne + col, 1, 'X')
+                    if (this.testGagne()) this.boolGagne = true
+                    else if (this.testNull()) this.boolNull = true
+                    this.tour = (this.tour + 1) % 2
+                }
+            },
+            testGagne() {
+                return (
+                    this.table[0] !== ' ' && this.table[0] === this.table[1] && this.table[1] === this.table[2] ||
+                    this.table[3] !== ' ' && this.table[3] === this.table[4] && this.table[4] === this.table[5] ||
+                    this.table[6] !== ' ' && this.table[6] === this.table[7] && this.table[7] === this.table[8] ||
+                    this.table[0] !== ' ' && this.table[0] === this.table[3] && this.table[3] === this.table[6] ||
+                    this.table[1] !== ' ' && this.table[1] === this.table[4] && this.table[4] === this.table[7] ||
+                    this.table[2] !== ' ' && this.table[2] === this.table[5] && this.table[5] === this.table[8] ||
+                    this.table[0] !== ' ' && this.table[0] === this.table[4] && this.table[4] === this.table[8] ||
+                    this.table[2] !== ' ' && this.table[2] === this.table[4] && this.table[4] === this.table[6]
+                )
+            },
+            testNull() {
+                return this.table.every(value => value !== ' ') && !this.testGagne()
+            },
+            reset() {
+                this.table = []
+                for (let i = 0; i < this.taille; i++)
+                    for (let j = 0; j < this.taille; j++)
+                        this.table.push(' ')
+                this.boolGagne = false
+                this.boolNull = false
+            }
+        }
+    }
+
+    Vue.createApp(TicTacToe).mount('#app')
+
+</script>
+
+</body>
+</html>
