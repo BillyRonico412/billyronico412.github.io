@@ -618,14 +618,11 @@ video {
 .left-\[-300px\]{
 	left: -300px;
 }
-.bottom-0{
-	bottom: 0px;
+.bottom-4{
+	bottom: 1rem;
 }
 .left-1\/2{
 	left: 50%;
-}
-.bottom-4{
-	bottom: 1rem;
 }
 .z-10{
 	z-index: 10;
@@ -665,9 +662,6 @@ video {
 }
 .w-28{
 	width: 7rem;
-}
-.w-96{
-	width: 24rem;
 }
 .w-40{
 	width: 10rem;
