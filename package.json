@@ -1,0 +1,28 @@
+{
+  "name": "billyronico412.github.io",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "postcss ./input.css -o ./output.css -w"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/BillyRonico412/billyronico412.github.io.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/BillyRonico412/billyronico412.github.io/issues"
+  },
+  "homepage": "https://github.com/BillyRonico412/billyronico412.github.io#readme",
+  "devDependencies": {
+    "autoprefixer": "^10.4.0",
+    "postcss": "^8.4.1",
+    "tailwindcss": "^2.2.19"
+  },
+  "dependencies": {
+    "postcss-cli": "^9.0.2"
+  }
+}

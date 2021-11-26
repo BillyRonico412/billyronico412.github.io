@@ -1,92 +1,121 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio</title>
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"
+          integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous">
+    <link rel="stylesheet" href="./output.css">
+    <title>Billy Ronico</title>
 </head>
 <body>
-    <h1>Billy Ronico</h1>
-    <h2>Site Statique</h2>
-    <ul>
-        <li>
-            <a href="./site-statique/agence-immobilliere">Agence Immobilière</a>    
-        </li>
-        <li>
-            <a href="./site-statique/bienvenue-tokyo">Kyoto</a>
-        </li>
-    </ul>
 
-    <h2>Defis code en 30 Jours</h2>
+<div id="app">
 
-    <ol>
-        <li>
-            <a href="./30-jours-code/1-Calculatrice">Calculatrice</a>
-        </li>
-        <li>
-            <a href="./30-jours-code/2-card-basics">Carte Basique</a>
-        </li>
-        <li>
-            <a href="./30-jours-code/3-card-coller">3 Cartes</a>
-        </li>
-        <li>
-            <a href="./30-jours-code/4-card-profil">Carte profil</a>
-        </li>
-        <li>
-            <a href="./30-jours-code/5-social-proof">Social proof</a>
-        </li>
-        <li>
-            <a href="./30-jours-code/6-four-card">4 cartes</a>
-        </li>
-        <li>
-            <a href="./30-jours-code/7-formulaire-contact">Formulaire de contact</a>
-        </li>
-        <li>
-            <a href="./30-jours-code/8-signle-price-grid/">Grid de prix</a>
-        </li>
-        <li>
-            <a href="./30-jours-code/9-landing-page-1/">Landing Page 1</a>
-        </li>
-        <li>
-            <a href="./30-jours-code/10-sunny-side-agency/">SunnySide</a>
-        </li>
-        <li>
-            <a href="./30-jours-code/12-pricing-component-with-toggle/">Carte de prix</a>
-        </li>
-        <li>
-            <a href="./30-jours-code/13-testimonal-grid/">Témoignage</a>
-        </li>
-        <li>
-            <a href="./30-jours-code/14-social-media-dashboard/">Dashbord Social Media</a>
-        </li>
-        <li>
-            <a href="./30-jours-code/15-job-listing-filtering/">Job Listing Filter</a>
-        </li>
-        <li>
-            <a href="./30-jours-code/16-url-shortening/">Url Shortening</a>
-        </li>
-        <li>
-            <a href="./30-jours-code/17-rest-countries-api/">Rest countries API</a>
-        </li>
-        <li>
-            <a href="./30-jours-code/18-clipboard-landing-page/">Clipboard Landing Page</a>
-        </li>
-        <li>
-            <a href="./30-jours-code/19-chap-app-landing-page/">Chat App Landing Page</a>
-        </li>
-        <li>
-            <a href="./30-jours-code/20-flyo-dark-theme/">Flyo Dark Theme</a>
-        </li>
-        <li>
-            <a href="./30-jours-code/21-e-commerce-product-page/">E Commerce Product Page</a>
-        </li>
-        <li>
-            <a href="./30-jours-code/22-tic-tac-toe/">Tic Tac Toe</a>
-        </li>
-        <li>
-            <a href="./30-jours-code/32-projet-marcos-tailwind/">Projet Marcos</a>
-        </li>
-    </ol>
+    <div class="w-full lg:w-lg transform lg:translate-x-[300px]">
+
+        <section id="acceuil" class="w-full lg:w-lg h-screen relative flex flex-col justify-center items-center">
+            <div class="absolute top-0 left-0 bg-acceuil bg-cover bg-center brightness-50 w-full h-full">
+
+            </div>
+            <button class="bg-bleu-clair fixed right-4 top-4 rounded-full w-8 h-8 md:w-12 md:h-12 text-center z-10 lg:hidden"
+                    @click="afficheMenu = !afficheMenu">
+                <i class="fas fa-bars text-white" v-if="!afficheMenu"></i>
+                <i class="fas fa-times text-white" v-else></i>
+            </button>
+
+            <div class="relative text-white z-10">
+                <h1 class="font-2 text-[44px] md:text-[56px] lg:text-[64px] tracking-wide">Billy Ronico</h1>
+                <h2 class="text-[18px] md:text-[24px] lg:text-[32px] tracking-widest">I'm
+                    <span class="border-b-4 pb-2 border-bleu-clair" id="span-affiche-acceuil">{{ textInteractive }}</span>
+                    <span class="border-b-4 pb-2 border-bleu-clair" :class="{'animation-pipe': animerPipe}" id="pipe">|</span>
+                </h2>
+            </div>
+
+        </section>
+
+    </div>
+
+    <section id="menu"
+             class="fixed w-[300px] h-screen bg-noir-menu top-0 transition-all duration-500 text-white lg:left-0"
+             :class="[afficheMenu ? 'left-0' : 'left-[-300px]']">
+        <div class="flex flex-col justify-center items-center gap-y-4 pt-6">
+            <img src="./images/bitmoji.jpeg" alt="bitmoji"
+                 class="w-28 h-28 rounded-full border border-[#fff2] border-4">
+            <h2 class="font-3 text-2xl">
+                Billy Ronico
+            </h2>
+            <ul class="flex gap-x-2">
+                <li>
+                    <a href="#" class="btn-reseaux-sociaux">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                </li>
+                <li>
+                    <a href="#" class="btn-reseaux-sociaux">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+                </li>
+                <li>
+                    <a href="#" class="btn-reseaux-sociaux">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                </li>
+                <li>
+                    <a href="./cv.pdf" class="btn-reseaux-sociaux">
+                        <i class="far fa-file-pdf"></i>
+                    </a>
+                </li>
+                <li>
+                    <a href="#" class="btn-reseaux-sociaux">
+                        <i class="fab fa-linkedin-in"></i>
+                    </a>
+                </li>
+            </ul>
+        </div>
+
+        <ul class="mt-12 ml-8 flex flex-col gap-y-8 text-[#fffa] font-medium" id="list-menu">
+            <li class="align-middle">
+                <a href="#">
+                    <i class="fas fa-home text-lg"></i>
+                    <span class="ml-3">Acceuil</span>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <i class="far fa-user text-lg"></i>
+                    <span class="ml-3">A propos</span>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <i class="far fa-file text-lg"></i>
+                    <span class="ml-3">Resumé</span>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <i class="fas fa-file-invoice text-lg"></i>
+                    <span class="ml-3">Portfolio</span>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <i class="far fa-envelope text-lg"></i>
+                    <span class="ml-3">Contact</span>
+                </a>
+            </li>
+        </ul>
+
+        <img src="./images/logo-ut3.png" alt="logo-ut3" class="w-40 absolute bottom-4 left-1/2 transform -translate-x-1/2">
+    </section>
+
+</div>
+
+<script src="https://unpkg.com/vue@next"></script>
+<script src="./main.js"></script>
+
 </body>
 </html>

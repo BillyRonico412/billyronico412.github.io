@@ -1,0 +1,63 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,500;1,400&family=Poppins:wght@600&family=Raleway:wght@700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer utilities {
+    .font-1 {
+        font-family: 'Open Sans', sans-serif;
+    }
+
+    .font-2 {
+        font-family: 'Raleway', sans-serif;
+    }
+
+    .font-3 {
+        font-family: 'Poppins', sans-serif;
+    }
+
+    .w-lg {
+        width: calc(100vw - 300px);
+    }
+}
+
+body {
+    @apply font-1 text-noir-text;
+}
+
+.bg-acceuil {
+    background-image: url("./images/laptop.jpg");
+}
+
+.btn-reseaux-sociaux {
+    @apply flex justify-center items-center w-8 h-8 rounded-full bg-[#fff2];
+}
+
+#list-menu a {
+    @apply transition duration-100;
+}
+
+#list-menu a:hover i{
+    @apply text-bleu-clair;
+}
+
+#list-menu a:hover span {
+    @apply text-white;
+}
+
+.animation-pipe {
+    animation-name: animationPipe;
+    animation-iteration-count: infinite;
+    animation-duration: 0.5s;
+    animation-direction: alternate;
+}
+
+@keyframes animationPipe {
+    0% {
+        color: #ffff;
+    }
+    100% {
+        color: #fff0;
+    }
+}

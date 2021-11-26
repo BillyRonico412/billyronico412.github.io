@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Jeu de la vie</title>
+    <link rel="stylesheet" href="./output.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"
+          integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous">
+</head>
+<body>
+
+<div class="flex flex-col h-screen justify-center gap-y-6 container mx-auto">
+
+    <h1 class="text-xl text-center">Jeu de la vie</h1>
+
+    <div id="espace-jeu" class="h-[80vh] w-full mx-auto">
+
+        <table id="table-jeu" class="mx-auto">
+
+        </table>
+
+    </div>
+
+    <div id="control" class="text-xl flex gap-x-6 justify-center items-center">
+        <button class="btn" id="btn-play">
+            <i class="fas fa-play"></i>
+        </button>
+        <button class="btn" id="btn-pause">
+            <i class="fas fa-pause"></i>
+        </button>
+        <button class="btn">
+            <i class="fas fa-stop"></i>
+        </button>
+        <button class="btn" id="btn-step">
+            <i class="fas fa-step-forward"></i>
+        </button>
+    </div>
+
+</div>
+
+<script src="main.js"></script>
+
+</body>
+</html>

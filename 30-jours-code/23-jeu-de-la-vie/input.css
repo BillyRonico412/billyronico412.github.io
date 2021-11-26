@@ -1,0 +1,42 @@
+@import url('https://fonts.googleapis.com/css2?family=Bungee+Inline&display=swap');
+
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+    font-family: 'Bungee Inline', cursive;
+}
+
+table {
+    border-collapse: collapse;
+}
+
+td {
+    @apply border border-[#0006] cursor-pointer;
+}
+
+.mort:hover {
+    @apply bg-[#0002]
+}
+
+.vivant {
+    @apply bg-[#000c]
+}
+
+.vivant:hover {
+    @apply bg-[#0008]
+}
+
+td:hover {
+    @apply bg-[#0002]
+}
+
+.btn {
+    @apply bg-black px-4 py-2 text-white rounded transition;
+}
+
+.btn:hover {
+    @apply bg-[#000d] rounded-xl;
+}
