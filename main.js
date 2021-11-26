@@ -1,7 +1,7 @@
 const App = {
     data() {
         return {
-            afficheMenu: true,
+            afficheMenu: false,
             selectMenu: 0,
             textInteractive: '',
             animerPipe: false
