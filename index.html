@@ -8,35 +8,127 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"
           integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous">
     <link rel="stylesheet" href="./output.css">
+    <link rel="stylesheet" href="./sal/sal.css">
     <title>Billy Ronico</title>
 </head>
 <body>
 
-<div id="app">
+<div id="app" class="overflow-x-hidden">
 
     <div class="w-full lg:w-lg transform lg:translate-x-[300px]">
 
-        <section id="acceuil" class="w-full lg:w-lg h-screen relative flex flex-col justify-center items-center">
+        <section id="acceuil" class="w-full lg:w-lg h-screen relative flex flex-col justify-center items-center"
+                 data-sal="zoom-out" data-sal-duration="500">
             <div class="absolute top-0 left-0 bg-acceuil bg-cover bg-center brightness-50 w-full h-full">
 
             </div>
-            <button class="bg-bleu-clair fixed right-4 top-4 rounded-full w-8 h-8 md:w-12 md:h-12 text-center z-10 lg:hidden"
-                    @click="afficheMenu = !afficheMenu">
-                <i class="fas fa-bars text-white" v-if="!afficheMenu"></i>
-                <i class="fas fa-times text-white" v-else></i>
-            </button>
 
-            <div class="relative text-white z-10">
+            <div class="relative text-white z-10" data-sal="fade" data-sal-duration="300" data-sal-delay="800">
                 <h1 class="font-2 text-[44px] md:text-[56px] lg:text-[64px] tracking-wide">Billy Ronico</h1>
                 <h2 class="text-[18px] md:text-[24px] lg:text-[32px] tracking-widest">I'm
-                    <span class="border-b-4 pb-2 border-bleu-clair" id="span-affiche-acceuil">{{ textInteractive }}</span>
-                    <span class="border-b-4 pb-2 border-bleu-clair" :class="{'animation-pipe': animerPipe}" id="pipe">|</span>
+                    <span class="border-b-4 pb-2 border-bleu-clair" id="span-affiche-acceuil">{{ textInteractive
+                        }}</span>
+                    <span class="border-b-4 pb-2 border-bleu-clair" :class="{'animation-pipe': animerPipe}"
+                          id="pipe">|</span>
                 </h2>
+            </div>
+
+        </section>
+        <section id="a-propos" class="px-4 container mx-auto">
+            <h2 class="titre-1 mt-8">
+                <span class="pb-4 border-b-4 border-bleu-clair">A pro</span>
+                <span class="pb-4">pos</span>
+            </h2>
+            <p class="mt-8">
+                Ce garçon s'appelle Billy Ronico. Passionné d'informatique, on pourrait croire qu'il est née pour ça.
+                Toujours le sourire au lèvre, compréhensible, gentil, drôle tout en sachant être sérieux quand il le
+                faut.
+                Bien coiffé et bien habillé, il est classe en toute circonstance. 😎
+            </p>
+
+            <div class="lg:flex lg:gap-x-8 lg:mt-12">
+
+                <img src="./images/pdp.jpeg" alt="pdp" class="block lg:my-6 my-8 w-[500px] lg:h-[350px] lg:w-[350px]"
+                     data-sal="slide-right" data-sal-easing="ease-out" data-sal-duration="300" data-sal-delay="200">
+
+                <div class="lg:px-4" data-sal="slide-left" data-sal-easing="ease-out" data-sal-duration="300">
+
+                    <h3 class="titre-1">Etudiant en Master Science Du Logiciel (SDL)</h3>
+
+                    <p class="my-4">
+                        Le Master SDL de l'UPS à Toulouse traite tout ce qui concerne la réalisation d'un produit
+                        logiciel, son déploiement et sa maintenance.
+                    </p>
+
+                    <div class="lg:flex lg:justify-between">
+
+                        <ul class="flex flex-col gap-y-3">
+                            <li>
+                                <i class="fas fa-angle-right pr-2 text-bleu-clair"></i>
+                                <span class="font-bold mr-1">Date de naissance: </span>
+                                <span>04 Octobre 2000</span>
+                            </li>
+                            <li>
+                                <i class="fas fa-angle-right pr-2 text-bleu-clair"></i>
+                                <span class="font-bold mr-1">Pays: </span>
+                                <span>France</span>
+                            </li>
+                            <li>
+                                <i class="fas fa-angle-right pr-2 text-bleu-clair"></i>
+                                <span class="font-bold mr-1">Site Web: </span>
+                                <span>billyronico412.github.io</span>
+                            </li>
+                        </ul>
+
+                        <ul class="flex flex-col gap-y-3 mt-3.5 lg:mt-0">
+                            <li>
+                                <i class="fas fa-angle-right pr-2 text-bleu-clair"></i>
+                                <span class="font-bold mr-1">Telephone: </span>
+                                <span>06 75 77 07 55</span>
+                            </li>
+                            <li>
+                                <i class="fas fa-angle-right pr-2 text-bleu-clair"></i>
+                                <span class="font-bold mr-1">Ville: </span>
+                                <span>Toulouse</span>
+                            </li>
+                            <li>
+                                <i class="fas fa-angle-right pr-2 text-bleu-clair"></i>
+                                <span class="font-bold mr-1">Mail: </span>
+                                <span>billyronico412@gmail.com</span>
+                            </li>
+                        </ul>
+
+                    </div>
+
+                    <p class="my-4">
+                        Le Master SDL forme des experts dans le domaine de l’ingénierie du logiciel, en particulier en
+                        prenant
+                        en considération leur plateforme de déploiement et leur criticité. Outre une formation
+                        académique de
+                        haut niveau qui donne de solides fondements théoriques, le cursus est fortement
+                        professionnalisant :
+                        alternance entre enseignements à l’université et travail en entreprise ou en laboratoire, dans
+                        le cadre
+                        d’un contrat de professionnalisation, d’un contrat d’apprentissage ou d’une convention de stage
+                        (suivi
+                        par un enseignant), conduite d’un projet de type «bureau d’études», participation de
+                        professionnels à la
+                        formation (cours, TD, TP, conférences).
+                    </p>
+
+                </div>
+
             </div>
 
         </section>
 
     </div>
+
+    <button class="bg-bleu-clair fixed right-4 top-4 rounded-full w-8 h-8 md:w-12 md:h-12 text-center z-10 lg:hidden"
+            @click="afficheMenu = !afficheMenu">
+        <i class="fas fa-bars text-white" v-if="!afficheMenu"></i>
+        <i class="fas fa-times text-white" v-else></i>
+    </button>
 
     <section id="menu"
              class="fixed w-[300px] h-screen bg-noir-menu top-0 transition-all duration-500 text-white lg:left-0"
@@ -78,43 +170,45 @@
 
         <ul class="mt-12 ml-8 flex flex-col gap-y-8 text-[#fffa] font-medium" id="list-menu">
             <li class="align-middle">
-                <a href="#">
-                    <i class="fas fa-home text-lg"></i>
-                    <span class="ml-3">Acceuil</span>
+                <a href="#" @click="idSection = 0">
+                    <i class="fas fa-home text-lg" :class="{'text-bleu-clair': idSection === 0}"></i>
+                    <span class="ml-3" :class="{'text-white': idSection === 0}">Accueil</span>
                 </a>
             </li>
             <li>
-                <a href="#">
-                    <i class="far fa-user text-lg"></i>
-                    <span class="ml-3">A propos</span>
+                <a href="#a-propos" @click="idSection = 1">
+                    <i class="far fa-user text-lg" :class="{'text-bleu-clair': idSection === 1}"></i>
+                    <span class="ml-3" :class="{'text-white': idSection === 1}">A propos</span>
                 </a>
             </li>
             <li>
-                <a href="#">
-                    <i class="far fa-file text-lg"></i>
-                    <span class="ml-3">Resumé</span>
+                <a href="#" @click="idSection = 2">
+                    <i class="far fa-file text-lg" :class="{'text-bleu-clair': idSection === 2}"></i>
+                    <span class="ml-3" :class="{'text-white': idSection === 2}">Resumé</span>
                 </a>
             </li>
             <li>
-                <a href="#">
-                    <i class="fas fa-file-invoice text-lg"></i>
-                    <span class="ml-3">Portfolio</span>
+                <a href="#" @click="idSection = 3">
+                    <i class="fas fa-file-invoice text-lg" :class="{'text-bleu-clair': idSection === 3}"></i>
+                    <span class="ml-3" :class="{'text-white': idSection === 3}">Portfolio</span>
                 </a>
             </li>
             <li>
-                <a href="#">
-                    <i class="far fa-envelope text-lg"></i>
-                    <span class="ml-3">Contact</span>
+                <a href="#" @click="idSection = 4">
+                    <i class="far fa-envelope text-lg" :class="{'text-bleu-clair': idSection === 4}"></i>
+                    <span class="ml-3" :class="{'text-white': idSection === 4}">Contact</span>
                 </a>
             </li>
         </ul>
 
-        <img src="./images/logo-ut3.png" alt="logo-ut3" class="w-40 absolute bottom-4 left-1/2 transform -translate-x-1/2">
+        <img src="./images/logo-ut3.png" alt="logo-ut3"
+             class="w-40 absolute bottom-4 left-1/2 transform -translate-x-1/2">
     </section>
 
 </div>
 
 <script src="https://unpkg.com/vue@next"></script>
+<script src="./sal/sal.js"></script>
 <script src="./main.js"></script>
 
 </body>

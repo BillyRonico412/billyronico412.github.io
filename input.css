@@ -20,6 +20,13 @@
     .w-lg {
         width: calc(100vw - 300px);
     }
+    .titre-1 {
+        @apply font-2 font-bold text-[28px] text-bleu-fonce;
+    }
+}
+
+html {
+    scroll-behavior: smooth;
 }
 
 body {

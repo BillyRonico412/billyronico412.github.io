@@ -23,6 +23,7 @@
     "tailwindcss": "^2.2.19"
   },
   "dependencies": {
-    "postcss-cli": "^9.0.2"
+    "postcss-cli": "^9.0.2",
+    "sal.js": "^0.8.5"
   }
 }

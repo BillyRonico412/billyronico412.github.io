@@ -1,13 +1,31 @@
+// Les variables globales
+
+const sectionMenu = [
+    document.querySelector('#acceuil'),
+    document.querySelector('#a-propos')
+]
+
+// Notre App Vue
+
 const App = {
     data() {
         return {
             afficheMenu: false,
             selectMenu: 0,
             textInteractive: '',
-            animerPipe: false
+            animerPipe: false,
+            idSection: 0
+        }
+    },
+    watch: {
+        idSection(newId) {
+            this.afficheMenu = false
+            console.log("Hello")
         }
     },
     methods: {
+
+        // Gestion du texte interactive dans l'acceuil
         interactiveFun() {
             const tabTexte = ["Student", "Developper", "Futur Engineer", "21 Years Old"];
 
@@ -37,7 +55,14 @@ const App = {
                     }
                 }
             }, 100)
+        },
+
+        // Gestion des scroll et menu
+
+        interactiveMenu() {
+
         }
+
     },
     created() {
         this.interactiveFun()
@@ -46,6 +71,6 @@ const App = {
 
 Vue.createApp(App).mount('#app')
 
-// Changement du texte de l'acceuil
+// Initialisation de Sal.js
 
-
+sal()
