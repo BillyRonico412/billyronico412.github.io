@@ -15,9 +15,9 @@
 
 <div id="app" class="overflow-x-hidden">
 
-    <div class="w-full lg:w-lg transform lg:translate-x-[300px]">
+    <div class="w-full desktop:w-lg transform desktop:translate-x-[300px]">
 
-        <section id="acceuil" class="w-full lg:w-lg h-screen relative flex flex-col justify-center items-center"
+        <section id="acceuil" class="w-full desktop:w-lg h-screen relative flex flex-col justify-center items-center"
                  data-sal="zoom-out" data-sal-duration="500">
             <div class="absolute top-0 left-0 bg-acceuil bg-cover bg-center brightness-50 w-full h-full">
 
@@ -49,14 +49,15 @@
             <div class="lg:flex lg:gap-x-8 lg:mt-12">
 
                 <img src="./images/pdp.jpeg" alt="pdp" class="block lg:my-6 my-8 w-[500px] lg:h-[350px] lg:w-[350px]"
-                     data-sal="slide-right" data-sal-easing="ease-out" data-sal-duration="300" data-sal-delay="200">
+                     data-sal="slide-right" data-sal-easing="ease-out" data-sal-duration="600" data-sal-delay="400">
 
-                <div class="lg:px-4" data-sal="slide-left" data-sal-easing="ease-out" data-sal-duration="300">
+                <div class="lg:px-4" data-sal="slide-left" data-sal-easing="ease-out" data-sal-duration="600">
 
                     <h3 class="titre-1">Etudiant en Master Science Du Logiciel (SDL)</h3>
 
                     <p class="my-4">
-                        Le Master SDL de l'UPS à Toulouse traite tout ce qui concerne la réalisation d'un produit
+                        Le Master <a href="https://www.master-developpement-logiciel.fr/" class="underline">SDL de
+                        l'UPS</a> à Toulouse traite tout ce qui concerne la réalisation d'un produit
                         logiciel, son déploiement et sa maintenance.
                     </p>
 
@@ -122,16 +123,97 @@
 
         </section>
 
+        <section id="contact" class="px-4 container mx-auto">
+
+            <h2 class="titre-1 mt-8">
+                <span class="pb-4 border-b-4 border-bleu-clair">Cont</span>
+                <span class="pb-4">act</span>
+            </h2>
+
+            <div class="mt-16 flex flex-col gap-y-12 lg:flex-row lg:gap-x-8">
+
+                <div id="contact-adresse" class="ombre px-6 py-6 lg:w-2/5 lg:flex lg:flex-col lg:justify-around"
+                     data-sal="zoom-in" data-sal-duration="600" data-sal-delay="600">
+                    <ul class="flex flex-col gap-y-6">
+                        <li class="flex gap-x-4">
+                            <i class="fas fa-map-marker-alt block w-11 h-11 bg-bleu-transparent flex justify-center items-center rounded-full text-xl text-bleu-clair"></i>
+                            <div class="flex flex-col gap-y-1">
+                                <h4 class="font-2 text-lg tracking-wide">Adresse Postal:</h4>
+                                <h5 class="text-sm tracking-wide text-bleu-fonce">15 Avenue Colonel Roche, 31400,
+                                    Toulouse</h5>
+                            </div>
+                        </li>
+                        <li class="flex gap-x-4">
+                            <i class="fas fa-envelope block w-11 h-11 bg-bleu-transparent flex justify-center items-center rounded-full text-xl text-bleu-clair"></i>
+                            <div class="flex flex-col gap-y-1">
+                                <h4 class="font-2 text-lg tracking-wide">Adresse Email:</h4>
+                                <h5 class="text-sm tracking-wide text-bleu-fonce">billyronico412@gmail.com</h5>
+                            </div>
+                        </li>
+                        <li class="flex gap-x-4">
+                            <i class="fas fa-phone-alt block w-11 h-11 bg-bleu-transparent flex justify-center items-center rounded-full text-xl text-bleu-clair"></i>
+                            <div class="flex flex-col gap-y-1">
+                                <h4 class="font-2 text-lg tracking-wide">Telephone Portable:</h4>
+                                <h5 class="text-sm tracking-wide text-bleu-fonce">0675770755</h5>
+                            </div>
+                        </li>
+                    </ul>
+                    <div class="mt-12 lg:mt-8">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2891.0444356084754!2d1.4716213163160432!3d43.56395717912458!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x12aebc30ed0591cf%3A0xb449d735dc91049b!2s15%20Av.%20du%20Colonel%20Roche%2C%2031400%20Toulouse!5e0!3m2!1sfr!2sfr!4v1638271882423!5m2!1sfr!2sfr"
+                                width="100%" height="300" style="border:0;" loading="lazy"></iframe>
+                    </div>
+                </div>
+                <div id="contact-form" class="lg:w-3/5 ombre px-6 py-6 lg:py-12" data-sal="zoom-out"
+                     data-sal-duration="600" data-sal-delay="200">
+                    <form action="#" class="flex flex-col gap-y-8">
+                        <div class="flex flex-col gap-y-8 lg:flex-row lg:gap-x-4 lg:w-full">
+                            <div class="form-group w-full">
+                                <label>
+                                    <h5 class="tracking-wide text-[#000c] mb-1.5">Votre Nom</h5>
+                                    <input type="text" placeholder="Billy Ronico">
+                                </label>
+                            </div>
+                            <div class="form-group w-full">
+                                <label>
+                                    <h5 class="tracking-wide text-[#000c] mb-1.5">Votre Email</h5>
+                                    <input type="email" placeholder="billyronico412@gmail.com">
+                                </label>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label>
+                                <h5 class="tracking-wide text-[#000c] mb-1.5">Objet du Mail</h5>
+                                <input type="text" placeholder="Offre de stage">
+                            </label>
+                        </div>
+                        <div class="form-group">
+                            <label>
+                                <h5 class="tracking-wide text-[#000c] mb-1.5">Votre Message</h5>
+                                <textarea cols="30" rows="10" placeholder="Hello world !"></textarea>
+                            </label>
+                        </div>
+                        <button class="px-4 py-2 bg-bleu-clair rounded text-white font-bold tracking-wide w-[250px] mx-auto">
+                            Envoyer le message
+                        </button>
+                    </form>
+                </div>
+
+            </div>
+
+        </section>
+
+        <br><br><br><br>
+
     </div>
 
-    <button class="bg-bleu-clair fixed right-4 top-4 rounded-full w-8 h-8 md:w-12 md:h-12 text-center z-10 lg:hidden"
+    <button class="bg-bleu-clair fixed right-4 top-4 rounded-full w-8 h-8 md:w-12 md:h-12 text-center z-10 desktop:hidden"
             @click="afficheMenu = !afficheMenu">
         <i class="fas fa-bars text-white" v-if="!afficheMenu"></i>
         <i class="fas fa-times text-white" v-else></i>
     </button>
 
     <section id="menu"
-             class="fixed w-[300px] h-screen bg-noir-menu top-0 transition-all duration-500 text-white lg:left-0"
+             class="fixed w-[300px] h-screen bg-noir-menu top-0 transition-all duration-500 text-white desktop:left-0"
              :class="[afficheMenu ? 'left-0' : 'left-[-300px]']">
         <div class="flex flex-col justify-center items-center gap-y-4 pt-6">
             <img src="./images/bitmoji.jpeg" alt="bitmoji"

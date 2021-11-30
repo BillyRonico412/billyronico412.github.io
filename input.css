@@ -23,6 +23,18 @@
     .titre-1 {
         @apply font-2 font-bold text-[28px] text-bleu-fonce;
     }
+    .ombre {
+        box-shadow: 3px 3px 20px 5px #0001;
+    }
+    .form-group input {
+        @apply ring-1 ring-[#8884] block w-full px-4 py-2 text-sm tracking-wide text-[#000c];
+    }
+    .form-group input:active {
+        @apply ring-1 ring-bleu-clair text-[#000c];
+    }
+    .form-group textarea {
+        @apply ring-1 ring-[#8884] block w-full px-4 py-2 text-sm tracking-wide text-[#000c];
+    }
 }
 
 html {
