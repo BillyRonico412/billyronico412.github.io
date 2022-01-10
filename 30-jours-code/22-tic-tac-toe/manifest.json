@@ -4,19 +4,19 @@
   "start_url": "/30-jours-code/22-tic-tac-toe",
   "icons": [
     {
-      "src": "./30-jours-code/22-tic-tac-toe/images/tic-tac-toe-512.png",
+      "src": "./images/tic-tac-toe-512.png",
       "type": "image/png",
       "sizes": "512x512",
       "purpose": "maskable"
     },
     {
-      "src": "./30-jours-code/22-tic-tac-toe/images/tic-tac-toe-256.png",
+      "src": "./images/tic-tac-toe-256.png",
       "type": "image/png",
       "sizes": "256x256",
       "purpose": "maskable"
     },
     {
-      "src": "./30-jours-code/22-tic-tac-toe/images/tic-tac-toe-128.png",
+      "src": "./images/tic-tac-toe-128.png",
       "type": "image/png",
       "sizes": "128x128",
       "purpose": "maskable"
