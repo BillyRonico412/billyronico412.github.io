@@ -724,11 +724,17 @@ video {
 .ml-3{
 	margin-left: 0.75rem;
 }
+.ml-auto{
+	margin-left: auto;
+}
 .block{
 	display: block;
 }
 .flex{
 	display: flex;
+}
+.hidden{
+	display: none;
 }
 .h-screen{
 	height: 100vh;
@@ -745,11 +751,23 @@ video {
 .h-28{
 	height: 7rem;
 }
+.h-2{
+	height: 0.5rem;
+}
 .w-full{
 	width: 100%;
 }
 .w-\[500px\]{
 	width: 500px;
+}
+.w-96{
+	width: 24rem;
+}
+.w-72{
+	width: 18rem;
+}
+.w-64{
+	width: 16rem;
 }
 .w-11{
 	width: 2.75rem;
@@ -788,11 +806,11 @@ video {
 .gap-y-3{
 	row-gap: 0.75rem;
 }
-.gap-y-12{
-	row-gap: 3rem;
-}
 .gap-y-6{
 	row-gap: 1.5rem;
+}
+.gap-y-12{
+	row-gap: 3rem;
 }
 .gap-x-4{
 	-moz-column-gap: 1rem;
@@ -836,6 +854,9 @@ video {
 .border-\[\#fff2\]{
 	border-color: #fff2;
 }
+.bg-bleu-clair-section{
+	background-color: #F5F8FDAA;
+}
 .bg-bleu-transparent{
 	--tw-bg-opacity: 1;
 	background-color: rgba(223, 243, 252, var(--tw-bg-opacity));
@@ -862,13 +883,17 @@ video {
 	padding-left: 1.5rem;
 	padding-right: 1.5rem;
 }
-.py-6{
-	padding-top: 1.5rem;
-	padding-bottom: 1.5rem;
-}
 .py-2{
 	padding-top: 0.5rem;
 	padding-bottom: 0.5rem;
+}
+.py-8{
+	padding-top: 2rem;
+	padding-bottom: 2rem;
+}
+.py-6{
+	padding-top: 1.5rem;
+	padding-bottom: 1.5rem;
 }
 .pb-2{
 	padding-bottom: 0.5rem;
@@ -894,6 +919,10 @@ video {
 .text-\[18px\]{
 	font-size: 18px;
 }
+.text-2xl{
+	font-size: 1.5rem;
+	line-height: 2rem;
+}
 .text-xl{
 	font-size: 1.25rem;
 	line-height: 1.75rem;
@@ -905,10 +934,6 @@ video {
 .text-sm{
 	font-size: 0.875rem;
 	line-height: 1.25rem;
-}
-.text-2xl{
-	font-size: 1.5rem;
-	line-height: 2rem;
 }
 .font-bold{
 	font-weight: 700;
@@ -930,6 +955,13 @@ video {
 	--tw-text-opacity: 1;
 	color: rgba(20, 157, 221, var(--tw-text-opacity));
 }
+.text-\[\#0008\]{
+	color: #0008;
+}
+.text-black{
+	--tw-text-opacity: 1;
+	color: rgba(0, 0, 0, var(--tw-text-opacity));
+}
 .text-bleu-fonce{
 	--tw-text-opacity: 1;
 	color: rgba(23, 59, 108, var(--tw-text-opacity));
@@ -947,10 +979,25 @@ video {
 	--tw-brightness: brightness(.5);
 	filter: var(--tw-filter);
 }
+.transition-colors{
+	transition-property: background-color, border-color, color, fill, stroke;
+	transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+	transition-duration: 150ms;
+}
+.transition{
+	transition-property: background-color, border-color, color, fill, stroke, opacity, box-shadow, transform, filter, -webkit-backdrop-filter;
+	transition-property: background-color, border-color, color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter;
+	transition-property: background-color, border-color, color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter, -webkit-backdrop-filter;
+	transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+	transition-duration: 150ms;
+}
 .transition-all{
 	transition-property: all;
 	transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 	transition-duration: 150ms;
+}
+.duration-200{
+	transition-duration: 200ms;
 }
 .duration-500{
 	transition-duration: 500ms;
@@ -1091,6 +1138,47 @@ body{
     }
 }
 
+.transition-competence-enter-active, .transition-competence-leave-active {
+    transition: opacity .2s, transform .2s;
+}
+
+.transition-competence-enter-from {
+    opacity: 0;
+    transform: scale(0.8) translateX(-300px);
+}
+
+.transition-competence-leave-to {
+    opacity: 0;
+    transform: scale(0.8) translateX(300px);
+}
+
+.hover\:bg-\[\#00000008\]:hover{
+	background-color: #00000008;
+}
+
+.hover\:bg-bleu-clair-section:hover{
+	background-color: #F5F8FDAA;
+}
+
+@media (min-width: 640px){
+
+	.sm\:inline{
+		display: inline;
+	}
+
+	.sm\:flex{
+		display: flex;
+	}
+
+	.sm\:hidden{
+		display: none;
+	}
+
+	.sm\:w-auto{
+		width: auto;
+	}
+}
+
 @media (min-width: 768px){
 
 	.md\:h-12{
@@ -1137,6 +1225,10 @@ body{
 		height: 350px;
 	}
 
+	.lg\:h-64{
+		height: 16rem;
+	}
+
 	.lg\:w-\[350px\]{
 		width: 350px;
 	}
@@ -1145,12 +1237,12 @@ body{
 		width: 40%;
 	}
 
-	.lg\:w-3\/5{
-		width: 60%;
-	}
-
 	.lg\:w-full{
 		width: 100%;
+	}
+
+	.lg\:w-3\/5{
+		width: 60%;
 	}
 
 	.lg\:flex-row{
@@ -1159,6 +1251,14 @@ body{
 
 	.lg\:flex-col{
 		flex-direction: column;
+	}
+
+	.lg\:flex-wrap{
+		flex-wrap: wrap;
+	}
+
+	.lg\:items-center{
+		align-items: center;
 	}
 
 	.lg\:justify-between{
@@ -1172,6 +1272,10 @@ body{
 	.lg\:gap-x-8{
 		-moz-column-gap: 2rem;
 		     column-gap: 2rem;
+	}
+
+	.lg\:gap-y-0{
+		row-gap: 0px;
 	}
 
 	.lg\:gap-x-4{

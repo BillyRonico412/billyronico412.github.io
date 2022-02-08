@@ -25,10 +25,10 @@
             </div>
 
             <div class="relative text-white z-10" data-sal="fade" data-sal-duration="300" data-sal-delay="800">
-                <h1 class="font-2 text-[44px] md:text-[56px] lg:text-[64px] tracking-wide">Billy Ronico</h1>
+                <h1 class="font-2 text-[44px] md:text-[56px] lg:text-[64px] tracking-wide" id="h1-acceuil">Billy Ronico</h1>
                 <h2 class="text-[18px] md:text-[24px] lg:text-[32px] tracking-widest">I'm
-                    <span class="border-b-4 pb-2 border-bleu-clair" id="span-affiche-acceuil">{{ textInteractive
-                        }}</span>
+                    <span class="border-b-4 pb-2 border-bleu-clair" id="span-affiche-acceuil">{{ textInteractive}}
+                    </span>
                     <span class="border-b-4 pb-2 border-bleu-clair" :class="{'animation-pipe': animerPipe}"
                           id="pipe">|</span>
                 </h2>
@@ -41,10 +41,13 @@
                 <span class="pb-4">pos</span>
             </h2>
             <p class="mt-8">
-                Ce garçon s'appelle Billy Ronico. Passionné d'informatique, on pourrait croire qu'il est née pour ça.
-                Toujours le sourire au lèvre, compréhensible, gentil, drôle tout en sachant être sérieux quand il le
-                faut.
-                Bien coiffé et bien habillé, il est classe en toute circonstance. 😎
+                Étudiant en master d'informatique à l'Université Paul Sabatier de Toulouse, ayant un profil de
+                développeur Full Stack.
+                Passionné d'informatique et ayant fait beaucoup de projet dans le cadre des études mais aussi
+                personnels, je suis polyvalent et maîtrise les diverses étapes de la création d'un
+                site ou d'une application web ou mobile. De la compréhension des besoins des utilisateurs, au
+                développement frontend et backend en passant par la maintenance tout en appliquant une méthode AGILE
+                SCRUM.
             </p>
 
             <div class="lg:flex lg:gap-x-8 lg:mt-12">
@@ -124,6 +127,116 @@
 
         </section>
 
+        <section id="competences" class="px-4 container mx-auto">
+
+            <h2 class="titre-1 mt-8">
+                <span class="pb-4 border-b-4 border-bleu-clair">Compét</span>
+                <span class="pb-4">ence</span>
+            </h2>
+
+            <div data-sal="zoom-in" data-sal-easing="ease-out" data-sal-duration="600" data-sal-delay="0">
+                <div class="sm:flex">
+                    <ul class="flex font-bold text-[#0008] font-3 mt-8">
+                        <li class="w-full sm:w-auto">
+                            <button class="px-6 py-2 hover:bg-[#00000008] transition-colors duration-200 sm:inline block w-full sm:w-auto"
+                                    :class="{'bg-bleu-clair-section hover:bg-bleu-clair-section text-black': idCompetence === 0}"
+                                    @click="idCompetence = 0">
+                                <span class="hidden sm:inline">Front End</span>
+                                <i class="fab fa-html5 text-2xl sm:hidden"></i>
+                            </button>
+                        </li>
+                        <li class="w-full sm:w-auto">
+                            <button class="px-6 py-2 hover:bg-[#00000008] transition-colors duration-200 sm:inline block w-full sm:w-auto"
+                                    :class="{'bg-bleu-clair-section hover:bg-bleu-clair-section text-black': idCompetence === 1}"
+                                    @click="idCompetence = 1">
+                                <span class="hidden sm:inline">Back end</span>
+                                <i class="fab fa-node-js text-2xl sm:hidden"></i>
+                            </button>
+                        </li>
+                        <li class="w-full sm:w-auto">
+                            <button class="px-6 py-2 hover:bg-[#00000008] transition-colors duration-200 sm:inline block w-full sm:w-auto"
+                                    :class="{'bg-bleu-clair-section hover:bg-bleu-clair-section text-black': idCompetence === 2}"
+                                    @click="idCompetence = 2">
+                                <span class="hidden sm:inline">Mobile</span>
+                                <i class="fas fa-mobile text-2xl sm:hidden"></i>
+                            </button>
+                        </li>
+                        <li class="w-full sm:w-auto">
+                            <button class="px-6 py-2 hover:bg-[#00000008] transition-colors duration-200 sm:inline block w-full sm:w-auto"
+                                    :class="{'bg-bleu-clair-section hover:bg-bleu-clair-section text-black': idCompetence === 3}"
+                                    @click="idCompetence = 3">
+                                <span class="hidden sm:inline">Autres</span>
+                                <i class="fab fa-git-alt text-2xl sm:hidden"></i>
+                            </button>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="py-8 bg-bleu-clair-section">
+
+                    <transition name="transition-competence" mode="out-in">
+
+                        <div class="lg:flex lg:h-64" v-if="idCompetence === 0">
+                            <div class="lg:w-2/5 flex justify-center items-center">
+                                <img src="images/front-end.png" alt="front end image" class="block mx-auto w-96">
+                            </div>
+                            <div class="flex flex-col gap-y-6 lg:gap-y-0 lg:items-center lg:flex-row lg:flex-wrap lg:justify-around px-4 lg:w-full mt-8 lg:mt-0">
+                                <barre-progression progress="90" text="HTML & CSS"></barre-progression>
+                                <barre-progression progress="95" text="JavaScript"></barre-progression>
+                                <barre-progression progress="90" text="TypeScript"></barre-progression>
+                                <barre-progression progress="65" text="SASS"></barre-progression>
+                                <barre-progression progress="75" text="VueJS"></barre-progression>
+                                <barre-progression progress="85" text="Tailwind"></barre-progression>
+                            </div>
+                        </div>
+
+                        <div class="lg:flex lg:h-64" v-else-if="idCompetence === 1">
+                            <div class="lg:w-2/5 flex justify-center items-center">
+                                <img src="images/back-end.png" alt="back end image" class="block mx-auto w-72">
+                            </div>
+                            <div class="flex flex-col gap-y-6 lg:gap-y-0 lg:items-center lg:flex-row lg:flex-wrap lg:justify-around px-4 lg:w-full">
+                                <barre-progression progress="90" text="NodeJS"></barre-progression>
+                                <barre-progression progress="45" text="Django"></barre-progression>
+                                <barre-progression progress="60" text="Spring Boot"></barre-progression>
+                                <barre-progression progress="65" text="PHP"></barre-progression>
+                                <barre-progression progress="90" text="API Rest"></barre-progression>
+                                <barre-progression progress="65" text="API GraphQL"></barre-progression>
+                            </div>
+                        </div>
+
+                        <div class="lg:flex lg:h-64" v-else-if="idCompetence === 2">
+                            <div class="lg:w-2/5 flex justify-center items-center">
+                                <img src="images/mobile.png" alt="mobile image" class="block mx-auto">
+                            </div>
+                            <div class="flex flex-col gap-y-6 lg:gap-y-0 lg:items-center lg:flex-row lg:flex-wrap lg:justify-around px-4 lg:w-full">
+                                <barre-progression progress="75" text="Kotlin"></barre-progression>
+                                <barre-progression progress="70" text="Java"></barre-progression>
+                                <barre-progression progress="55" text="Flutter"></barre-progression>
+                                <barre-progression progress="65" text="PWA"></barre-progression>
+                            </div>
+                        </div>
+
+                        <div class="lg:flex lg:h-64" v-else>
+                            <div class="lg:w-2/5 flex justify-center items-center">
+                                <img src="images/autres.png" alt="mobile image" class="block mx-auto w-64">
+                            </div>
+                            <div class="flex flex-col gap-y-6 lg:gap-y-0 lg:items-center lg:flex-row lg:flex-wrap lg:justify-around px-4 lg:w-full">
+                                <barre-progression progress="80" text="Git & GitHub"></barre-progression>
+                                <barre-progression progress="35" text="Docker"></barre-progression>
+                                <barre-progression progress="65" text="C / C++"></barre-progression>
+                                <barre-progression progress="70" text="SCRUM"></barre-progression>
+                                <barre-progression progress="45" text="Test Unitaire"></barre-progression>
+                                <barre-progression progress="80" text="JSON / XML"></barre-progression>
+                            </div>
+                        </div>
+
+                    </transition>
+
+                </div>
+            </div>
+
+        </section>
+
         <section id="contact" class="px-4 container mx-auto">
 
             <h2 class="titre-1 mt-8">
@@ -148,14 +261,14 @@
                             <i class="fas fa-envelope block w-11 h-11 bg-bleu-transparent flex justify-center items-center rounded-full text-xl text-bleu-clair"></i>
                             <div class="flex flex-col gap-y-1">
                                 <h4 class="font-2 text-lg tracking-wide">Adresse Email:</h4>
-                                <h5 class="text-sm tracking-wide text-bleu-fonce">billyronico412@gmail.com</h5>
+                                <a class="text-sm tracking-wide text-bleu-fonce" href="mailto:billyronico412@gmail.com">billyronico412@gmail.com</a>
                             </div>
                         </li>
                         <li class="flex gap-x-4">
                             <i class="fas fa-phone-alt block w-11 h-11 bg-bleu-transparent flex justify-center items-center rounded-full text-xl text-bleu-clair"></i>
                             <div class="flex flex-col gap-y-1">
                                 <h4 class="font-2 text-lg tracking-wide">Telephone Portable:</h4>
-                                <h5 class="text-sm tracking-wide text-bleu-fonce">0675770755</h5>
+                                <a class="text-sm tracking-wide text-bleu-fonce" href="tel:0675770755">0675770755</a>
                             </div>
                         </li>
                     </ul>
@@ -265,7 +378,7 @@
                 </a>
             </li>
             <li>
-                <a href="#" @click="idSection = 2">
+                <a href="#competences" @click="idSection = 2">
                     <i class="fas fa-laptop-code text-lg" :class="{'text-bleu-clair': idSection === 2}"></i>
                     <span class="ml-3" :class="{'text-white': idSection === 2}">Compétences</span>
                 </a>

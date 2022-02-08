@@ -80,3 +80,17 @@ body {
         color: #fff0;
     }
 }
+
+.transition-competence-enter-active, .transition-competence-leave-active {
+    transition: opacity .2s, transform .2s;
+}
+
+.transition-competence-enter-from {
+    opacity: 0;
+    transform: scale(0.8) translateX(-300px);
+}
+
+.transition-competence-leave-to {
+    opacity: 0;
+    transform: scale(0.8) translateX(300px);
+}

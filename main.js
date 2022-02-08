@@ -1,26 +1,18 @@
-// Les variables globales
-
-const sectionMenu = [
-    document.querySelector('#acceuil'),
-    document.querySelector('#a-propos')
-]
-
 // Notre App Vue
 
-const App = {
+const App = Vue.createApp({
     data() {
         return {
             afficheMenu: false,
-            selectMenu: 0,
             textInteractive: '',
             animerPipe: false,
-            idSection: 0
+            idSection: 0,
+            idCompetence: 0
         }
     },
     watch: {
-        idSection(newId) {
+        idSection() {
             this.afficheMenu = false
-            console.log("Hello")
         }
     },
     methods: {
@@ -43,8 +35,7 @@ const App = {
                     if (timerInterval < 30) {
                         timerInterval++
                         this.animerPipe = true
-                    }
-                    else if (teteDeLecture !== 0) {
+                    } else if (teteDeLecture !== 0) {
                         this.animerPipe = false
                         teteDeLecture--
                         this.textInteractive = this.textInteractive.slice(0, teteDeLecture)
@@ -57,19 +48,64 @@ const App = {
             }, 100)
         },
 
-        // Gestion des scroll et menu
-
-        interactiveMenu() {
-
-        }
-
     },
     created() {
         this.interactiveFun()
-    }
-}
+    },
+    mounted() {
+        // Intersection observer
+        const obs = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    console.log(entry.target.id)
+                    switch (entry.target.id) {
+                        case "h1-acceuil":
+                            this.idSection = 0
+                            break
+                        case "a-propos":
+                            this.idSection = 1
+                            break
+                        case "competences":
+                            this.idSection = 2
+                            break
+                        case "contact":
+                            this.idSection = 4
+                            break
+                    }
+                }
+            })
+        }, {threshold: 0.6})
 
-Vue.createApp(App).mount('#app')
+        obs.observe(document.querySelector("#h1-acceuil"))
+        obs.observe(document.querySelector("#a-propos"))
+        obs.observe(document.querySelector("#competences"))
+        obs.observe(document.querySelector("#contact"))
+    },
+    components: {
+        "barre-progression": {
+            template: `
+                <div class="lg:w-2/5">
+                    <div class="flex font-bold">
+                        <div class="">{{ text }}</div>
+                        <div class="ml-auto">{{ progress }}%</div>
+                    </div>
+                    <div class="bg-bleu-transparent h-2 ombre">
+                        <div class="bg-bleu-clair h-2" ref="progress"></div>
+                    </div>
+                </div>
+            `,
+            props: {
+                progress: Number,
+                text: String
+            },
+            mounted() {
+                console.log(this.$refs.progress.style.width = `${this.progress}%`)
+            }
+        }
+    }
+})
+
+App.mount('#app')
 
 // Initialisation de Sal.js
 
