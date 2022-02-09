@@ -1,5 +1,5 @@
 <template>
-  <div class="container px-4 mt-8 pb-20 mx-auto">
+  <div class="container px-4 pb-20 mx-auto">
     <button class="ombre px-8 py-2 rounded bg-white dark:bg-dark-element" @click="$router.push({name: 'List'})">
       <i class="fas fa-arrow-left"></i>
       Back
