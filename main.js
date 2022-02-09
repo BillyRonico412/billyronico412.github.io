@@ -99,7 +99,7 @@ const App = Vue.createApp({
                 text: String
             },
             mounted() {
-                console.log(this.$refs.progress.style.width = `${this.progress}%`)
+                this.$refs.progress.style.width = `${this.progress}%`
             }
         }
     }

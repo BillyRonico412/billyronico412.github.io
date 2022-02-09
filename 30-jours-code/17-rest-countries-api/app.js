@@ -80,7 +80,7 @@ new class {
     }
     getallPays() {
         return __awaiter(this, void 0, void 0, function* () {
-            const reponse = yield fetch('https://restcountries.eu/rest/v2/all');
+            const reponse = yield fetch('https://restcountries.com/v2/all');
             const data = yield reponse.json();
             const allAlpha3Code = data.map(pays => pays.alpha3Code);
             console.log(data);
@@ -93,10 +93,22 @@ new class {
                 const subregion = pays.subregion;
                 const nativeName = pays.nativeName;
                 const topLevelDomain = pays.topLevelDomain;
-                const currencies = pays.currencies.map((item) => item.name);
+                const currencies = pays.currencies !== undefined ? pays.currencies.map((item) => item.name) : [];
                 const languages = pays.languages.map((item) => item.name);
-                const indexBorderCountries = pays.borders.map((countrie) => allAlpha3Code.indexOf(countrie));
-                return { name, population, region, capital, flag, subregion, nativeName, topLevelDomain, currencies, languages, indexBorderCountries };
+                const indexBorderCountries = pays.borders !== undefined ? pays.borders.map((countrie) => allAlpha3Code.indexOf(countrie)) : [];
+                return {
+                    name,
+                    population,
+                    region,
+                    capital,
+                    flag,
+                    subregion,
+                    nativeName,
+                    topLevelDomain,
+                    currencies,
+                    languages,
+                    indexBorderCountries
+                };
             });
             console.log(this.allPays);
             setTimeout(() => {

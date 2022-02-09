@@ -88,20 +88,20 @@ new class {
         })
 
         btnDark.addEventListener('click', () => {
-            
+
             this.dark = !this.dark
 
             if (this.dark) document.querySelector('html')?.classList.add('dark')
-            
+
             else document.querySelector('html')?.classList.remove('dark')
-            
+
         })
 
         btnBack.addEventListener('click', () => this.switchAffichage())
     }
 
     async getallPays() {
-        const reponse = await fetch('https://restcountries.eu/rest/v2/all')
+        const reponse = await fetch('https://restcountries.com/v2/all')
         const data: any[] = await reponse.json()
         const allAlpha3Code = data.map(pays => pays.alpha3Code) as string[]
         console.log(data)
@@ -114,10 +114,22 @@ new class {
             const subregion = pays.subregion as string
             const nativeName = pays.nativeName as string
             const topLevelDomain = pays.topLevelDomain as string[]
-            const currencies = pays.currencies.map((item: { name: string }) => item.name) as string[]
+            const currencies = pays.currencies !== undefined ? pays.currencies.map((item: { name: string }) => item.name) as string[] : []
             const languages = pays.languages.map((item: { name: string }) => item.name) as string[]
-            const indexBorderCountries = pays.borders.map((countrie: string) => allAlpha3Code.indexOf(countrie)) as number[]
-            return { name, population, region, capital, flag, subregion, nativeName, topLevelDomain, currencies, languages, indexBorderCountries }
+            const indexBorderCountries = pays.borders !== undefined ? pays.borders.map((countrie: string) => allAlpha3Code.indexOf(countrie)) as number[] : []
+            return {
+                name,
+                population,
+                region,
+                capital,
+                flag,
+                subregion,
+                nativeName,
+                topLevelDomain,
+                currencies,
+                languages,
+                indexBorderCountries
+            }
         })
         console.log(this.allPays)
         setTimeout(() => {
@@ -212,7 +224,6 @@ new class {
             infoBorderCountries.appendChild(borderCountrie.appendChild(buttonCountrie))
 
         })
-
 
 
     }
