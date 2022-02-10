@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="fr">
+<html lang="fr" xmlns="http://www.w3.org/1999/html">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport"
@@ -25,7 +25,8 @@
             </div>
 
             <div class="relative text-white z-10" data-sal="fade" data-sal-duration="300" data-sal-delay="800">
-                <h1 class="font-2 text-[44px] md:text-[56px] lg:text-[64px] tracking-wide" id="h1-acceuil">Billy Ronico</h1>
+                <h1 class="font-2 text-[44px] md:text-[56px] lg:text-[64px] tracking-wide" id="h1-acceuil">Billy
+                    Ronico</h1>
                 <h2 class="text-[18px] md:text-[24px] lg:text-[32px] tracking-widest">I'm
                     <span class="border-b-4 pb-2 border-bleu-clair" id="span-affiche-acceuil">{{ textInteractive}}
                     </span>
@@ -237,6 +238,77 @@
 
         </section>
 
+        <section id="portfolio" class="px-4 container mx-auto">
+
+            <h2 class="titre-1 mt-8">
+                <span class="pb-4 border-b-4 border-bleu-clair">Portf</span>
+                <span class="pb-4">olio</span>
+            </h2>
+
+            <div class="pt-16 grid grid-cols-1 lg:grid-cols-2 2xl:grid-cols-3 justify-items-center gap-y-8">
+
+                <projet
+                        data-sal="fade" data-sal-easing="ease-out" data-sal-duration="600" data-sal-delay="0"
+                        name="REST Countries API"
+                        :icons="['html', 'css', 'tailwind', 'js', 'vue', 'api']"
+                        image="./30-jours-code/24-refactor-countries/design/desktop-preview.jpg"
+                        link-view="https://billyronico412.github.io/30-jours-code/24-refactor-countries/dist/"
+                        link-github="https://github.com/BillyRonico412/billyronico412.github.io/tree/master/30-jours-code/24-refactor-countries"
+                >
+                </projet>
+
+                <projet
+                        data-sal="fade" data-sal-easing="ease-out" data-sal-duration="600" data-sal-delay="50"
+                        name="Calculatrice"
+                        :icons="['html', 'css', 'ts']"
+                        image="./30-jours-code/1-Calculatrice/desktop-preview.jpg"
+                        link-view="https://billyronico412.github.io/30-jours-code/1-Calculatrice/"
+                        link-github="https://github.com/BillyRonico412/billyronico412.github.io/tree/master/30-jours-code/1-Calculatrice"
+                >
+                </projet>
+
+                <projet
+                        data-sal="fade" data-sal-easing="ease-out" data-sal-duration="600" data-sal-delay="100"
+                        name="DashBoard Social Media"
+                        :icons="['html', 'css', 'tailwind']"
+                        image="./30-jours-code/14-social-media-dashboard/design/desktop-preview.jpg"
+                        link-view="https://billyronico412.github.io/30-jours-code/14-social-media-dashboard/"
+                        link-github="https://github.com/BillyRonico412/billyronico412.github.io/tree/master/30-jours-code/14-social-media-dashboard"
+                >
+                </projet>
+
+                <projet
+                        data-sal="fade" data-sal-easing="ease-out" data-sal-duration="600" data-sal-delay="0"
+                        name="Jeu de la vie"
+                        :icons="['html', 'css', 'tailwind', 'ts']"
+                        image="./30-jours-code/23-jeu-de-la-vie/jeu-de-la-vie.jpg"
+                        link-view="https://billyronico412.github.io/30-jours-code/23-jeu-de-la-vie"
+                        link-github="https://github.com/BillyRonico412/billyronico412.github.io/tree/master/30-jours-code/23-jeu-de-la-vie"
+                >
+                </projet>
+                <projet
+                        data-sal="fade" data-sal-easing="ease-out" data-sal-duration="600" data-sal-delay="50"
+                        name="Clipboard Landing Page"
+                        :icons="['html', 'css', 'tailwind']"
+                        image="./30-jours-code/18-clipboard-landing-page/design/desktop-preview.jpg"
+                        link-view="https://billyronico412.github.io/30-jours-code/18-clipboard-landing-page"
+                        link-github="https://github.com/BillyRonico412/billyronico412.github.io/tree/master/30-jours-code/18-clipboard-landing-page"
+                >
+                </projet>
+                <projet
+                        data-sal="fade" data-sal-easing="ease-out" data-sal-duration="600" data-sal-delay="0"
+                        name="Flyo Dark Theme"
+                        :icons="['html', 'css', 'tailwind']"
+                        image="./30-jours-code/20-flyo-dark-theme/design/desktop-preview.jpg"
+                        link-view="https://billyronico412.github.io/30-jours-code/20-flyo-dark-theme"
+                        link-github="https://github.com/BillyRonico412/billyronico412.github.io/tree/master/30-jours-code/20-flyo-dark-theme"
+                >
+                </projet>
+
+            </div>
+
+        </section>
+
         <section id="contact" class="px-4 container mx-auto">
 
             <h2 class="titre-1 mt-8">
@@ -306,7 +378,8 @@
                                 <textarea cols="30" rows="10" placeholder="Hello world !"></textarea>
                             </label>
                         </div>
-                        <button class="px-4 py-2 bg-bleu-clair rounded text-white font-bold tracking-wide w-[250px] mx-auto" alt="En cours de developpement ...">
+                        <button class="px-4 py-2 bg-bleu-clair rounded text-white font-bold tracking-wide w-[250px] mx-auto"
+                                alt="En cours de developpement ..." disabled >
                             Envoyer le message
                         </button>
                     </form>
@@ -337,17 +410,12 @@
             </h2>
             <ul class="flex gap-x-2">
                 <li>
-                    <a href="#" class="btn-reseaux-sociaux">
-                        <i class="fab fa-twitter"></i>
-                    </a>
-                </li>
-                <li>
-                    <a href="#" class="btn-reseaux-sociaux">
+                    <a href="https://www.facebook.com/billy.jonconors" class="btn-reseaux-sociaux">
                         <i class="fab fa-facebook-f"></i>
                     </a>
                 </li>
                 <li>
-                    <a href="#" class="btn-reseaux-sociaux">
+                    <a href="https://www.instagram.com/billyronico/?hl=fr" class="btn-reseaux-sociaux">
                         <i class="fab fa-instagram"></i>
                     </a>
                 </li>
@@ -357,7 +425,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="#" class="btn-reseaux-sociaux">
+                    <a href="https://www.linkedin.com/in/ronico-billy-58bb4520b/" class="btn-reseaux-sociaux">
                         <i class="fab fa-linkedin-in"></i>
                     </a>
                 </li>
@@ -384,7 +452,7 @@
                 </a>
             </li>
             <li>
-                <a href="#" @click="idSection = 3">
+                <a href="#portfolio" @click="idSection = 3">
                     <i class="fas fa-file-invoice text-lg" :class="{'text-bleu-clair': idSection === 3}"></i>
                     <span class="ml-3" :class="{'text-white': idSection === 3}">Portfolio</span>
                 </a>
