@@ -1,93 +1,93 @@
 // Notre App Vue
 
 const App = Vue.createApp({
-    data() {
-        return {
-            afficheMenu: false,
-            textInteractive: '',
-            animerPipe: false,
-            idSection: 0,
-            idCompetence: 0
+  data() {
+    return {
+      afficheMenu: false,
+      textInteractive: '',
+      animerPipe: false,
+      idSection: 0,
+      idCompetence: 0
+    }
+  },
+  watch: {
+    idSection() {
+      this.afficheMenu = false
+    }
+  },
+  methods: {
+
+    // Gestion du texte interactive dans l'acceuil
+    interactiveFun() {
+      const tabTexte = ["Student", "Developper", "Futur Engineer", "21 Years Old"];
+
+      let indexLecture = 0
+      let teteDeLecture = 0
+      let boolEcriture = true
+      let timerInterval = 0
+
+      const intervalEcriture = setInterval(() => {
+        if (boolEcriture) {
+          if (teteDeLecture === tabTexte[indexLecture].length - 1) boolEcriture = false
+          this.textInteractive += tabTexte[indexLecture].charAt(teteDeLecture)
+          teteDeLecture++
+        } else {
+          if (timerInterval < 30) {
+            timerInterval++
+            this.animerPipe = true
+          } else if (teteDeLecture !== 0) {
+            this.animerPipe = false
+            teteDeLecture--
+            this.textInteractive = this.textInteractive.slice(0, teteDeLecture)
+          } else {
+            boolEcriture = true
+            timerInterval = 0
+            indexLecture = (indexLecture + 1) % tabTexte.length
+          }
         }
+      }, 100)
     },
-    watch: {
-        idSection() {
-            this.afficheMenu = false
+
+  },
+  created() {
+    this.interactiveFun()
+  },
+  mounted() {
+    // Intersection observer
+    const obs = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          console.log(entry.target.id)
+          switch (entry.target.id) {
+            case "h1-acceuil":
+              this.idSection = 0
+              break
+            case "a-propos":
+              this.idSection = 1
+              break
+            case "competences":
+              this.idSection = 2
+              break
+            case "portfolio":
+              this.idSection = 3
+              break
+            case "contact":
+              this.idSection = 4
+              break
+          }
         }
-    },
-    methods: {
+      })
+    }, {threshold: 0.6})
 
-        // Gestion du texte interactive dans l'acceuil
-        interactiveFun() {
-            const tabTexte = ["Student", "Developper", "Futur Engineer", "21 Years Old"];
-
-            let indexLecture = 0
-            let teteDeLecture = 0
-            let boolEcriture = true
-            let timerInterval = 0
-
-            const intervalEcriture = setInterval(() => {
-                if (boolEcriture) {
-                    if (teteDeLecture === tabTexte[indexLecture].length - 1) boolEcriture = false
-                    this.textInteractive += tabTexte[indexLecture].charAt(teteDeLecture)
-                    teteDeLecture++
-                } else {
-                    if (timerInterval < 30) {
-                        timerInterval++
-                        this.animerPipe = true
-                    } else if (teteDeLecture !== 0) {
-                        this.animerPipe = false
-                        teteDeLecture--
-                        this.textInteractive = this.textInteractive.slice(0, teteDeLecture)
-                    } else {
-                        boolEcriture = true
-                        timerInterval = 0
-                        indexLecture = (indexLecture + 1) % tabTexte.length
-                    }
-                }
-            }, 100)
-        },
-
-    },
-    created() {
-        this.interactiveFun()
-    },
-    mounted() {
-        // Intersection observer
-        const obs = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    console.log(entry.target.id)
-                    switch (entry.target.id) {
-                        case "h1-acceuil":
-                            this.idSection = 0
-                            break
-                        case "a-propos":
-                            this.idSection = 1
-                            break
-                        case "competences":
-                            this.idSection = 2
-                            break
-                        case "portfolio":
-                            this.idSection = 3
-                            break
-                        case "contact":
-                            this.idSection = 4
-                            break
-                    }
-                }
-            })
-        }, {threshold: 0.6})
-
-        obs.observe(document.querySelector("#h1-acceuil"))
-        obs.observe(document.querySelector("#a-propos"))
-        obs.observe(document.querySelector("#competences"))
-        obs.observe(document.querySelector("#portfolio"))
-        obs.observe(document.querySelector("#contact"))
-    },
-    components: {
-        "barre-progression": {
-            template: `
+    obs.observe(document.querySelector("#h1-acceuil"))
+    obs.observe(document.querySelector("#a-propos"))
+    obs.observe(document.querySelector("#competences"))
+    obs.observe(document.querySelector("#portfolio"))
+    obs.observe(document.querySelector("#contact"))
+  },
+  components: {
+    "barre-progression": {
+      template: `
                 <div class="lg:w-2/5">
                     <div class="flex font-bold">
                         <div class="">{{ text }}</div>
@@ -98,16 +98,16 @@ const App = Vue.createApp({
                     </div>
                 </div>
             `,
-            props: {
-                progress: String,
-                text: String
-            },
-            mounted() {
-                this.$refs.progress.style.width = `${this.progress}%`
-            }
-        },
-        "projet": {
-            template: `
+      props: {
+        progress: String,
+        text: String
+      },
+      mounted() {
+        this.$refs.progress.style.width = `${this.progress}%`
+      }
+    },
+    "projet": {
+      template: `
                 <a :href="linkView" class="w-80 sm:w-[23rem] ombre rounded overflow-hidden pb-8 border border-[#0001]">
                     <div class="w-80 sm:w-[23rem] sm:h-72 h-64 overflow-hidden">
                         <img :src="image" :alt="name + 'image'"
@@ -137,6 +137,9 @@ const App = Vue.createApp({
                             <li v-if="icons.includes('ts')">
                                 <ts-icons></ts-icons>
                             </li>
+                            <li v-if="icons.includes('react')">
+                                <react-icons></react-icons>
+                            </li>
                         </ul>
                         <div class="flex justify-center mt-6 gap-x-4">
                             <a :href="linkView"
@@ -154,16 +157,16 @@ const App = Vue.createApp({
                     
                 </a>
             `,
-            props: {
-                "name": String,
-                "icons": Array,
-                "image": String,
-                "link-view": String,
-                "link-github": String
-            },
-            components: {
-                "html-icons": {
-                    template: `
+      props: {
+        "name": String,
+        "icons": Array,
+        "image": String,
+        "link-view": String,
+        "link-github": String
+      },
+      components: {
+        "html-icons": {
+          template: `
                 <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
                      aria-hidden="true" role="img" class="iconify iconify--vscode-icons" width="32" height="32"
                      preserveAspectRatio="xMidYMid meet" viewBox="0 0 32 32">
@@ -180,9 +183,9 @@ const App = Vue.createApp({
                           d="M15.989 7.151V10.242h7.466l.062-.694l.141-1.567l.074-.83h-7.743z"></path>
                 </svg>
             `
-                },
-                "css-icons": {
-                    template: `
+        },
+        "css-icons": {
+          template: `
                 <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
                      aria-hidden="true" role="img" class="iconify iconify--vscode-icons" width="32" height="32"
                      preserveAspectRatio="xMidYMid meet" viewBox="0 0 32 32">
@@ -201,9 +204,9 @@ const App = Vue.createApp({
                           d="M16 13.191v3.091H12.601l-.062-.695l-.14-1.567l-.074-.829H16z"></path>
                 </svg>
             `
-                },
-                "js-icons": {
-                    template: `
+        },
+        "js-icons": {
+          template: `
                 <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
                      aria-hidden="true" role="img" class="iconify iconify--vscode-icons" width="32" height="32"
                      preserveAspectRatio="xMidYMid meet" viewBox="0 0 32 32">
@@ -212,9 +215,9 @@ const App = Vue.createApp({
                           fill="#000"></path>
                 </svg>
             `
-                },
-                "vue-icons": {
-                    template: `
+        },
+        "vue-icons": {
+          template: `
                 <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
                      aria-hidden="true" role="img" class="iconify iconify--vscode-icons" width="32" height="32"
                      preserveAspectRatio="xMidYMid meet" viewBox="0 0 32 32">
@@ -223,9 +226,9 @@ const App = Vue.createApp({
                     <path d="M7.53 3.925L16 18.485l8.4-14.56h-5.18L16 9.525l-3.29-5.6z" fill="#35495e"></path>
                 </svg>
             `
-                },
-                "api-icons": {
-                    template: `
+        },
+        "api-icons": {
+          template: `
                 <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
                      aria-hidden="true" role="img" class="iconify iconify--mdi" width="32" height="32"
                      preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24">
@@ -233,9 +236,9 @@ const App = Vue.createApp({
                           fill="#888888"></path>
                 </svg>
             `
-                },
-                "ts-icons": {
-                    template: `
+        },
+        "ts-icons": {
+          template: `
                 <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true"
                      role="img" class="iconify iconify--vscode-icons" width="32" height="32"
                      preserveAspectRatio="xMidYMid meet" viewBox="0 0 32 32">
@@ -244,9 +247,9 @@ const App = Vue.createApp({
                           fill="#fff" fill-rule="evenodd"></path>
                 </svg>
                     `
-                },
-                "tailwind-icons": {
-                    template: `
+        },
+        "tailwind-icons": {
+          template: `
                 <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true"
                      role="img" class="iconify iconify--vscode-icons" width="32" height="32"
                      preserveAspectRatio="xMidYMid meet" viewBox="0 0 32 32">
@@ -254,10 +257,23 @@ const App = Vue.createApp({
                           fill="#44a8b3"></path>
                 </svg>
                     `
-                }
-            }
+        },
+        "react-icons": {
+          template: `
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="-11.5 -10.23174 23 20.46348" width="32" height="32">
+                  <title>React Logo</title>
+                  <circle cx="0" cy="0" r="2.05" fill="#61dafb"/>
+                  <g stroke="#61dafb" stroke-width="1" fill="none">
+                    <ellipse rx="11" ry="4.2"/>
+                    <ellipse rx="11" ry="4.2" transform="rotate(60)"/>
+                    <ellipse rx="11" ry="4.2" transform="rotate(120)"/>
+                  </g>
+                </svg>
+                    `
         }
+      }
     }
+  }
 })
 
 App.mount('#app')
